@@ -1,9 +1,9 @@
-﻿
-
-
-namespace DalApi;
+﻿namespace DalApi;
 using DO;
 
+/// <summary>
+/// ממשק לניהול לקוחות
+/// </summary>
 public interface ICustomer
 {
     int Create(Customer item);
@@ -12,3 +12,4 @@ public interface ICustomer
     void Update(Customer item);
     void Delete(int id);
 }
+

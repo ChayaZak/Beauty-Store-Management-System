@@ -1,9 +1,9 @@
-﻿
-
-
-namespace DalApi;
+﻿namespace DalApi;
 using DO;
 
+/// <summary>
+/// ממשק לניהול מבצעים.
+/// </summary>
 public interface ISale
 {
     int Create(Sale item);
@@ -12,3 +12,5 @@ public interface ISale
     void Update(Sale item);
     void Delete(int id);
 }
+
+

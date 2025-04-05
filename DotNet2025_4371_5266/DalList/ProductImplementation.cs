@@ -1,16 +1,29 @@
-﻿
-namespace Dal;
+﻿namespace Dal;
 using DO;
 using DalApi;
 
+/// <summary>
+/// מימוש של ממשק IProduct לניהול מוצרים.
+/// </summary>
 public class ProductImplementation : IProduct
 {
+    /// <summary>
+    /// יוצר מוצר חדש.
+    /// </summary>
+    /// <param name="item">פריט המוצר ליצירה.</param>
+    /// <returns>קוד המוצר שנוצר.</returns>
     public int Create(Product item)
     {
         Product p = item with { Id = DataSource.Config.ProductCode };
         DataSource.Products.Add(p);
         return p.Id;
     }
+
+    /// <summary>
+    /// קורא מוצר לפי מזהה.
+    /// </summary>
+    /// <param name="Id">מזהה המוצר לקריאה.</param>
+    /// <returns>המוצר עם המזהה הנתון, או null אם לא נמצא.</returns>
     public Product? Read(int Id)
     {
         foreach (Product item in DataSource.Products)
@@ -20,18 +33,35 @@ public class ProductImplementation : IProduct
         }
         throw new Exception("id not found");
     }
+
+    /// <summary>
+    /// קורא את כל המוצרים.
+    /// </summary>
+    /// <returns>רשימה של כל המוצרים.</returns>
     public List<Product?> ReadAll()
     {
         return DataSource.Products;
     }
+
+    /// <summary>
+    /// מעדכן מוצר קיים.
+    /// </summary>
+    /// <param name="item">פריט המוצר לעדכון.</param>
     public void Update(Product item)
     {
         Delete(item.Id);
         DataSource.Products.Add(item);
     }
+
+    /// <summary>
+    /// מוחק מוצר לפי מזהה.
+    /// </summary>
+    /// <param name="id">מזהה המוצר למחיקה.</param>
     public void Delete(int id)
     {
         Product p = Read(id);
         DataSource.Products.Remove(p);
     }
 }
+
+

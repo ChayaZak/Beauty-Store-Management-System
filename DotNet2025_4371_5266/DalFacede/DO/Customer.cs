@@ -1,16 +1,18 @@
-﻿
-namespace DO;
+﻿namespace DO;
+
 /// <summary>
 /// תכונות של לקוח
 /// </summary>
-/// <param name="Id"></param>
-/// <param name="Name"></param>
-/// <param name="Address"></param>
-/// <param name="Phone"></param>
+/// <param name="Id">מזהה הלקוח</param>
+/// <param name="Name">שם הלקוח</param>
+/// <param name="Address">כתובת הלקוח</param>
+/// <param name="Phone">טלפון הלקוח</param>
 public record Customer(int Id, string Name, string Address, int Phone)
 {
-    public Customer():this(0,"אילה", "נתיבות המשפט 56", 089743343)
+    public Customer() : this(0, "אילה", "נתיבות המשפט 56", 089743343)
     {
 
     }
 }
+
+
