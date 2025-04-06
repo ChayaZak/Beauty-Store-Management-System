@@ -14,7 +14,17 @@ internal class CustomerImplementation : ICustomer
     /// <returns>קוד הלקוח שנוצר.</returns>
     public int Create(Customer item)
     {
-        throw new NotImplementedException();
+        var isExist = DataSource.Customers.FirstOrDefault(c => c.Id == item.Id);
+        if (isExist != null)
+        {
+            throw new Exception("The customer already exists");
+        }
+        else
+        {
+            DataSource.Customers.Add(item);
+        }
+        return item.Id;
+        
     }
 
     /// <summary>
@@ -24,7 +34,12 @@ internal class CustomerImplementation : ICustomer
     /// <returns>הלקוח עם המזהה הנתון, או null אם לא נמצא.</returns>
     public Customer? Read(int Id)
     {
-        throw new NotImplementedException();
+        foreach (var item in DataSource.Customers)
+        {
+            if (item.Id == Id)
+                return item;
+        }
+        throw new Exception("id not found");
     }
 
     /// <summary>
@@ -33,7 +48,7 @@ internal class CustomerImplementation : ICustomer
     /// <returns>רשימה של כל הלקוחות.</returns>
     public List<Customer?> ReadAll()
     {
-        throw new NotImplementedException();
+        return DataSource.Customers;
     }
 
     /// <summary>
@@ -42,7 +57,8 @@ internal class CustomerImplementation : ICustomer
     /// <param name="item">פריט הלקוח לעדכון.</param>
     public void Update(Customer item)
     {
-        throw new NotImplementedException();
+        Delete(item.Id);
+        DataSource.Customers.Add(item);
     }
 
     /// <summary>
@@ -51,7 +67,15 @@ internal class CustomerImplementation : ICustomer
     /// <param name="id">מזהה הלקוח למחיקה.</param>
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Customer c= Read(id);
+            DataSource.Customers.Remove(c);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("id not found", ex);
+        }   
     }
 }
 

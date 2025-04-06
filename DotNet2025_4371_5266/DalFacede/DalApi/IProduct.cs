@@ -2,7 +2,7 @@
 using DO;
 
 /// <summary>
-/// ממשק לניהול מוצרים.
+/// ממשק לניהול מוצרים
 /// </summary>
 public interface IProduct
 {

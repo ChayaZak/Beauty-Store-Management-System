@@ -1,5 +1,5 @@
-﻿namespace Dal;
-using DO;
+﻿using DO;
+namespace DO;
 
 /// <summary>
 /// מקור נתונים פנימי.
@@ -7,7 +7,7 @@ using DO;
 internal static class DataSource
 {
     internal static List<Product?> Products = new List<Product?>();
-    internal static List<Customer?> Customer = new List<Customer?>();
+    internal static List<Customer?> Customers = new List<Customer?>();
     internal static List<Sale?> Sales = new List<Sale?>();
 
     internal static class Config

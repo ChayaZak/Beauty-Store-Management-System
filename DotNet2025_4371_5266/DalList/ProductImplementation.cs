@@ -8,9 +8,9 @@ using DalApi;
 public class ProductImplementation : IProduct
 {
     /// <summary>
-    /// יוצר מוצר חדש.
+    /// יוצר מוצר חדש
     /// </summary>
-    /// <param name="item">פריט המוצר ליצירה.</param>
+    /// <param name="item">הוספת מוצר</param>
     /// <returns>קוד המוצר שנוצר.</returns>
     public int Create(Product item)
     {
@@ -37,7 +37,7 @@ public class ProductImplementation : IProduct
     /// <summary>
     /// קורא את כל המוצרים.
     /// </summary>
-    /// <returns>רשימה של כל המוצרים.</returns>
+    /// <returns>רשימה של כל המוצרים</returns>
     public List<Product?> ReadAll()
     {
         return DataSource.Products;
@@ -56,11 +56,18 @@ public class ProductImplementation : IProduct
     /// <summary>
     /// מוחק מוצר לפי מזהה.
     /// </summary>
-    /// <param name="id">מזהה המוצר למחיקה.</param>
+    /// <param name="id">מזהה המוצר למחיקה</param>
     public void Delete(int id)
     {
-        Product p = Read(id);
-        DataSource.Products.Remove(p);
+        try
+        {   
+            Product p = Read(id);
+            DataSource.Products.Remove(p);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("id not found", ex);
+        }
     }
 }
 

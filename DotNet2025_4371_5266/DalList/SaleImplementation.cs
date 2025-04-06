@@ -26,7 +26,12 @@ internal class SaleImplementation : ISale
     /// <returns>המבצע עם המזהה הנתון, או null אם לא נמצא.</returns>
     public Sale? Read(int Id)
     {
-        throw new NotImplementedException();
+        foreach (var item in DataSource.Sales)
+        {
+            if (item.Code==Id)
+                return item;
+        }
+        throw new Exception("id not found");
     }
 
     /// <summary>
@@ -35,7 +40,7 @@ internal class SaleImplementation : ISale
     /// <returns>רשימה של כל המבצעים.</returns>
     public List<Sale?> ReadAll()
     {
-        throw new NotImplementedException();
+        return DataSource.Sales;
     }
 
     /// <summary>
@@ -44,7 +49,8 @@ internal class SaleImplementation : ISale
     /// <param name="item">פריט המבצע לעדכון.</param>
     public void Update(Sale item)
     {
-        throw new NotImplementedException();
+        Delete(item.Code);
+        DataSource.Sales.Add(item);
     }
 
     /// <summary>
@@ -53,7 +59,15 @@ internal class SaleImplementation : ISale
     /// <param name="id">מזהה המבצע למחיקה.</param>
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Sale s= Read(id);
+            DataSource.Sales.Remove(s);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("id not found", ex);
+        }
     }
 }
 

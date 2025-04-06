@@ -2,7 +2,7 @@
 using DO;
 
 /// <summary>
-/// ממשק לניהול מבצעים.
+/// ממשק לניהול מבצעים
 /// </summary>
 public interface ISale
 {
