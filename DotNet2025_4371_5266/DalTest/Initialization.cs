@@ -76,11 +76,11 @@ public static class Initialization
     /// <param name="dalProduct">ממשק לניהול מוצרים.</param>
     /// <param name="dalCustomer">ממשק לניהול לקוחות.</param>
     /// <param name="dalSale">ממשק לניהול מבצעים.</param>
-    public static void Initialize(IDal dal)
+    public static void Initialize()
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, "Initializing data");
-        s_dal = dal;
+        s_dal = DalApi.Factory.Get;
 
         CreateProducts();
         CreateSales();

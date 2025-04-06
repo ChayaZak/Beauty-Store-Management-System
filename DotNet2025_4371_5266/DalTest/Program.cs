@@ -14,14 +14,14 @@ namespace DalTest
     internal class Program
     {
         static string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
-        private static readonly IDal? s_dal = new Dal.DalList();
-        
+        private static readonly IDal? s_dal = DalApi.Factory.Get;
+
 
         private static void Main(string[] args)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
             // אתחול בסיס הנתונים
-            Initialization.Initialize(s_dal);
+            Initialization.Initialize();
             try
             {
                 int select1;
@@ -115,7 +115,7 @@ namespace DalTest
                         AddProduct();
                         break;
                     case 2:
-                        Read(s_dal);
+                        Read(s_dal.Product);
                         break;
                     case 3:
                         ReadAll(s_dal.Product.ReadAll());
@@ -124,7 +124,7 @@ namespace DalTest
                         UpdateProduct();
                         break;
                     case 5:
-                        Delete(s_dal);
+                        Delete(s_dal.Product);
                         break;
                     default:
                         Console.WriteLine("לא קיים תפריט כזה");
@@ -149,7 +149,7 @@ namespace DalTest
                         AddCustomer();
                         break;
                     case 2:
-                        Read(s_dal);
+                        Read(s_dal.Customer);
                         break;
                     case 3:
                         ReadAll(s_dal.Customer.ReadAll());
@@ -158,7 +158,7 @@ namespace DalTest
                         UpdateCustomer();
                         break;
                     case 5:
-                        Delete(s_dal);
+                        Delete(s_dal.Customer);
                         break;
                     default:
                         Console.WriteLine("לא קיים תפריט כזה");
@@ -183,7 +183,7 @@ namespace DalTest
                         AddSale();
                         break;
                     case 2:
-                        Read(s_dal);
+                        Read(s_dal.Sale);
                         break;
                     case 3:
                         ReadAll(s_dal.Sale.ReadAll());
@@ -192,7 +192,7 @@ namespace DalTest
                         UpdateSale();
                         break;
                     case 5:
-                        Delete(s_dal);
+                        Delete(s_dal.Sale);
                         break;
                     default:
                         Console.WriteLine("לא קיים תפריט כזה");
@@ -235,19 +235,22 @@ namespace DalTest
         /// </summary>
         public static void AddCustomer()
         {
-            string? customerName;
-            string? email;
+            int id;
+            string customerName;
+            string address;
             int phone;
+            Console.WriteLine("הכנס ת.ז.");
+            if(!int.TryParse(Console.ReadLine(), out id)) id = 0;
             Console.WriteLine("הכנס שם לקוח");
             customerName = Console.ReadLine();
-            Console.WriteLine("הכנס מייל");
-            email = Console.ReadLine();
+            Console.WriteLine("הכנס כתובת");
+            address = Console.ReadLine();
             Console.WriteLine("הכנס טלפון");
             if (!int.TryParse(Console.ReadLine(), out phone)) phone = 0;
-            Customer c = new Customer(0, customerName, email, phone);
+            Customer c = new Customer(id, customerName, address, phone);
             int code = s_dal.Customer.Create(c);
-            c = c with { Id = code };
-            Console.WriteLine("הלקוח נוצר בהצלחה");
+            
+            Console.WriteLine($"הלקוח {code} נוצר בהצלחה");
             Console.WriteLine(c);
         }
 
@@ -286,27 +289,14 @@ namespace DalTest
         /// </summary>
         /// <typeparam name="T">סוג הפריט.</typeparam>
         /// <param name="ICrud">ממשק לניהול הפריט.</param>
-        private static void Read<T>(T ICrud)
+        private static void Read<T>(ICrud<T> ICrud)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
             try
             {
                 Console.WriteLine("הכנס קוד");
                 int id = int.Parse(Console.ReadLine());
-                switch (ICrud)
-                {
-                    case IProduct:
-                        Console.WriteLine(s_dal.Product.Read(id));
-                        break;
-                    case ICustomer:
-                        Console.WriteLine(s_dal.Customer.Read(id));
-                        break;
-                    case ISale:
-                        Console.WriteLine(s_dal.Sale.Read(id));
-                        break;
-                    default:
-                        throw new dal_idNotFound("Invalid type");
-                }
+                Console.WriteLine(ICrud.Read(id));
             }
             catch (Exception e)
             {
@@ -330,28 +320,15 @@ namespace DalTest
         }
 
         /// <summary>
-        /// מוחק מוצר לפי מזהה.
+        /// מוחק לפי מזהה.
         /// </summary>
-        private static void Delete<T>(T ICrud)
+        private static void Delete<T>(ICrud<T> ICrud)
         {
             int id;
-            Console.WriteLine("למחיקת מוצר הכנס קוד מוצר");
+            Console.WriteLine($"למחיקת פריט הכנס קוד ");
             if (!int.TryParse(Console.ReadLine(), out id)) id = 0;
-            switch(ICrud)
-            {
-                case IProduct:
-                    s_dal.Product.Delete(id);
-                    break;
-                case ICustomer:
-                    s_dal.Customer.Delete(id);
-                    break;
-                case ISale:
-                    s_dal.Sale.Delete(id);
-                    break;
-                default:
-                    throw new dal_InvalidMenu("Invalid type");
-            }
-            Console.WriteLine("המוצר נמחק בהצלחה");
+            ICrud.Delete(id);
+            Console.WriteLine("הפריט נמחק בהצלחה");
         }
 
       
@@ -405,7 +382,7 @@ namespace DalTest
                 case 3:  // שינוי קטגוריה
                     Console.WriteLine("הכנס קטגוריה חדשה:");
                     if (int.TryParse(Console.ReadLine(), out int cat))
-                        category = (Category)cat;
+                        category = Category(cat);
                     else
                         category = productToUpdate.Category;
                     updatedProduct = updatedProduct with { Category = category };
@@ -459,12 +436,15 @@ namespace DalTest
         /// </summary>
         private static void UpdateSale()
         {
+            int code;
             int productId;
             int minQuantity;
             double price;
             bool inClob;
             DateTime beginSale;
             DateTime endSale;
+            Console.WriteLine("הכנס קוד מבצע");
+            if (!int.TryParse(Console.ReadLine(), out code)) code = 0;
             Console.WriteLine("הכנס קוד מוצר");
             if (!int.TryParse(Console.ReadLine(), out productId)) productId = 0;
 
@@ -477,13 +457,14 @@ namespace DalTest
             Console.WriteLine("האם במועדון?");
             if (!bool.TryParse(Console.ReadLine(), out inClob)) inClob = false;
 
+            
             Console.WriteLine("הכנס תאריך התחלה");
             if (!DateTime.TryParse(Console.ReadLine(), out beginSale)) beginSale = DateTime.Now;
 
             Console.WriteLine("הכנס תאריך תפוגה");
             if (!DateTime.TryParse(Console.ReadLine(), out endSale)) endSale = DateTime.Now.AddDays(1);
 
-            Sale s = new Sale(0, productId, minQuantity, price, inClob, beginSale, endSale);
+            Sale s = new Sale(code, productId, minQuantity, price, inClob, beginSale, endSale);
             s_dal.Sale.Update(s);
 
             Console.WriteLine("המבצע עודכן בהצלחה");

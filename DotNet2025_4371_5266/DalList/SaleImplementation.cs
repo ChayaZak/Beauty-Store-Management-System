@@ -20,16 +20,18 @@ internal class SaleImplementation : ISale
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, $"Creating sale with ID: {item.Code}");
         var isExist = DataSource.Sales.FirstOrDefault(s => s.Code == item.Code);
+        Sale s;
         if (isExist != null)
         {
             throw new dal_idExist("The sale already exists");
         }
         else
         {
-            DataSource.Sales.Add(item);
+            s = item with { Code = DataSource.Config.SaleCode };
+            DataSource.Sales.Add(s);
         }
         LogManager.Log(projectName, funcName, $"Sale created with ID: {item.Code}");
-        return item.Code;
+        return s.Code;
     }
 
     /// <summary>

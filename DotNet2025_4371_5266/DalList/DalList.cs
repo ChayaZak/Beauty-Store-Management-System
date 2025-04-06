@@ -2,12 +2,21 @@
 
 namespace Dal
 {
-    public class DalList :IDal
+    internal sealed class DalList :IDal
     {
+        private static readonly DalList instance;
+
+        public static DalList Instance
+        {
+            get { return instance; }
+           
+        }
+
         public IProduct Product => new ProductImplementation();
         public ISale Sale => new SaleImplementation();
         public ICustomer Customer => new CustomerImplementation();
 
+        private DalList() { }
     }
 
    

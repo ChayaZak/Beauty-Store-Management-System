@@ -3,6 +3,7 @@ using DO;
 using DalApi;
 using System.Reflection;
 using Tools;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// מימוש של ממשק IProduct לניהול מוצרים.
@@ -20,16 +21,18 @@ internal class ProductImplementation : IProduct
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, $"Creating product with ID: {item.Id}");
         var isExist = DataSource.Products.FirstOrDefault(p => p.Id == item.Id);
+        Product p;
         if (isExist != null)
         {
             throw new dal_idExist("The product already exists");
         }
         else
         {
-            DataSource.Products.Add(item);
+            p = item with { Id = DataSource.Config.ProductCode };
+            DataSource.Products.Add(p);
         }
         LogManager.Log(projectName, funcName, $"Product created with ID: {item.Id}");
-        return item.Id;
+        return p.Id;
 
     }
 

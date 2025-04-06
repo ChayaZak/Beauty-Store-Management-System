@@ -45,7 +45,7 @@ namespace Tools
             string fileName = GetFilePath();
             using (StreamWriter writer = new StreamWriter(fileName, true))
             {
-                writer.WriteLine($"{DateTime.Now}\t{nameProject}.{func}:\t{message}");
+                writer.WriteLine($"{DateTime.Now}\t{nameProject}.{func}:\t\t{message}");
             }
         }
 
