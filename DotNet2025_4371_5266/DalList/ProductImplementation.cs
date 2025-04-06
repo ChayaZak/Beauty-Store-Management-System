@@ -5,7 +5,7 @@ using DalApi;
 /// <summary>
 /// מימוש של ממשק IProduct לניהול מוצרים.
 /// </summary>
-public class ProductImplementation : IProduct
+internal class ProductImplementation : IProduct
 {
     /// <summary>
     /// יוצר מוצר חדש
@@ -14,9 +14,17 @@ public class ProductImplementation : IProduct
     /// <returns>קוד המוצר שנוצר.</returns>
     public int Create(Product item)
     {
-        Product p = item with { Id = DataSource.Config.ProductCode };
-        DataSource.Products.Add(p);
-        return p.Id;
+        var isExist = DataSource.Products.FirstOrDefault(p => p.Id == item.Id);
+        if (isExist != null)
+        {
+            throw new dal_idExist("The product already exists");
+        }
+        else
+        {
+            DataSource.Products.Add(item);
+        }
+        return item.Id;
+
     }
 
     /// <summary>
@@ -26,21 +34,31 @@ public class ProductImplementation : IProduct
     /// <returns>המוצר עם המזהה הנתון, או null אם לא נמצא.</returns>
     public Product? Read(int Id)
     {
-        foreach (Product item in DataSource.Products)
+        Product? product = DataSource.Products.FirstOrDefault(p => p.Id == Id);
+        if (product!=null)
         {
-            if (item.Id == Id)
-                return item;
+            return product;
         }
-        throw new Exception("id not found");
+        throw new dal_idNotFound("id not found");
+    }
+
+    public Product? Read(Func<Product, bool> filter)
+    {
+        Product? product = DataSource.Products.FirstOrDefault(filter);
+        if (product != null)
+        {
+            return product;
+        }
+        throw new dal_objcectNotFound("Not found");
     }
 
     /// <summary>
     /// קורא את כל המוצרים.
     /// </summary>
     /// <returns>רשימה של כל המוצרים</returns>
-    public List<Product?> ReadAll()
+    public List<Product?> ReadAll(Func<Product, bool>? filter = null)
     {
-        return DataSource.Products;
+        return filter!=null ? DataSource.Products.Where(filter).ToList() : DataSource.Products;
     }
 
     /// <summary>
@@ -66,7 +84,7 @@ public class ProductImplementation : IProduct
         }
         catch (Exception ex)
         {
-            throw new Exception("id not found", ex);
+            throw new dal_idNotFound($"id not found {ex}");
         }
     }
 }

@@ -5,7 +5,7 @@ using DalApi;
 /// <summary>
 /// מימוש של ממשק ICustomer לניהול לקוחות.
 /// </summary>
-public class CustomerImplementation : ICustomer
+internal class CustomerImplementation : ICustomer
 {
     /// <summary>
     /// יוצר לקוח חדש.
@@ -17,7 +17,7 @@ public class CustomerImplementation : ICustomer
         var isExist = DataSource.Customers.FirstOrDefault(c => c.Id == item.Id);
         if (isExist != null)
         {
-            throw new Exception("The customer already exists");
+            throw new dal_idExist("The customer already exists");
         }
         else
         {
@@ -34,23 +34,34 @@ public class CustomerImplementation : ICustomer
     /// <returns>הלקוח עם המזהה הנתון, או null אם לא נמצא.</returns>
     public Customer? Read(int Id)
     {
-        foreach (var item in DataSource.Customers)
+        Customer? customer= DataSource.Customers.FirstOrDefault(c => c.Id == Id);
+        if(customer != null)
         {
-            if (item.Id == Id)
-                return item;
+            return customer;
         }
-        throw new Exception("id not found");
+        throw new dal_idNotFound("id not found");
+    }
+
+    public Customer? Read(Func<Customer, bool> filter)
+    {
+        Customer? customer = DataSource.Customers.FirstOrDefault(filter);
+        if (customer != null)
+        {
+            return customer;
+        }
+        throw new dal_objcectNotFound("Not found");
     }
 
     /// <summary>
     /// קורא את כל הלקוחות.
     /// </summary>
     /// <returns>רשימה של כל הלקוחות.</returns>
-    public List<Customer?> ReadAll()
+    public List<Customer?> ReadAll(Func<Customer, bool>? filter = null)
     {
-        return DataSource.Customers;
+        return filter!=null ? DataSource.Customers.Where(filter).ToList() : DataSource.Customers;
     }
 
+    
     /// <summary>
     /// מעדכן לקוח קיים.
     /// </summary>
@@ -74,7 +85,7 @@ public class CustomerImplementation : ICustomer
         }
         catch (Exception ex)
         {
-            throw new Exception("id not found", ex);
+            throw new dal_idNotFound($"id not found {ex}" );
         }   
     }
 }

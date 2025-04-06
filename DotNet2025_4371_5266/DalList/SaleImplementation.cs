@@ -5,7 +5,7 @@ using DalApi;
 /// <summary>
 /// מימוש של ממשק ISale לניהול מבצעים.
 /// </summary>
-public class SaleImplementation : ISale
+internal class SaleImplementation : ISale
 {
     /// <summary>
     /// יוצר מבצע חדש.
@@ -14,9 +14,16 @@ public class SaleImplementation : ISale
     /// <returns>קוד המבצע שנוצר.</returns>
     public int Create(Sale item)
     {
-        Sale s = item with { Code = DataSource.Config.SaleCode };
-        DataSource.Sales.Add(s);
-        return s.Code;
+        var isExist = DataSource.Sales.FirstOrDefault(s => s.Code == item.Code);
+        if (isExist != null)
+        {
+            throw new dal_idExist("The sale already exists");
+        }
+        else
+        {
+            DataSource.Sales.Add(item);
+        }
+        return item.Code;
     }
 
     /// <summary>
@@ -26,21 +33,31 @@ public class SaleImplementation : ISale
     /// <returns>המבצע עם המזהה הנתון, או null אם לא נמצא.</returns>
     public Sale? Read(int Id)
     {
-        foreach (var item in DataSource.Sales)
+        Sale? sale = DataSource.Sales.FirstOrDefault(s => s.Code == Id);
+        if (sale != null)
         {
-            if (item.Code==Id)
-                return item;
+            return sale;
         }
-        throw new Exception("id not found");
+        throw new dal_idNotFound("id not found");
+    }
+
+    public Sale? Read(Func<Sale, bool> filter)
+    {
+        Sale? sale = DataSource.Sales.FirstOrDefault(filter);
+        if (sale != null)
+        {
+            return sale;
+        }
+        throw new dal_objcectNotFound("Not found");
     }
 
     /// <summary>
     /// קורא את כל המבצעים.
     /// </summary>
     /// <returns>רשימה של כל המבצעים.</returns>
-    public List<Sale?> ReadAll()
+    public List<Sale?> ReadAll(Func<Sale, bool>? filter = null)
     {
-        return DataSource.Sales;
+        return filter!=null ? DataSource.Sales.Where(filter).ToList() : DataSource.Sales;
     }
 
     /// <summary>
@@ -66,7 +83,7 @@ public class SaleImplementation : ISale
         }
         catch (Exception ex)
         {
-            throw new Exception("id not found", ex);
+            throw new dal_idNotFound($"id not found {ex}");
         }
     }
 }
