@@ -3,6 +3,8 @@ using DalApi;
 using DO;
 using System.Data.Common;
 using System.Xml;
+using System.Reflection;
+using Tools;
 
 namespace DalTest
 {
@@ -11,11 +13,13 @@ namespace DalTest
     /// </summary>
     internal class Program
     {
+        static string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
         private static readonly IDal? s_dal = new Dal.DalList();
         
 
         private static void Main(string[] args)
         {
+            string funcName = MethodBase.GetCurrentMethod().Name;
             // אתחול בסיס הנתונים
             Initialization.Initialize(s_dal);
             try
@@ -40,6 +44,7 @@ namespace DalTest
                             break;
                         case 4:
                             Console.WriteLine("למחיקת תקיית הלוגים");
+                            LogManager.CleanLog();
                             break;
                         default:
                             Console.WriteLine(" בחירה שגויה אנא הקש שוב");
@@ -50,6 +55,8 @@ namespace DalTest
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
+                LogManager.Log(projectName, funcName, $"Error: {ex.Message}");
                 throw new dal_InvalidMenu($"בחירה לא חוקית {ex}");
             }
         }
@@ -63,6 +70,7 @@ namespace DalTest
             Console.WriteLine("למוצרים הקש 1");
             Console.WriteLine("ללקוחות הקש 2");
             Console.WriteLine("למבצעים הקש 3");
+            Console.WriteLine("למחיקת תקיית הלוגים הקש 4");
             Console.WriteLine("ליציאה הקש 0");
 
             int select;
@@ -280,6 +288,7 @@ namespace DalTest
         /// <param name="ICrud">ממשק לניהול הפריט.</param>
         private static void Read<T>(T ICrud)
         {
+            string funcName = MethodBase.GetCurrentMethod().Name;
             try
             {
                 Console.WriteLine("הכנס קוד");
@@ -301,6 +310,8 @@ namespace DalTest
             }
             catch (Exception e)
             {
+                Console.WriteLine("שגיאה: לא נמצא פריט עם מזהה זה");
+                LogManager.Log(projectName, funcName, $"Error: {e.Message}");
                 Console.WriteLine(e.Message);
             }
         }
