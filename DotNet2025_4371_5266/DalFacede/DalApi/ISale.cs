@@ -4,13 +4,9 @@ using DO;
 /// <summary>
 /// ממשק לניהול מבצעים
 /// </summary>
-public interface ISale
+public interface ISale : ICrud<Sale>
 {
-    int Create(Sale item);
-    Sale? Read(int Id);
-    List<Sale?> ReadAll();
-    void Update(Sale item);
-    void Delete(int id);
+   
 }
 
 

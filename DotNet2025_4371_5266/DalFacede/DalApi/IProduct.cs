@@ -4,13 +4,8 @@ using DO;
 /// <summary>
 /// ממשק לניהול מוצרים
 /// </summary>
-public interface IProduct
+public interface IProduct : ICrud<Product> 
 {
-    int Create(Product item);
-    Product? Read(int Id);
-    List<Product?> ReadAll();
-    void Update(Product item);
-    void Delete(int id);
-}
 
+}
 

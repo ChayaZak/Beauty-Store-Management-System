@@ -5,7 +5,7 @@ using DalApi;
 /// <summary>
 /// מימוש של ממשק ICustomer לניהול לקוחות.
 /// </summary>
-internal class CustomerImplementation : ICustomer
+public class CustomerImplementation : ICustomer
 {
     /// <summary>
     /// יוצר לקוח חדש.

@@ -15,15 +15,11 @@ namespace DalTest
         private static ICustomer? _dalCustomer = new CustomerImplementation();
         private static ISale? _dalSale = new SaleImplementation();
 
-        /// <summary>
-        /// נקודת הכניסה הראשית לתוכנית.
-        /// </summary>
-        /// <param name="args">ארגומנטים של שורת הפקודה.</param>
+       
         static void Main(string[] args)
         {
             // אתחול בסיס הנתונים
             Initialization.Initialize(_dalProduct, _dalCustomer, _dalSale);
-            Console.WriteLine("Hello, World!");
 
             try
             {

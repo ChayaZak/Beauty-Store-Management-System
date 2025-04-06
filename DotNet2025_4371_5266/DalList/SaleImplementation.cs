@@ -5,7 +5,7 @@ using DalApi;
 /// <summary>
 /// מימוש של ממשק ISale לניהול מבצעים.
 /// </summary>
-internal class SaleImplementation : ISale
+public class SaleImplementation : ISale
 {
     /// <summary>
     /// יוצר מבצע חדש.
