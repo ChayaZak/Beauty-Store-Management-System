@@ -1,10 +1,23 @@
-﻿
-namespace DalApi
+﻿namespace DalApi;
+
+/// <summary>
+/// ממשק לניהול שכבת הנתונים (DAL)
+/// </summary>
+public interface IDal
 {
-    public interface IDal
-    {
-        IProduct Product { get; }
-        ISale Sale { get; }
-        ICustomer Customer { get; }
-    }
+    /// <summary>
+    /// ניהול מוצרים
+    /// </summary>
+    IProduct Product { get; }
+
+    /// <summary>
+    /// ניהול מבצעים
+    /// </summary>
+    ISale Sale { get; }
+
+    /// <summary>
+    /// ניהול לקוחות
+    /// </summary>
+    ICustomer Customer { get; }
 }
+

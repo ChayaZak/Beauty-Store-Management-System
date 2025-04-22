@@ -3,12 +3,12 @@ using static DalApi.DalConfig;
 using System.Reflection;
 
 /// <summary>
-/// מחלקה ליצירת אובייקט DAL.
+/// מחלקה ליצירת אובייקט DAL
 /// </summary>
 public static class Factory
 {
     /// <summary>
-    /// מחזירה אובייקט DAL.
+    /// מחזירה אובייקט DAL
     /// </summary>
     public static IDal Get
     {

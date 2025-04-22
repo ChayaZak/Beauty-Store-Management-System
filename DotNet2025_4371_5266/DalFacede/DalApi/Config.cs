@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 /// <summary>
-/// מחלקת קונפיגורציה של DAL.
+/// מחלקת קונפיגורציה של DAL
 /// </summary>
 static class DalConfig
 {
@@ -24,7 +24,7 @@ static class DalConfig
 }
 
 /// <summary>
-/// חריגות קונפיגורציה של DAL.
+/// חריגות קונפיגורציה של DAL
 /// </summary>
 [Serializable]
 public class DalConfigException : Exception

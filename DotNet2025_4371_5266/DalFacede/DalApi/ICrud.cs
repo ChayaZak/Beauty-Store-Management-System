@@ -1,20 +1,48 @@
-﻿using DO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DalApi;
 
-namespace DalApi
+/// <summary>
+/// ממשק כללי לניהול פעולות CRUD עבור ישויות
+/// </summary>
+/// <typeparam name="T">סוג הישות</typeparam>
+public interface ICrud<T>
 {
-    public interface ICrud<T> 
-    {
-        int Create(T item);
-        T? Read(int Id);
-        T? Read(Func<T, bool> filter);
-        List<T?> ReadAll(Func<T, bool>? filter=null);
-        void Update(T item);
-        void Delete(int id);
-    }
-}
+    /// <summary>
+    /// יוצר ישות חדשה
+    /// </summary>
+    /// <param name="item">הישות ליצירה</param>
+    /// <returns>מזהה הישות שנוצרה</returns>
+    int Create(T item);
 
+    /// <summary>
+    /// קורא ישות לפי מזהה
+    /// </summary>
+    /// <param name="Id">מזהה הישות לקריאה</param>
+    /// <returns>הישות שנמצאה, או null אם לא נמצאה</returns>
+    T? Read(int Id);
+
+    /// <summary>
+    /// קורא ישות לפי תנאי
+    /// </summary>
+    /// <param name="filter">תנאי החיפוש</param>
+    /// <returns>הישות שנמצאה, או null אם לא נמצאה</returns>
+    T? Read(Func<T, bool> filter);
+
+    /// <summary>
+    /// קורא את כל הישויות
+    /// </summary>
+    /// <param name="filter">תנאי סינון אופציונלי</param>
+    /// <returns>רשימה של כל הישויות</returns>
+    List<T?> ReadAll(Func<T, bool>? filter = null);
+
+    /// <summary>
+    /// מעדכן ישות קיימת
+    /// </summary>
+    /// <param name="item">הישות לעדכון</param>
+    void Update(T item);
+
+    /// <summary>
+    /// מוחק ישות לפי מזהה
+    /// </summary>
+    /// <param name="id">מזהה הישות למחיקה</param>
+    void Delete(int id);
+}
