@@ -30,7 +30,7 @@ internal class CustomerImplementation : ICustomer
         }
         LogManager.Log(projectName, funcName, $"Customer created with ID: {item.Id}");
         return item.Id;
-        
+
     }
 
     /// <summary>
@@ -42,8 +42,8 @@ internal class CustomerImplementation : ICustomer
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, $"Reading customer with ID: {Id}");
-        Customer? customer= DataSource.Customers.FirstOrDefault(c => c.Id == Id);
-        if(customer != null)
+        Customer? customer = DataSource.Customers.FirstOrDefault(c => c.Id == Id);
+        if (customer != null)
         {
             LogManager.Log(projectName, funcName, $"Customer found with ID: {Id}");
             return customer;
@@ -72,10 +72,10 @@ internal class CustomerImplementation : ICustomer
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, $"Reading all customers");
-        return filter!=null ? DataSource.Customers.Where(filter).ToList() : DataSource.Customers;
+        return filter != null ? DataSource.Customers.Where(filter).ToList() : DataSource.Customers;
     }
 
-    
+
     /// <summary>
     /// מעדכן לקוח קיים
     /// </summary>
@@ -99,14 +99,18 @@ internal class CustomerImplementation : ICustomer
         try
         {
             LogManager.Log(projectName, funcName, $"Deleting customer with ID: {id}");
-            Customer c= Read(id);
+            Customer c = Read(id);
             DataSource.Customers.Remove(c);
             LogManager.Log(projectName, funcName, $"Customer deleted with ID: {id}");
         }
+        catch (dal_idNotFound ex)
+        {
+            throw new dal_idNotFound($"Failed to delete customer with ID {id}. {ex.Message}");
+        }
         catch (Exception ex)
         {
-            throw new dal_idNotFound($"id not found {ex}" );
-        }   
+            throw new dal_idNotFound($"id not found ");
+        }
     }
 }
 

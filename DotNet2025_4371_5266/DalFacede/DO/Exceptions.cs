@@ -35,3 +35,6 @@ public class dal_InvalidMenu : Exception
 {
     public dal_InvalidMenu(string? message) : base(message) { }
 }
+
+
+
