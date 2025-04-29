@@ -15,7 +15,7 @@ namespace BO
             StringBuilder? sb = new StringBuilder();
             foreach (var property in obj.GetType().GetProperties())
             {
-                sb.Append($"{property.Name} {property.GetValue(obj)}");
+                sb.Append($"{property.Name} {property.GetValue(obj)}        ");
             }
             return sb.ToString();
         }

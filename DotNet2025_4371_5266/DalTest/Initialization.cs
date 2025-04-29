@@ -42,8 +42,10 @@ public static class Initialization
         if (s_dal?.Sale != null)
         {
             LogManager.Log(projectName, funcName, "Creating sales");
-            s_dal.Sale.Create(new Sale(3552, 032, 3, 300, true, DateTime.Now, DateTime.Now.AddDays(8)));
-            s_dal.Sale.Create(new Sale(3699, 245, 2, 140, false, DateTime.Now, DateTime.Now.AddDays(6)));
+            s_dal.Sale.Create(new Sale(3699, 102, 2, 140, false, DateTime.Now, DateTime.Now.AddDays(6)));
+            s_dal.Sale.Create(new Sale(3552, 104, 3, 300, true, DateTime.Now, DateTime.Now.AddDays(8)));
+            s_dal.Sale.Create(new Sale(110, 100, 3, 100, false, DateTime.Now, DateTime.Now.AddDays(8)));
+            s_dal.Sale.Create(new Sale(111, 100, 5, 150, true, DateTime.Now, DateTime.Now.AddDays(8)));
             LogManager.Log(projectName, funcName, "Sales created");
         }
     }

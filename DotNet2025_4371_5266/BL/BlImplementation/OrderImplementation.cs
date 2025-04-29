@@ -24,7 +24,7 @@ namespace BlImplementation
         {
             try
             {
-                DO.Product product = _dal.Product.Read(productId);
+                DO.Product? product = _dal.Product.Read(productId);
                 var productInOrder = order.Products.FirstOrDefault(p => p.ProductId == productId);
                 if (product.QuantityInStock < quantity)
                 {
@@ -95,8 +95,8 @@ namespace BlImplementation
                     {
                         if (count >= sale.QuantityForSale)
                         {
-                            count -= sale.QuantityForSale;
                             int countTakeSale = count / sale.QuantityForSale;
+                            count -= sale.QuantityForSale* countTakeSale;
                             product.FinalPrice += countTakeSale * sale.SalePrice;
                             utilizedSales.Add(sale);
                         }
@@ -159,10 +159,6 @@ namespace BlImplementation
                 if (sales.Count > 0)
                 {
                     product.Sales = sales.Select(s => new SaleInProduct(s.Code, s.MinQuantity, s.Price, s.InClab)).ToList();
-                }
-                else
-                {
-                    product.Sales = null;
                 }
             }
             catch (Exception ex)
