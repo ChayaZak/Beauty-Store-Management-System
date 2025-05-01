@@ -15,70 +15,68 @@ namespace Dal
     {
         //Initialization.Initialize();
         //XElement customer = XElement.Load(Config.DataConfig);
+        private const string CUSTOMER = "Customer";
+        private const string ID = "Id";
+        private const string NAME = "Name";
+        private const string ADDRESS = "Address";
+        private const string PHONE = "Phone";
 
-        private const string pathSale = "../xml/customers.xml";
+        private const string PATH_CUSTOMER = "../xml/customers.xml";
 
 
         public int Create(Customer item)
         {
-            try
-            {
-                XElement customersRoot = XElement.Load(pathSale); // טוען את קובץ ה-XML
-                if (customersRoot.Elements("Customer").Any(c => (int)c.Element("Id") == item.Id))
-                {
-                    throw new DO.dal_idExist($"The customer {item.Id} already exists");
-                }
 
-                //XElement newCustomer = new XElement("Customer",
-                //    new XElement("Id", item.Id),
-                //    new XElement("Name", item.Name),
-                //    new XElement("Address", item.Address),
-                //    new XElement("Phone", item.Phone)
-                //);
+            XElement? customersRoot = XElement.Load(PATH_CUSTOMER);
+            if (customersRoot == null)
+                throw new DO.dal_XmlFileLoad("Error loading customer xml file");
+            //if (customersRoot.Element(CUSTOMER).Elements().Any(c => int.Parse(c.Element(ID).Value) == item.Id))
+            //{
+            //    throw new DO.dal_idExist($"The customer {item.Id} already exists");
+            //}
 
-                XElement newCustomer = XmlTools.GetObject(item);
+        
 
-                customersRoot.Add(newCustomer);
-                customersRoot.Save(pathSale);
-                return item.Id;
-            }
+            XElement newCustomer = XmlTools.GetObject(item);
 
-            catch (Exception ex)
-            {
-                throw new DO.dal_XmlFileLoad($"Error loading XML file: {ex.Message}");
-            }
+            customersRoot.Add(newCustomer);
+            customersRoot.Save(PATH_CUSTOMER);
+            return item.Id;
+
+
 
         }
 
 
         public void Delete(int id)
         {
-            XElement customersRoot = XElement.Load(pathSale); // טוען את קובץ ה-XML
-            Customer customer = Read(id);
-            if (customer == null)
-            {
-                throw new dal_idNotFound("id not found");
-            }
-            XElement customerToDelete = XmlTools.GetObject(customer);
-            customersRoot.Element(customer).Remove();
-            customerToDelete.Remove();
-            customersRoot.Save(pathSale);
+            XElement? customersRoot = XElement.Load(PATH_CUSTOMER);
+            if (customersRoot == null)
+                throw new DO.dal_XmlFileLoad("Error loading customer xml file");
+            //Customer? customer = Read(id);
 
+            //XElement customerToDelete = XmlTools.GetObject(customer);
+            XElement customerToDelete = customersRoot.Element(CUSTOMER).Elements().FirstOrDefault(c => int.Parse(c.Element(ID).Value) == id);
+            if (customerToDelete == null)
+                throw new DO.dal_idNotFound($"The customer {id} does not exist");
+            customerToDelete.Remove();
+            customersRoot.Save(PATH_CUSTOMER);
         }
 
         public Customer? Read(int Id)
         {
-            XElement customersRoot = XElement.Load(pathSale);
-
-            XElement customerElement = customersRoot.Elements("Customer").FirstOrDefault(c => (int)c.Element("Id") == Id);
+            XElement? customersRoot = XElement.Load(PATH_CUSTOMER);
+            if (customersRoot == null)
+                throw new DO.dal_XmlFileLoad("Error loading customer xml file");
+            XElement? customerElement = customersRoot.Elements().FirstOrDefault(c => int.Parse(c.Element(ID).Value) == Id);
             if (customerElement != null)
             {
                 return new Customer
                 {
-                    Id = (int)customerElement.Element("Id"),
-                    Name = (string)customerElement.Element("Name"),
-                    Address = (string)customerElement.Element("Address"),
-                    Phone = (int)customerElement.Element("Phone")
+                    Id = int.Parse(customerElement.Element(ID).Value),
+                    Name = customerElement.Element(NAME).Value,
+                    Address = customerElement.Element(ADDRESS).Value,
+                    Phone = int.Parse(customerElement.Element(PHONE).Value)
                 };
             }
             throw new dal_idNotFound("id not found");
@@ -87,44 +85,52 @@ namespace Dal
 
         public Customer? Read(Func<Customer, bool> filter)
         {
-            XElement customersRoot = XElement.Load(pathSale);
-
-            XElement customerElement = customersRoot.Elements("Customer").FirstOrDefault(filter);
-            if (customerElement != null)
+            XElement? customersRoot = XElement.Load(PATH_CUSTOMER);
+            if (customersRoot == null)
+                throw new DO.dal_XmlFileLoad("Error loading customer xml file");
+            Customer? customer = customersRoot.Elements(CUSTOMER)
+            .Select(c => new Customer
             {
-                return new Customer
-                {
-                    Id = (int)customerElement.Element("Id"),
-                    Name = (string)customerElement.Element("Name"),
-                    Address = (string)customerElement.Element("Address"),
-                    Phone = (int)customerElement.Element("Phone")
-                };
-            }
+                Id = int.Parse(c.Element(ID).Value),
+                Name = c.Element(NAME).Value,
+                Address = c.Element(ADDRESS).Value,
+                Phone = int.Parse(c.Element(PHONE).Value)
+            })
+            .FirstOrDefault(filter);
+            if (customer != null)
+                return customer;
             throw new dal_objcectNotFound("Not found");
         }
 
         public List<Customer?> ReadAll(Func<Customer, bool>? filter = null)
         {
-            XElement customersRoot = XElement.Load(pathSale);
-            List<XElement> customerElements = customersRoot.Elements("Customer").ToList();
-            List<Customer?> customers = new List<Customer?>();
-            foreach (var item in customerElements)
+
+            XElement? customersRoot = XElement.Load(PATH_CUSTOMER);
+            if (customersRoot == null)
+                throw new DO.dal_XmlFileLoad("Error loading customer xml file");
+            List<Customer> customers = customersRoot.Elements(CUSTOMER).Select(c => new Customer
             {
-                Customer customer = new Customer
-                {
-                    Id = (int)item.Element("Id"),
-                    Name = (string)item.Element("Name"),
-                    Address = (string)item.Element("Address"),
-                    Phone = (int)item.Element("Phone")
-                };
-                customers.Add(customer);
-            }
-            return customers;
+                Id = int.Parse(c.Element(ID).Value),
+                Name = c.Element(NAME).Value,
+                Address = c.Element(ADDRESS).Value,
+                Phone = int.Parse(c.Element(PHONE).Value)
+            }).ToList();
+
+            return filter != null ? customers.Where(filter).ToList() : customers;
         }
 
         public void Update(Customer item)
         {
-            throw new NotImplementedException();
+            XElement? customersRoot = XElement.Load(PATH_CUSTOMER);
+            if (customersRoot == null)
+                throw new DO.dal_XmlFileLoad("Error loading customer xml file");
+            Delete(item.Id);
+            customersRoot.Add(new XElement(CUSTOMER,
+                new XElement(ID, item.Id),
+                new XElement(NAME, item.Name),
+                new XElement(ADDRESS, item.Address),
+                new XElement(PHONE, item.Phone)
+            ));
         }
     }
 }

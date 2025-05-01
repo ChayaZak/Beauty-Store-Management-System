@@ -26,6 +26,11 @@ namespace BlImplementation
             {
                 DO.Product? product = _dal.Product.Read(productId);
                 var productInOrder = order.Products.FirstOrDefault(p => p.ProductId == productId);
+                if (product == null)
+                {
+                    throw new Exception($"Product with ID {productId} not found");
+                }
+
                 if (product.QuantityInStock < quantity)
                 {
                     throw new Exception("Not enough product in stock");

@@ -21,7 +21,7 @@ namespace DalTest
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
             // אתחול בסיס הנתונים
-            Initialization.Initialize();
+            //Initialization.Initialize();
             try
             {
                 int select1;

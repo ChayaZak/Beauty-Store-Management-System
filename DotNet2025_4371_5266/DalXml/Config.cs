@@ -9,9 +9,10 @@ namespace Dal
 {
     internal static class Config
     {
-        private const string? data_config = "data-config";
+        private const string? data_config = @"..\xml\data-config.xml";
 
-		public static int ProductCode=>int.Parse(XmlTools.GetValueByName("ProductMinCode"))+1;
+
+        public static int ProductCode=>int.Parse(XmlTools.GetValueByName("ProductMinCode"))+1;
 
         public static int SaleCode => int.Parse(XmlTools.GetValueByName("SaleMinCode"))+1;
 
