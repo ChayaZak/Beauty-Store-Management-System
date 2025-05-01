@@ -36,5 +36,14 @@ public class dal_InvalidMenu : Exception
     public dal_InvalidMenu(string? message) : base(message) { }
 }
 
+/// <summary>
+/// חריגה עבור קובץ XML לא חוקי 
+/// </summary>
+[Serializable]
+public class dal_XmlFileLoad : Exception
+{
+    public dal_XmlFileLoad(string? message) : base(message) { }
+}
+
 
 
