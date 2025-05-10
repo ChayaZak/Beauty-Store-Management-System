@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlTest", "BlTest\BlTest.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalXml", "DalXml\DalXml.csproj", "{B7143D20-88B4-405D-9D33-D3DAA6106C78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIManager", "UIManager\UIManager.csproj", "{E87AEDD5-0CCB-4BF7-A191-6A1220935E35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp2", "WinFormsApp2\WinFormsApp2.csproj", "{2FAE51C5-BD32-48F1-8146-ED042D188120}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +64,14 @@ Global
 		{B7143D20-88B4-405D-9D33-D3DAA6106C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7143D20-88B4-405D-9D33-D3DAA6106C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7143D20-88B4-405D-9D33-D3DAA6106C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87AEDD5-0CCB-4BF7-A191-6A1220935E35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87AEDD5-0CCB-4BF7-A191-6A1220935E35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87AEDD5-0CCB-4BF7-A191-6A1220935E35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87AEDD5-0CCB-4BF7-A191-6A1220935E35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAE51C5-BD32-48F1-8146-ED042D188120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAE51C5-BD32-48F1-8146-ED042D188120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAE51C5-BD32-48F1-8146-ED042D188120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAE51C5-BD32-48F1-8146-ED042D188120}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

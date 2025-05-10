@@ -40,14 +40,14 @@ namespace BO
         /// </summary>
         /// <param name="c">אוביקט מוצר להמרה מהשכבה הלוגית</param>
         /// <returns>מוצר מסוג שכבת הנתונים</returns>
-        public static DO.Product ConvertProductToDO(BO.Product p) => p == null ? throw new Bl_ObjectIsNull("The product object is null") : new DO.Product(p.Id, p.ProductName, p.Category, p.Price, p.QuantityInStock);
+        public static DO.Product ConvertProductToDO(BO.Product p) => p == null ? throw new Bl_ObjectIsNull("The product object is null") : new DO.Product(p.Id, p.ProductName, (DO.Category)p.Category ,p.Price, p.QuantityInStock);
 
         /// <summary>
         /// המרת מוצר משכבת הנתונים (DO) לשכבה הלוגית (BO)
         /// </summary>
         /// <param name="c">אוביקט מוצר להמרה משכבת הנתונים</param>
         /// <returns>מוצר מסוג השכבה הלוגית</returns>
-        public static BO.Product ConvertProductToBO(DO.Product p) => p == null ? throw new Bl_ObjectIsNull("The product object is null") : new BO.Product(p.Id, p.ProductName, p.Category, p.Price, p.QuantityInStock);
+        public static BO.Product ConvertProductToBO(DO.Product p) => p == null ? throw new Bl_ObjectIsNull("The product object is null") : new BO.Product(p.Id, p.ProductName, (BO.Category)p.Category, p.Price, p.QuantityInStock);
 
         /// <summary>
         /// המרת מבצע מהשכבה הלוגית (BO) לשכבת הנתונים (DO)

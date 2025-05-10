@@ -68,7 +68,7 @@ internal class ProductImplementation : IProduct
     }
 
     /// <summary>
-    /// קורא את כל המוצרים.
+    /// קורא את כל המוצרים
     /// </summary>
     /// <returns>רשימה של כל המוצרים</returns>
     public List<Product?> ReadAll(Func<Product, bool>? filter = null)
