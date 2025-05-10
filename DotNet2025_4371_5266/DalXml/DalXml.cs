@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    internal sealed class DalXml :IDal
+    sealed class DalXml :IDal
     {
         /// <summary>
         /// המופע היחיד של המחלקה (Singleton)

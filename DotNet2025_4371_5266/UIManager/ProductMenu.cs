@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlApi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace UIManager
 {
     public partial class ProductMenu : Form
     {
+        //private static IBl _bl = BlApi.Factory.Get();
+
         public ProductMenu()
         {
             InitializeComponent();
@@ -19,9 +22,9 @@ namespace UIManager
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            BO.Product product = new BO.Product(0, textBox1.Text, BO.Category.טיפוח_עור_הפנים, (double)numericUpDown1.Value, (int)numericUpDown2.Value);
-            Ibl.Product.Create(product);
-            MessageBox.Show("Product created successfully");
+            //BO.Product product = new BO.Product(0, textBox1.Text, BO.Category.טיפוח_עור_הפנים, (double)numericUpDown1.Value, (int)numericUpDown2.Value);
+            //_bl.Product.Create(product);
+            //MessageBox.Show("Product created successfully");
         }
     }
 }

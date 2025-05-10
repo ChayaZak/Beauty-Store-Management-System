@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
-	<ProductMinCode>100</ProductMinCode>
-	<SaleMinCode>200</SaleMinCode>
+  <ProductMinCode>105</ProductMinCode>
+  <SaleMinCode>200</SaleMinCode>
 </config>

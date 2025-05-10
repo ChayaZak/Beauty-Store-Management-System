@@ -20,9 +20,27 @@ namespace Dal
         /// <exception cref="DalConfigException"></exception>
         public static string GetValueByName(string name)
         {
+
+            // טוען את קובץ ה-XML
             XElement dataConfig = XElement.Load(Config.DataConfig) ??
-            throw new DalConfigException("data-config.xml file is not found");
-            return dataConfig.Element(name)?.Value ?? throw new DalConfigException("<dal> element is missing");
+                throw new DalConfigException("data config is missing");
+
+            // מוצא את האלמנט לפי השם
+            XElement? element = dataConfig.Element(name) ??
+                throw new DalConfigException($"<{name}> element is missing");
+
+            // מעלה את הערך ב-1
+            int val = int.Parse(element.Value) + 1;
+
+            // מעדכן את הערך ב-XML
+            element.Value = val.ToString();
+
+            // שומר את הקובץ
+            dataConfig.Save(Config.DataConfig);
+
+            // מחזיר את הערך החדש
+            return val.ToString();
+
         }
 
         public static XElement GetObject(Customer customer)

@@ -168,4 +168,67 @@
     <Price>80</Price>
     <QuantityInStock>70</QuantityInStock>
   </Product>
+  <Product>
+    <Id>101</Id>
+    <ProductName>נ</ProductName>
+    <Category>טיפוח_עור_הפנים</Category>
+    <Price>0</Price>
+    <QuantityInStock>0</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>101</Id>
+    <ProductName>הההה</ProductName>
+    <Category>טיפוח_עור_הפנים</Category>
+    <Price>0</Price>
+    <QuantityInStock>0</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>101</Id>
+    <ProductName>סבון רחצה</ProductName>
+    <Category>טיפוח_העור</Category>
+    <Price>30.9</Price>
+    <QuantityInStock>300</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>101</Id>
+    <ProductName>סבון מגניב</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>12</Price>
+    <QuantityInStock>100</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>102</Id>
+    <ProductName>משחה</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>25.9</Price>
+    <QuantityInStock>20</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>103</Id>
+    <ProductName>משחה לפנים</ProductName>
+    <Category>טיפוח_עור_הפנים</Category>
+    <Price>90.9</Price>
+    <QuantityInStock>26</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>104</Id>
+    <ProductName>אלוורה</ProductName>
+    <Category>משקאות</Category>
+    <Price>30</Price>
+    <QuantityInStock>10</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>105</Id>
+    <ProductName>גגג</ProductName>
+    <Category>מוצרי_כוורת</Category>
+    <Price>10</Price>
+    <QuantityInStock>100</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>106</Id>
+    <ProductName>סבון גוף</ProductName>
+    <Category>טיפוח_העור</Category>
+    <Price>45</Price>
+    <QuantityInStock>150</QuantityInStock>
+  </Product>
 </ArrayOfProduct>

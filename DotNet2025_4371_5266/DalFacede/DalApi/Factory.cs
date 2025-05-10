@@ -1,6 +1,7 @@
 ﻿using static DalApi.DalConfig;
 namespace DalApi;
 using System.Reflection;
+using System.IO;
 
 /// <summary>
 /// מחלקה ליצירת אובייקט DAL

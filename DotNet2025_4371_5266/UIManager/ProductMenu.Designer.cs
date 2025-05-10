@@ -4,7 +4,7 @@ namespace UIManager
 {
     partial class ProductMenu
     {
-        private IBl Ibl = new BlApi.Factory.Get();
+        //private IBl Ibl = new BlApi.Factory.Get();
 
         /// <summary>
         /// Required designer variable.
