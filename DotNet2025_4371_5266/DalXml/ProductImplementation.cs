@@ -42,7 +42,7 @@ namespace Dal
                 throw new dal_idNotFound("id not found");
             List<Product?> products = ReadAll();
             products.Remove(product);
-            using (FileStream XmlWrite = new FileStream(PATH_PRODUCT, FileMode.Open, FileAccess.Write))
+            using (FileStream XmlWrite = new FileStream(PATH_PRODUCT, FileMode.Create, FileAccess.Write))
             {
                 serializer.Serialize(XmlWrite, products);
             }

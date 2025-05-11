@@ -42,12 +42,40 @@ namespace Test
             textBoxName = new TextBox();
             lblName = new Label();
             tabPageRead = new TabPage();
+            btnFilter = new Button();
+            btnId = new Button();
+            textBoxFilter = new TextBox();
+            numericUpDownId = new NumericUpDown();
+            lblFilter = new Label();
+            lblId = new Label();
             tabPageUpdate = new TabPage();
+            numericUpDownIdUpdate = new NumericUpDown();
+            numericUpDownAmountUpdate = new NumericUpDown();
+            numericUpDownPriceUpdate = new NumericUpDown();
+            comboBoxCategoryUpdate = new ComboBox();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            textBoxNameUpdate = new TextBox();
+            label8 = new Label();
+            btnUpdate = new Button();
+            label1 = new Label();
             tabPageDelete = new TabPage();
+            btnDelete = new Button();
+            numericUpDownDelete = new NumericUpDown();
+            lblDelete = new Label();
             tabControl1.SuspendLayout();
             tabPageCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAmount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrice).BeginInit();
+            tabPageRead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
+            tabPageUpdate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownIdUpdate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAmountUpdate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPriceUpdate).BeginInit();
+            tabPageDelete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDelete).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -165,6 +193,12 @@ namespace Test
             // 
             // tabPageRead
             // 
+            tabPageRead.Controls.Add(btnFilter);
+            tabPageRead.Controls.Add(btnId);
+            tabPageRead.Controls.Add(textBoxFilter);
+            tabPageRead.Controls.Add(numericUpDownId);
+            tabPageRead.Controls.Add(lblFilter);
+            tabPageRead.Controls.Add(lblId);
             tabPageRead.Location = new Point(4, 24);
             tabPageRead.Name = "tabPageRead";
             tabPageRead.Padding = new Padding(3);
@@ -173,8 +207,72 @@ namespace Test
             tabPageRead.Text = "קבלת מוצר";
             tabPageRead.UseVisualStyleBackColor = true;
             // 
+            // btnFilter
+            // 
+            btnFilter.Location = new Point(230, 331);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 23);
+            btnFilter.TabIndex = 3;
+            btnFilter.Text = "אישור";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
+            // 
+            // btnId
+            // 
+            btnId.Location = new Point(230, 172);
+            btnId.Name = "btnId";
+            btnId.Size = new Size(75, 23);
+            btnId.TabIndex = 3;
+            btnId.Text = "אישור";
+            btnId.UseVisualStyleBackColor = true;
+            btnId.Click += btnId_Click;
+            // 
+            // textBoxFilter
+            // 
+            textBoxFilter.Location = new Point(168, 286);
+            textBoxFilter.Name = "textBoxFilter";
+            textBoxFilter.Size = new Size(100, 23);
+            textBoxFilter.TabIndex = 2;
+            // 
+            // numericUpDownId
+            // 
+            numericUpDownId.Location = new Point(148, 110);
+            numericUpDownId.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownId.Name = "numericUpDownId";
+            numericUpDownId.Size = new Size(120, 23);
+            numericUpDownId.TabIndex = 1;
+            // 
+            // lblFilter
+            // 
+            lblFilter.AutoSize = true;
+            lblFilter.Location = new Point(302, 289);
+            lblFilter.Name = "lblFilter";
+            lblFilter.Size = new Size(64, 15);
+            lblFilter.TabIndex = 0;
+            lblFilter.Text = "תנאי לסינון";
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new Point(302, 112);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(63, 15);
+            lblId.TabIndex = 0;
+            lblId.Text = "מזהה מוצר";
+            // 
             // tabPageUpdate
             // 
+            tabPageUpdate.Controls.Add(numericUpDownIdUpdate);
+            tabPageUpdate.Controls.Add(numericUpDownAmountUpdate);
+            tabPageUpdate.Controls.Add(numericUpDownPriceUpdate);
+            tabPageUpdate.Controls.Add(comboBoxCategoryUpdate);
+            tabPageUpdate.Controls.Add(label5);
+            tabPageUpdate.Controls.Add(label6);
+            tabPageUpdate.Controls.Add(label7);
+            tabPageUpdate.Controls.Add(textBoxNameUpdate);
+            tabPageUpdate.Controls.Add(label8);
+            tabPageUpdate.Controls.Add(btnUpdate);
+            tabPageUpdate.Controls.Add(label1);
             tabPageUpdate.Location = new Point(4, 24);
             tabPageUpdate.Name = "tabPageUpdate";
             tabPageUpdate.Padding = new Padding(3);
@@ -183,8 +281,108 @@ namespace Test
             tabPageUpdate.Text = "עדכון מוצר";
             tabPageUpdate.UseVisualStyleBackColor = true;
             // 
+            // numericUpDownIdUpdate
+            // 
+            numericUpDownIdUpdate.Location = new Point(175, 64);
+            numericUpDownIdUpdate.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numericUpDownIdUpdate.Name = "numericUpDownIdUpdate";
+            numericUpDownIdUpdate.Size = new Size(120, 23);
+            numericUpDownIdUpdate.TabIndex = 14;
+            // 
+            // numericUpDownAmountUpdate
+            // 
+            numericUpDownAmountUpdate.Location = new Point(155, 271);
+            numericUpDownAmountUpdate.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownAmountUpdate.Name = "numericUpDownAmountUpdate";
+            numericUpDownAmountUpdate.Size = new Size(120, 23);
+            numericUpDownAmountUpdate.TabIndex = 12;
+            // 
+            // numericUpDownPriceUpdate
+            // 
+            numericUpDownPriceUpdate.DecimalPlaces = 2;
+            numericUpDownPriceUpdate.Location = new Point(154, 214);
+            numericUpDownPriceUpdate.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
+            numericUpDownPriceUpdate.Name = "numericUpDownPriceUpdate";
+            numericUpDownPriceUpdate.Size = new Size(120, 23);
+            numericUpDownPriceUpdate.TabIndex = 13;
+            // 
+            // comboBoxCategoryUpdate
+            // 
+            comboBoxCategoryUpdate.FormattingEnabled = true;
+            comboBoxCategoryUpdate.Items.AddRange(new object[] { "טיפוח_עור_הפנים", "טיפוח_אישי ", "טיפוח_העור ", "משקאות", "מוצרי_כוורת" });
+            comboBoxCategoryUpdate.Location = new Point(154, 168);
+            comboBoxCategoryUpdate.Name = "comboBoxCategoryUpdate";
+            comboBoxCategoryUpdate.Size = new Size(121, 23);
+            comboBoxCategoryUpdate.TabIndex = 11;
+            comboBoxCategoryUpdate.Text = "טיפוח_עור_הפנים";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(307, 279);
+            label5.Name = "label5";
+            label5.Size = new Size(70, 15);
+            label5.TabIndex = 8;
+            label5.Text = "כמות במלאי";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(307, 216);
+            label6.Name = "label6";
+            label6.Size = new Size(33, 15);
+            label6.TabIndex = 9;
+            label6.Text = "מחיר";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(307, 168);
+            label7.Name = "label7";
+            label7.Size = new Size(49, 15);
+            label7.TabIndex = 10;
+            label7.Text = "קטגוריה";
+            // 
+            // textBoxNameUpdate
+            // 
+            textBoxNameUpdate.Location = new Point(175, 114);
+            textBoxNameUpdate.Name = "textBoxNameUpdate";
+            textBoxNameUpdate.Size = new Size(100, 23);
+            textBoxNameUpdate.TabIndex = 7;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(294, 117);
+            label8.Name = "label8";
+            label8.Size = new Size(52, 15);
+            label8.TabIndex = 6;
+            label8.Text = "שם מוצר";
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(200, 362);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.TabIndex = 2;
+            btnUpdate.Text = "עדכון";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(327, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(63, 15);
+            label1.TabIndex = 0;
+            label1.Text = "מזהה מוצר";
+            // 
             // tabPageDelete
             // 
+            tabPageDelete.Controls.Add(btnDelete);
+            tabPageDelete.Controls.Add(numericUpDownDelete);
+            tabPageDelete.Controls.Add(lblDelete);
             tabPageDelete.Location = new Point(4, 24);
             tabPageDelete.Name = "tabPageDelete";
             tabPageDelete.Padding = new Padding(3);
@@ -192,6 +390,33 @@ namespace Test
             tabPageDelete.TabIndex = 3;
             tabPageDelete.Text = "מחיקת מוצר";
             tabPageDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(222, 174);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "מחיקה";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // numericUpDownDelete
+            // 
+            numericUpDownDelete.Location = new Point(177, 81);
+            numericUpDownDelete.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            numericUpDownDelete.Name = "numericUpDownDelete";
+            numericUpDownDelete.Size = new Size(120, 23);
+            numericUpDownDelete.TabIndex = 1;
+            // 
+            // lblDelete
+            // 
+            lblDelete.AutoSize = true;
+            lblDelete.Location = new Point(317, 81);
+            lblDelete.Name = "lblDelete";
+            lblDelete.Size = new Size(63, 15);
+            lblDelete.TabIndex = 0;
+            lblDelete.Text = "מזהה מוצר";
             // 
             // ProductMenu
             // 
@@ -206,6 +431,17 @@ namespace Test
             tabPageCreate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAmount).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrice).EndInit();
+            tabPageRead.ResumeLayout(false);
+            tabPageRead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
+            tabPageUpdate.ResumeLayout(false);
+            tabPageUpdate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownIdUpdate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAmountUpdate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPriceUpdate).EndInit();
+            tabPageDelete.ResumeLayout(false);
+            tabPageDelete.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDelete).EndInit();
             ResumeLayout(false);
         }
 
@@ -225,5 +461,25 @@ namespace Test
         private NumericUpDown numericUpDownAmount;
         private Label lblAmount;
         private Button btnCreate;
+        private NumericUpDown numericUpDownId;
+        private Label lblId;
+        private TextBox textBoxFilter;
+        private Label lblFilter;
+        private Button btnId;
+        private Button btnFilter;
+        private Button btnUpdate;
+        private Label label1;
+        private NumericUpDown numericUpDownAmountUpdate;
+        private NumericUpDown numericUpDownPriceUpdate;
+        private ComboBox comboBoxCategoryUpdate;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private TextBox textBoxNameUpdate;
+        private Label label8;
+        private NumericUpDown numericUpDownIdUpdate;
+        private Label lblDelete;
+        private Button btnDelete;
+        private NumericUpDown numericUpDownDelete;
     }
 }
