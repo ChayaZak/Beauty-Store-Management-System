@@ -2,62 +2,6 @@
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
     <Id>101</Id>
-    <ProductName>קרם הגנה</ProductName>
-    <Category>טיפוח_אישי</Category>
-    <Price>70</Price>
-    <QuantityInStock>200</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>אלוורה</ProductName>
-    <Category>משקאות</Category>
-    <Price>130</Price>
-    <QuantityInStock>20</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>דבש</ProductName>
-    <Category>מוצרי_כוורת</Category>
-    <Price>20</Price>
-    <QuantityInStock>300</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>פילינג</ProductName>
-    <Category>טיפוח_העור</Category>
-    <Price>80</Price>
-    <QuantityInStock>70</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>סבון</ProductName>
-    <Category>טיפוח_עור_הפנים</Category>
-    <Price>40</Price>
-    <QuantityInStock>50</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>קרם לחות</ProductName>
-    <Category>טיפוח_אישי</Category>
-    <Price>50</Price>
-    <QuantityInStock>100</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>קרם הגנה</ProductName>
-    <Category>טיפוח_אישי</Category>
-    <Price>70</Price>
-    <QuantityInStock>200</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>אלוורה</ProductName>
-    <Category>משקאות</Category>
-    <Price>130</Price>
-    <QuantityInStock>20</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
     <ProductName>דבש</ProductName>
     <Category>מוצרי_כוורת</Category>
     <Price>20</Price>
@@ -99,17 +43,38 @@
     <QuantityInStock>100</QuantityInStock>
   </Product>
   <Product>
-    <Id>102</Id>
-    <ProductName>משחה</ProductName>
-    <Category>טיפוח_אישי</Category>
-    <Price>25.9</Price>
-    <QuantityInStock>20</QuantityInStock>
-  </Product>
-  <Product>
     <Id>109</Id>
     <ProductName>עדכון</ProductName>
     <Category>מוצרי_כוורת</Category>
     <Price>33</Price>
     <QuantityInStock>99</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>111</Id>
+    <ProductName>קרם לחות</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>50</Price>
+    <QuantityInStock>100</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>113</Id>
+    <ProductName>אלוורה</ProductName>
+    <Category>משקאות</Category>
+    <Price>130</Price>
+    <QuantityInStock>13</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>114</Id>
+    <ProductName>סבון</ProductName>
+    <Category>טיפוח_עור_הפנים</Category>
+    <Price>40</Price>
+    <QuantityInStock>40</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>115</Id>
+    <ProductName>קרם הגנה</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>70</Price>
+    <QuantityInStock>180</QuantityInStock>
   </Product>
 </ArrayOfProduct>

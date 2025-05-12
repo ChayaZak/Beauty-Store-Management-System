@@ -134,14 +134,14 @@ namespace BlImplementation
             {
                 foreach (var product in order.Products)
                 {
-                    DO.Product productInStock = _dal.Product.Read(product.ProductId);
+                   DO.Product productInStock = _dal.Product.Read(product.ProductId);
                     if (productInStock.QuantityInStock < product.QuantityInOrder)
                     {
                         throw new Exception("Not enough product in stock");
                     }
                     BO.Product productInStock2 = BO.Tools.ConvertProductToBO(productInStock);
-                    productInStock2.QuantityInStock -= product.QuantityInOrder;
-                    _dal.Product.Update(productInStock);
+                    DO.Product productUpdated= productInStock with { QuantityInStock = productInStock2.QuantityInStock -= product.QuantityInOrder };
+                    _dal.Product.Update(productUpdated);
                 }
             }
             catch (Exception ex)

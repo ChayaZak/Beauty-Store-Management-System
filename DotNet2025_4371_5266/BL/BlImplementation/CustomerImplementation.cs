@@ -1,6 +1,5 @@
 ﻿using BlApi;
 using BO;
-using DO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +41,7 @@ namespace BlImplementation
             {
                 _dal.Customer.Delete(id);
             }
-            catch (dal_idNotFound ex)
+            catch (Bl_IdNotFound ex)
             {
                 throw new Bl_IdNotFound($"Customer with ID {id} not found in BL.", ex);
             }

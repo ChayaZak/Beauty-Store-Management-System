@@ -9,7 +9,7 @@ namespace Dal
 {
     internal static class Config
     {
-        private const string? data_config = @"..\xml\data-config.xml";
+        private const string? data_config = "C:\\Users\\user1\\Documents\\שנה ב\\C#\\my project\\project_c-\\DotNet2025_4371_5266\\xml\\data-config.xml";
 
 
         public static int ProductCode=>int.Parse(XmlTools.GetValueByName("ProductMinCode"))+1;

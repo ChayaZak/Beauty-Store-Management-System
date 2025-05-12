@@ -21,7 +21,7 @@ namespace Dal
         private const string ADDRESS = "Address";
         private const string PHONE = "Phone";
 
-        private const string PATH_CUSTOMER = "../xml/customers.xml";
+        private const string PATH_CUSTOMER = "C:\\Users\\user1\\Documents\\שנה ב\\C#\\my project\\project_c-\\DotNet2025_4371_5266\\xml\\customers.xml";
 
 
         public int Create(Customer item)
@@ -56,7 +56,7 @@ namespace Dal
             //Customer? customer = Read(id);
 
             //XElement customerToDelete = XmlTools.GetObject(customer);
-            XElement customerToDelete = customersRoot.Element(CUSTOMER).Elements().FirstOrDefault(c => int.Parse(c.Element(ID).Value) == id);
+            XElement customerToDelete = customersRoot.Elements().FirstOrDefault(c => int.Parse(c.Element(ID).Value) == id);
             if (customerToDelete == null)
                 throw new DO.dal_idNotFound($"The customer {id} does not exist");
             customerToDelete.Remove();

@@ -20,6 +20,13 @@ namespace BO
             TotalPrice = 0;
         }
 
+        public Order(bool isPreferredCustomer)
+        {
+            IsPreferredCustomer = isPreferredCustomer;
+            Products = new List<ProductInOrder>();
+            TotalPrice = 0;
+        }
+
         public Order(bool isPreferredCustomer, List<ProductInOrder> products, double totalPrice)
         {
             IsPreferredCustomer = isPreferredCustomer;

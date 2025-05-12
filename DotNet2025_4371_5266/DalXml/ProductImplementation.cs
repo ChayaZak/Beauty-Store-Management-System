@@ -12,7 +12,7 @@ namespace Dal
 {
     internal class ProductImplementation : IProduct
     {
-        private const string PATH_PRODUCT = "../xml/products.xml";
+        private const string PATH_PRODUCT = "C:\\Users\\user1\\Documents\\שנה ב\\C#\\my project\\project_c-\\DotNet2025_4371_5266\\xml\\products.xml";
 
         XmlSerializer serializer = new XmlSerializer(typeof(List<Product>));
         public int Create(Product item)
