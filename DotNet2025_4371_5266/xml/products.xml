@@ -2,13 +2,6 @@
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
     <Id>101</Id>
-    <ProductName>דבש</ProductName>
-    <Category>מוצרי_כוורת</Category>
-    <Price>20</Price>
-    <QuantityInStock>300</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
     <ProductName>פילינג</ProductName>
     <Category>טיפוח_העור</Category>
     <Price>80</Price>
@@ -43,13 +36,6 @@
     <QuantityInStock>100</QuantityInStock>
   </Product>
   <Product>
-    <Id>109</Id>
-    <ProductName>עדכון</ProductName>
-    <Category>מוצרי_כוורת</Category>
-    <Price>33</Price>
-    <QuantityInStock>99</QuantityInStock>
-  </Product>
-  <Product>
     <Id>111</Id>
     <ProductName>קרם לחות</ProductName>
     <Category>טיפוח_אישי</Category>
@@ -71,10 +57,38 @@
     <QuantityInStock>40</QuantityInStock>
   </Product>
   <Product>
-    <Id>115</Id>
+    <Id>116</Id>
+    <ProductName>קרם טוב</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>25</Price>
+    <QuantityInStock>4</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>117</Id>
+    <ProductName>סבון מעולה</ProductName>
+    <Category>טיפוח_העור</Category>
+    <Price>69.9</Price>
+    <QuantityInStock>120</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>118</Id>
+    <ProductName>שעווה</ProductName>
+    <Category>מוצרי_כוורת</Category>
+    <Price>90</Price>
+    <QuantityInStock>200</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>119</Id>
     <ProductName>קרם הגנה</ProductName>
     <Category>טיפוח_אישי</Category>
     <Price>70</Price>
-    <QuantityInStock>180</QuantityInStock>
+    <QuantityInStock>177</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>120</Id>
+    <ProductName>דבש</ProductName>
+    <Category>מוצרי_כוורת</Category>
+    <Price>20</Price>
+    <QuantityInStock>296</QuantityInStock>
   </Product>
 </ArrayOfProduct>

@@ -2,15 +2,6 @@
 <ArrayOfSale xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Sale>
     <Code>201</Code>
-    <ProductId>102</ProductId>
-    <MinQuantity>2</MinQuantity>
-    <Price>140</Price>
-    <InClab>false</InClab>
-    <BeginSale>2025-05-02T02:31:33.5002369+03:00</BeginSale>
-    <EndSale>2025-05-08T02:31:33.5002406+03:00</EndSale>
-  </Sale>
-  <Sale>
-    <Code>201</Code>
     <ProductId>104</ProductId>
     <MinQuantity>3</MinQuantity>
     <Price>300</Price>
@@ -143,5 +134,32 @@
     <InClab>true</InClab>
     <BeginSale>2025-05-02T02:46:17.4359326+03:00</BeginSale>
     <EndSale>2025-05-10T02:46:17.4359346+03:00</EndSale>
+  </Sale>
+  <Sale>
+    <Code>202</Code>
+    <ProductId>109</ProductId>
+    <MinQuantity>2</MinQuantity>
+    <Price>60</Price>
+    <InClab>true</InClab>
+    <BeginSale>2025-05-20T22:43:16.2</BeginSale>
+    <EndSale>2025-06-20T22:43:16.193</EndSale>
+  </Sale>
+  <Sale>
+    <Code>203</Code>
+    <ProductId>117</ProductId>
+    <MinQuantity>2</MinQuantity>
+    <Price>129</Price>
+    <InClab>false</InClab>
+    <BeginSale>2025-05-18T23:22:38.867</BeginSale>
+    <EndSale>2025-05-25T23:22:38.861</EndSale>
+  </Sale>
+  <Sale>
+    <Code>204</Code>
+    <ProductId>115</ProductId>
+    <MinQuantity>3</MinQuantity>
+    <Price>199</Price>
+    <InClab>false</InClab>
+    <BeginSale>2025-05-13T23:29:13.9196597+03:00</BeginSale>
+    <EndSale>2025-05-30T23:29:13.914</EndSale>
   </Sale>
 </ArrayOfSale>

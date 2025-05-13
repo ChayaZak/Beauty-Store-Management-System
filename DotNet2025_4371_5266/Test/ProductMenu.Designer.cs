@@ -225,7 +225,7 @@ namespace Test
             btnId.TabIndex = 3;
             btnId.Text = "אישור";
             btnId.UseVisualStyleBackColor = true;
-            btnId.Click += btnId_Click;
+            btnId.Click += btnRead_Click;
             // 
             // textBoxFilter
             // 

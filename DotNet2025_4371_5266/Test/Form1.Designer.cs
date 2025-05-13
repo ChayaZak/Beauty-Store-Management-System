@@ -42,6 +42,7 @@
             btnSales.TabIndex = 5;
             btnSales.Text = "ניהול מבצעים";
             btnSales.UseVisualStyleBackColor = true;
+            btnSales.Click += btnSales_Click;
             // 
             // btnCustomers
             // 
@@ -52,6 +53,7 @@
             btnCustomers.TabIndex = 6;
             btnCustomers.Text = "ניהול לקוחות";
             btnCustomers.UseVisualStyleBackColor = true;
+            btnCustomers.Click += btnCustomers_Click;
             // 
             // btnProducts
             // 

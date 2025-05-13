@@ -32,6 +32,11 @@ namespace UICashier
             //dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
         }
 
+        /// <summary>
+        /// הוספת מוצר להזמנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             List<BO.SaleInProduct> salesInThisProduct = _bl.Order.AddProductToOrder(order, (int)numericUpDownProductId.Value, (int)numericUpDownProductAmount.Value);
@@ -49,8 +54,15 @@ namespace UICashier
                 MessageBox.Show("No sales in this product");
             }
             MessageBox.Show($"Product with ID: {(int)numericUpDownProductId.Value} added to order successfully");
+            numericUpDownProductId.Value = 0;
+            numericUpDownProductAmount.Value = 0;
         }
 
+        /// <summary>
+        /// ביצוע הזמנה
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDoOrder_Click(object sender, EventArgs e)
         {
             _bl.Order.DoOrder(order);

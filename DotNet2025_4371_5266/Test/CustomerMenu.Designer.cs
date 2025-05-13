@@ -1,4 +1,4 @@
-﻿namespace UICashier
+﻿namespace UIManager
 {
     partial class CustomerMenu
     {
@@ -53,6 +53,13 @@
             btnDelete = new Button();
             numericUpDownDelete = new NumericUpDown();
             lblDelete = new Label();
+            tabPageRead = new TabPage();
+            btnFilter = new Button();
+            btnId = new Button();
+            textBoxFilter = new TextBox();
+            numericUpDownId = new NumericUpDown();
+            lblFilter = new Label();
+            lblId = new Label();
             tabControl1.SuspendLayout();
             tabPageCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownCustomerId).BeginInit();
@@ -62,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownCustomerPhoneUpdate).BeginInit();
             tabPageDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDelete).BeginInit();
+            tabPageRead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -69,13 +78,14 @@
             tabControl1.Controls.Add(tabPageCreate);
             tabControl1.Controls.Add(tabPageUpdate);
             tabControl1.Controls.Add(tabPageDelete);
-            tabControl1.Location = new Point(180, 91);
+            tabControl1.Controls.Add(tabPageRead);
+            tabControl1.Location = new Point(180, 51);
             tabControl1.Name = "tabControl1";
             tabControl1.RightToLeft = RightToLeft.Yes;
             tabControl1.RightToLeftLayout = true;
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(441, 596);
-            tabControl1.TabIndex = 1;
+            tabControl1.TabIndex = 2;
             // 
             // tabPageCreate
             // 
@@ -117,7 +127,7 @@
             // lblCustomerId
             // 
             lblCustomerId.AutoSize = true;
-            lblCustomerId.Location = new Point(340, 67);
+            lblCustomerId.Location = new Point(343, 70);
             lblCustomerId.Name = "lblCustomerId";
             lblCustomerId.Size = new Size(64, 15);
             lblCustomerId.TabIndex = 2;
@@ -134,7 +144,7 @@
             // lblPhone
             // 
             lblPhone.AutoSize = true;
-            lblPhone.Location = new Point(353, 218);
+            lblPhone.Location = new Point(356, 221);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(36, 15);
             lblPhone.TabIndex = 2;
@@ -150,7 +160,7 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(340, 165);
+            lblAddress.Location = new Point(343, 168);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(42, 15);
             lblAddress.TabIndex = 0;
@@ -166,7 +176,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(340, 120);
+            lblName.Location = new Point(343, 123);
             lblName.Name = "lblName";
             lblName.Size = new Size(53, 15);
             lblName.TabIndex = 0;
@@ -202,7 +212,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(298, 114);
+            label1.Location = new Point(301, 117);
             label1.Name = "label1";
             label1.Size = new Size(64, 15);
             label1.TabIndex = 9;
@@ -229,7 +239,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(298, 167);
+            label4.Location = new Point(301, 170);
             label4.Name = "label4";
             label4.Size = new Size(53, 15);
             label4.TabIndex = 6;
@@ -238,7 +248,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(311, 265);
+            label2.Location = new Point(314, 268);
             label2.Name = "label2";
             label2.Size = new Size(36, 15);
             label2.TabIndex = 10;
@@ -261,7 +271,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(298, 212);
+            label3.Location = new Point(301, 215);
             label3.Name = "label3";
             label3.Size = new Size(42, 15);
             label3.TabIndex = 5;
@@ -301,18 +311,84 @@
             // lblDelete
             // 
             lblDelete.AutoSize = true;
-            lblDelete.Location = new Point(320, 84);
+            lblDelete.Location = new Point(323, 87);
             lblDelete.Name = "lblDelete";
             lblDelete.Size = new Size(64, 15);
             lblDelete.TabIndex = 0;
             lblDelete.Text = "מזהה לקוח";
-            lblDelete.Click += lblDelete_Click;
+            // 
+            // tabPageRead
+            // 
+            tabPageRead.Controls.Add(btnFilter);
+            tabPageRead.Controls.Add(btnId);
+            tabPageRead.Controls.Add(textBoxFilter);
+            tabPageRead.Controls.Add(numericUpDownId);
+            tabPageRead.Controls.Add(lblFilter);
+            tabPageRead.Controls.Add(lblId);
+            tabPageRead.Location = new Point(4, 24);
+            tabPageRead.Name = "tabPageRead";
+            tabPageRead.Size = new Size(433, 568);
+            tabPageRead.TabIndex = 4;
+            tabPageRead.Text = "קבלת לקוח";
+            tabPageRead.UseVisualStyleBackColor = true;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Location = new Point(207, 350);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 23);
+            btnFilter.TabIndex = 8;
+            btnFilter.Text = "אישור";
+            btnFilter.UseVisualStyleBackColor = true;
+            // 
+            // btnId
+            // 
+            btnId.Location = new Point(207, 191);
+            btnId.Name = "btnId";
+            btnId.Size = new Size(75, 23);
+            btnId.TabIndex = 9;
+            btnId.Text = "אישור";
+            btnId.UseVisualStyleBackColor = true;
+            btnId.Click += btnRead_Click;
+            // 
+            // textBoxFilter
+            // 
+            textBoxFilter.Location = new Point(145, 305);
+            textBoxFilter.Name = "textBoxFilter";
+            textBoxFilter.Size = new Size(100, 23);
+            textBoxFilter.TabIndex = 7;
+            // 
+            // numericUpDownId
+            // 
+            numericUpDownId.Location = new Point(125, 129);
+            numericUpDownId.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownId.Name = "numericUpDownId";
+            numericUpDownId.Size = new Size(120, 23);
+            numericUpDownId.TabIndex = 6;
+            // 
+            // lblFilter
+            // 
+            lblFilter.AutoSize = true;
+            lblFilter.Location = new Point(279, 308);
+            lblFilter.Name = "lblFilter";
+            lblFilter.Size = new Size(64, 15);
+            lblFilter.TabIndex = 4;
+            lblFilter.Text = "תנאי לסינון";
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new Point(279, 131);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(64, 15);
+            lblId.TabIndex = 5;
+            lblId.Text = "מזהה לקוח";
             // 
             // CustomerMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 778);
+            ClientSize = new Size(800, 699);
             Controls.Add(tabControl1);
             Name = "CustomerMenu";
             Text = "CustomerMenu";
@@ -328,6 +404,9 @@
             tabPageDelete.ResumeLayout(false);
             tabPageDelete.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDelete).EndInit();
+            tabPageRead.ResumeLayout(false);
+            tabPageRead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             ResumeLayout(false);
         }
 
@@ -336,27 +415,34 @@
         private TabControl tabControl1;
         private TabPage tabPageCreate;
         private Button btnCreate;
+        private NumericUpDown numericUpDownCustomerId;
+        private Label lblCustomerId;
         private NumericUpDown numericUpDownPhone;
         private Label lblPhone;
+        private TextBox textBoxAddress;
+        private Label lblAddress;
         private TextBox textBoxName;
         private Label lblName;
         private TabPage tabPageUpdate;
-        private Button btnUpdate;
-        private TabPage tabPageDelete;
-        private Button btnDelete;
-        private NumericUpDown numericUpDownDelete;
-        private Label lblDelete;
-        private NumericUpDown numericUpDownCustomerId;
-        private Label lblCustomerId;
-        private TextBox textBoxAddress;
-        private Label lblAddress;
         private NumericUpDown numericUpDownCustomeIdUpdate;
         private Label label1;
+        private Button btnUpdate;
         private NumericUpDown numericUpDownCustomerPhoneUpdate;
         private Label label4;
         private Label label2;
         private TextBox textBoxCustomerNameUpdate;
         private TextBox textBoxCustomeAddressUpdate;
         private Label label3;
+        private TabPage tabPageDelete;
+        private Button btnDelete;
+        private NumericUpDown numericUpDownDelete;
+        private Label lblDelete;
+        private TabPage tabPageRead;
+        private Button btnFilter;
+        private Button btnId;
+        private TextBox textBoxFilter;
+        private NumericUpDown numericUpDownId;
+        private Label lblFilter;
+        private Label lblId;
     }
 }

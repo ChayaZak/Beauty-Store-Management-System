@@ -12,6 +12,11 @@ namespace UICashier
             InitializeComponent();
         }
 
+        /// <summary>
+        /// התחברות לקוח למערכת לפי מזהה לקוח
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoginCustomer_Click(object sender, EventArgs e)
         {
             customer = _bl.Customer.Read((int)numericUpDownCustomerId.Value);
@@ -25,14 +30,25 @@ namespace UICashier
             {
                 MessageBox.Show("Customer not found");
             }
+            numericUpDownCustomerId.Value = 0;
         }
 
+        /// <summary>
+        /// הוספת לקוח
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreateCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();
             customerMenu.ShowDialog();
         }
 
+        /// <summary>
+        /// עדכון לקוח
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();
@@ -40,6 +56,11 @@ namespace UICashier
             customerMenu.ShowDialog();
         }
 
+        /// <summary>
+        /// מחיקת לקוח
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();

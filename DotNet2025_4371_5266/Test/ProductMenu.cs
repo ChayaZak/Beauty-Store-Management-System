@@ -22,6 +22,11 @@ namespace Test
             InitializeComponent();
         }
 
+        /// <summary>
+        /// הוספת מוצר
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
             Category c;
@@ -36,7 +41,12 @@ namespace Test
 
         }
 
-        private void btnId_Click(object sender, EventArgs e)
+        /// <summary>
+        /// קבלת מוצר
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRead_Click(object sender, EventArgs e)
         {
             Product? p = _bl.Product.Read((int)numericUpDownId.Value);
             if (p != null)
@@ -47,8 +57,14 @@ namespace Test
             {
                 MessageBox.Show("Product not found");
             }
+            numericUpDownId.Value = 0;
         }
 
+        /// <summary>
+        /// עדכון מוצר
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Category c;
@@ -56,12 +72,19 @@ namespace Test
             BO.Product product = new BO.Product((int)numericUpDownIdUpdate.Value, textBoxNameUpdate.Text, c, (double)numericUpDownPriceUpdate.Value, (int)numericUpDownAmountUpdate.Value);
             _bl.Product.Update(product);
             MessageBox.Show("Product updated successfully");
+            comboBoxCategoryUpdate.Items.Clear();
         }
 
+        /// <summary>
+        /// מחיקת מוצר
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             _bl.Product.Delete((int)numericUpDownDelete.Value);
             MessageBox.Show("Product deleted successfully");
+            numericUpDownDelete.Value = 0;
         }
     }
 }

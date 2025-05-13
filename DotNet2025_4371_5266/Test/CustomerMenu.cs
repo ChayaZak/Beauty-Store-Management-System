@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UICashier
+namespace UIManager
 {
     public partial class CustomerMenu : Form
     {
@@ -17,14 +17,6 @@ namespace UICashier
         public CustomerMenu()
         {
             InitializeComponent();
-        }
-
-        public void SelectTab(int tabIndex)
-        {
-            if (tabIndex >= 0 && tabIndex < tabControl1.TabCount)
-            {
-                tabControl1.SelectedIndex = tabIndex;
-            }
         }
 
         /// <summary>
@@ -50,11 +42,11 @@ namespace UICashier
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             _bl.Customer.Update(new BO.Customer((int)numericUpDownCustomeIdUpdate.Value, textBoxCustomerNameUpdate.Text, textBoxCustomeAddressUpdate.Text, (int)numericUpDownCustomerPhoneUpdate.Value));
-            MessageBox.Show($"Customer updated successfully with ID: {(int)numericUpDownCustomeIdUpdate.Value}");
-            numericUpDownCustomeIdUpdate.Value = 0;
-            textBoxCustomerNameUpdate.Text = string.Empty;
-            textBoxCustomeAddressUpdate.Text = string.Empty;
-            numericUpDownCustomerPhoneUpdate.Value = 0;
+            MessageBox.Show($"Customer updateed successfully with ID: {numericUpDownCustomeIdUpdate.Value}");
+            numericUpDownCustomerId.Value = 0;
+            textBoxName.Text = string.Empty;
+            textBoxAddress.Text = string.Empty;
+            numericUpDownPhone.Value = 0;
         }
 
         /// <summary>
@@ -69,9 +61,17 @@ namespace UICashier
             numericUpDownDelete.Value = 0;
         }
 
-        private void lblDelete_Click(object sender, EventArgs e)
+        /// <summary>
+        /// קבלת לקוח
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRead_Click(object sender, EventArgs e)
         {
-
+            BO.Customer? customer = new BO.Customer();
+            customer = _bl.Customer.Read((int)numericUpDownId.Value);
+            MessageBox.Show(customer.ToString());
+            numericUpDownId.Value = 0;
         }
     }
 }

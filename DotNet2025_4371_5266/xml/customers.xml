@@ -25,12 +25,6 @@
     <Phone>89741004</Phone>
   </Customer>
   <Customer>
-    <Id>123</Id>
-    <Name>מאיה</Name>
-    <Address>מאיה@a.com</Address>
-    <Phone>521234567</Phone>
-  </Customer>
-  <Customer>
     <Id>244</Id>
     <Name>רוני</Name>
     <Address>רוני@a.com</Address>
@@ -95,5 +89,17 @@
     <Name>שרה</Name>
     <Address>קרית ספר</Address>
     <Phone>89741004</Phone>
+  </Customer>
+  <Customer>
+    <Id>150</Id>
+    <Name>בבסב</Name>
+    <Address>גכג</Address>
+    <Phone>0</Phone>
+  </Customer>
+  <Customer>
+    <Id>15393093</Id>
+    <Name>אבא</Name>
+    <Address>רשבי</Address>
+    <Phone>527619147</Phone>
   </Customer>
 </ArrayOfCustomer>
