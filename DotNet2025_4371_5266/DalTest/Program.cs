@@ -1,8 +1,5 @@
-﻿using Dal;
-using DalApi;
+﻿using DalApi;
 using DO;
-using System.Data.Common;
-using System.Xml;
 using System.Reflection;
 using Tools;
 
@@ -240,7 +237,7 @@ namespace DalTest
             string address;
             int phone;
             Console.WriteLine("הכנס ת.ז.");
-            if(!int.TryParse(Console.ReadLine(), out id)) id = 0;
+            if (!int.TryParse(Console.ReadLine(), out id)) id = 0;
             Console.WriteLine("הכנס שם לקוח");
             customerName = Console.ReadLine();
             Console.WriteLine("הכנס כתובת");
@@ -249,7 +246,7 @@ namespace DalTest
             if (!int.TryParse(Console.ReadLine(), out phone)) phone = 0;
             Customer c = new Customer(id, customerName, address, phone);
             int code = s_dal.Customer.Create(c);
-            
+
             Console.WriteLine($"הלקוח {code} נוצר בהצלחה");
             Console.WriteLine(c);
         }
@@ -331,7 +328,7 @@ namespace DalTest
             Console.WriteLine("הפריט נמחק בהצלחה");
         }
 
-      
+
 
         /// <summary>
         /// מעדכן מוצר קיים.
@@ -457,7 +454,7 @@ namespace DalTest
             Console.WriteLine("האם במועדון?");
             if (!bool.TryParse(Console.ReadLine(), out inClob)) inClob = false;
 
-            
+
             Console.WriteLine("הכנס תאריך התחלה");
             if (!DateTime.TryParse(Console.ReadLine(), out beginSale)) beginSale = DateTime.Now;
 
@@ -492,7 +489,7 @@ namespace DalTest
                     return DO.Category.מוצרי_כוורת;
                 default:
                     throw new dal_InvalidMenu($"קטגוריה לא חוקית {cat}");
-                    
+
             }
         }
     }

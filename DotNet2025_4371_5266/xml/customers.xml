@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer>
   <Customer>
     <Id>327824371</Id>
@@ -101,5 +101,11 @@
     <Name>אבא</Name>
     <Address>רשבי</Address>
     <Phone>527619147</Phone>
+  </Customer>
+  <Customer>
+    <Id>36502011</Id>
+    <Name>אמא</Name>
+    <Address>רשבי</Address>
+    <Phone>9999</Phone>
   </Customer>
 </ArrayOfCustomer>

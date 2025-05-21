@@ -1,6 +1,5 @@
-﻿using DO;
-using DalApi;
-using System.Runtime.InteropServices;
+﻿using DalApi;
+using DO;
 using System.Reflection;
 using Tools;
 namespace DalTest;
@@ -10,7 +9,7 @@ namespace DalTest;
 /// </summary>
 public static class Initialization
 {
-   static string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
+    static string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
 
     private static IDal? s_dal;
 

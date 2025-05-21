@@ -19,10 +19,19 @@ namespace UICashier
         public static BO.Customer? customer;
         private IOrder _order;
         private Order order = new Order();
+        public string? name { get; set; }
         public ProductsRead()
         {
             InitializeComponent();
 
+            dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
+
+        }
+        public ProductsRead(string? name)
+        {
+            InitializeComponent();
+            name = name ?? string.Empty;
+            lblHelloCustomer.Text= $"שלום {name}";
             dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
 
         }

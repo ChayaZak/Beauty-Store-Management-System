@@ -1,4 +1,4 @@
-namespace UIManager
+namespace UI_Login
 {
     internal static class Program
     {
@@ -10,7 +10,7 @@ namespace UIManager
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            UIManager.ApplicationConfiguration.Initialize();
+            ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
     }

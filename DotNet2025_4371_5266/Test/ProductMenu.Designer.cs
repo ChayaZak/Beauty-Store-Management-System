@@ -1,6 +1,6 @@
 ﻿using BlApi;
 
-namespace Test
+namespace UIManager
 {
     partial class ProductMenu
     {

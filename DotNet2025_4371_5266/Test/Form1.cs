@@ -1,12 +1,23 @@
-using UIManager;
 
-namespace Test
+namespace UIManager
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// שם המנהל
+        /// </summary>
+        public string? name { get; set; }
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public Form1(string? name)
+        {
+            InitializeComponent();
+            lblHelloManager.Text = name;
+            lblHelloManager.Text = $"שלום {name}!";
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
@@ -26,5 +37,6 @@ namespace Test
             SaleMenu saleMenu = new SaleMenu();
             saleMenu.Show();
         }
+
     }
 }

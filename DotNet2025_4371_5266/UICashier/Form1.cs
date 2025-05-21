@@ -7,9 +7,17 @@ namespace UICashier
     {
         private static IBl _bl = BlApi.Factory.Get();
         public static Customer? customer;
+        public string? name { get; set; }
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public Form1(string? name)
+        {
+            InitializeComponent();
+            name = name ?? string.Empty;
+            lblHelloCashier.Text = $"чефай: {name}";
         }
 
         /// <summary>
@@ -19,18 +27,17 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnLoginCustomer_Click(object sender, EventArgs e)
         {
-            customer = _bl.Customer.Read((int)numericUpDownCustomerId.Value);
+            customer = _bl.Customer.Read(int.Parse(textBoxCustomerId.Text));
             if (customer != null)
             {
-                MessageBox.Show($"Welcome {customer.Name}");
-                ProductsRead products = new ProductsRead();
+                ProductsRead products = new ProductsRead(customer.Name);
                 products.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Customer not found");
+                MessageBox.Show("Customer not exist");
             }
-            numericUpDownCustomerId.Value = 0;
+            textBoxCustomerId.Text = string.Empty;
         }
 
         /// <summary>
@@ -64,6 +71,7 @@ namespace UICashier
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();
+            //customerMenu.numericUpDownCustomeIdUpdate.Value = (int)textBoxCustomerId.Value;
             customerMenu.SelectTab(2);
             customerMenu.ShowDialog();
         }

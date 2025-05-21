@@ -35,6 +35,7 @@
             numericUpDownProductAmount = new NumericUpDown();
             btnAddToOrder = new Button();
             btnDoOrder = new Button();
+            lblHelloCustomer = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductAmount).BeginInit();
@@ -102,11 +103,22 @@
             btnDoOrder.UseVisualStyleBackColor = true;
             btnDoOrder.Click += btnDoOrder_Click;
             // 
+            // lblHelloCustomer
+            // 
+            lblHelloCustomer.AutoSize = true;
+            lblHelloCustomer.Font = new Font("Assistant", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHelloCustomer.ForeColor = Color.Coral;
+            lblHelloCustomer.Location = new Point(58, 9);
+            lblHelloCustomer.Name = "lblHelloCustomer";
+            lblHelloCustomer.Size = new Size(0, 17);
+            lblHelloCustomer.TabIndex = 10;
+            // 
             // ProductsRead
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 884);
+            Controls.Add(lblHelloCustomer);
             Controls.Add(btnDoOrder);
             Controls.Add(btnAddToOrder);
             Controls.Add(numericUpDownProductAmount);
@@ -133,5 +145,6 @@
         private NumericUpDown numericUpDownProductAmount;
         private Button btnAddToOrder;
         private Button btnDoOrder;
+        private Label lblHelloCustomer;
     }
 }

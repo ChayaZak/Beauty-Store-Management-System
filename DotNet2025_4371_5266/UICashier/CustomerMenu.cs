@@ -1,13 +1,5 @@
-﻿using BlApi;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UICashier
 {
@@ -34,12 +26,12 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            int id = _bl.Customer.Create(new BO.Customer((int)numericUpDownCustomerId.Value, textBoxName.Text, textBoxAddress.Text, (int)numericUpDownPhone.Value));
+            int id = _bl.Customer.Create(new BO.Customer(int.Parse(textBoxCustomerId.Text), textBoxName.Text, textBoxAddress.Text, int.Parse(textBoxCustomerPhone.Text)));
             MessageBox.Show($"Customer created successfully with ID: {id}");
-            numericUpDownCustomerId.Value = 0;
+            textBoxCustomerId.Text=string.Empty;
             textBoxName.Text = string.Empty;
             textBoxAddress.Text = string.Empty;
-            numericUpDownPhone.Value = 0;
+            textBoxCustomerPhone.Text = string.Empty;
         }
 
         /// <summary>
@@ -49,12 +41,12 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _bl.Customer.Update(new BO.Customer((int)numericUpDownCustomeIdUpdate.Value, textBoxCustomerNameUpdate.Text, textBoxCustomeAddressUpdate.Text, (int)numericUpDownCustomerPhoneUpdate.Value));
-            MessageBox.Show($"Customer updated successfully with ID: {(int)numericUpDownCustomeIdUpdate.Value}");
-            numericUpDownCustomeIdUpdate.Value = 0;
+            _bl.Customer.Update(new BO.Customer(int.Parse(textBoxCustomerIdUpdate.Text), textBoxCustomerNameUpdate.Text, textBoxCustomeAddressUpdate.Text, int.Parse(textBoxCustomerPhoneUpdate.Text)));
+            MessageBox.Show($"Customer updated successfully with ID: {int.Parse(textBoxCustomerIdUpdate.Text)}");
+            textBoxCustomerIdUpdate.Text = string.Empty;
             textBoxCustomerNameUpdate.Text = string.Empty;
             textBoxCustomeAddressUpdate.Text = string.Empty;
-            numericUpDownCustomerPhoneUpdate.Value = 0;
+            textBoxCustomerPhoneUpdate.Text = string.Empty;
         }
 
         /// <summary>
@@ -64,12 +56,17 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            _bl.Customer.Delete((int)numericUpDownDelete.Value);
-            MessageBox.Show($"Customer deleted successfully with ID: {(int)numericUpDownDelete.Value}");
-            numericUpDownDelete.Value = 0;
+            _bl.Customer.Delete(int.Parse(textBoxDelete.Text));
+            MessageBox.Show($"Customer deleted successfully with ID: {int.Parse(textBoxDelete.Text)}");
+            textBoxDelete.Text = string.Empty;
         }
 
         private void lblDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomerMenu_Load(object sender, EventArgs e)
         {
 
         }

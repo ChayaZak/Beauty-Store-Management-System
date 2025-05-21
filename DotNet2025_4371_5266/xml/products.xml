@@ -85,10 +85,10 @@
     <QuantityInStock>177</QuantityInStock>
   </Product>
   <Product>
-    <Id>120</Id>
+    <Id>121</Id>
     <ProductName>דבש</ProductName>
     <Category>מוצרי_כוורת</Category>
     <Price>20</Price>
-    <QuantityInStock>296</QuantityInStock>
+    <QuantityInStock>216</QuantityInStock>
   </Product>
 </ArrayOfProduct>
