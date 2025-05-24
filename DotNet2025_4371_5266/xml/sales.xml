@@ -2,24 +2,6 @@
 <ArrayOfSale xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Sale>
     <Code>201</Code>
-    <ProductId>104</ProductId>
-    <MinQuantity>3</MinQuantity>
-    <Price>300</Price>
-    <InClab>true</InClab>
-    <BeginSale>2025-05-02T02:31:33.5071925+03:00</BeginSale>
-    <EndSale>2025-05-10T02:31:33.5071968+03:00</EndSale>
-  </Sale>
-  <Sale>
-    <Code>201</Code>
-    <ProductId>100</ProductId>
-    <MinQuantity>3</MinQuantity>
-    <Price>100</Price>
-    <InClab>false</InClab>
-    <BeginSale>2025-05-02T02:31:33.5165608+03:00</BeginSale>
-    <EndSale>2025-05-10T02:31:33.5165646+03:00</EndSale>
-  </Sale>
-  <Sale>
-    <Code>201</Code>
     <ProductId>100</ProductId>
     <MinQuantity>5</MinQuantity>
     <Price>150</Price>
@@ -163,12 +145,48 @@
     <EndSale>2025-05-30T23:29:13.914</EndSale>
   </Sale>
   <Sale>
-    <Code>205</Code>
-    <ProductId>0</ProductId>
-    <MinQuantity>0</MinQuantity>
-    <Price>0</Price>
+    <Code>206</Code>
+    <ProductId>119</ProductId>
+    <MinQuantity>1</MinQuantity>
+    <Price>60</Price>
+    <InClab>true</InClab>
+    <BeginSale>2025-05-22T15:29:47.7306259+03:00</BeginSale>
+    <EndSale>2025-07-22T15:29:47.715</EndSale>
+  </Sale>
+  <Sale>
+    <Code>207</Code>
+    <ProductId>122</ProductId>
+    <MinQuantity>1</MinQuantity>
+    <Price>61</Price>
     <InClab>false</InClab>
-    <BeginSale>2025-05-22T02:28:18.1552401+03:00</BeginSale>
-    <EndSale>2025-05-22T02:28:18.1418972+03:00</EndSale>
+    <BeginSale>2025-05-22T15:32:54.6286924+03:00</BeginSale>
+    <EndSale>2025-06-22T15:32:54.625</EndSale>
+  </Sale>
+  <Sale>
+    <Code>216</Code>
+    <ProductId>122</ProductId>
+    <MinQuantity>1</MinQuantity>
+    <Price>15</Price>
+    <InClab>false</InClab>
+    <BeginSale>2025-05-24T23:34:43.5649589+03:00</BeginSale>
+    <EndSale>2025-05-31T23:35:16.427</EndSale>
+  </Sale>
+  <Sale>
+    <Code>217</Code>
+    <ProductId>101</ProductId>
+    <MinQuantity>3</MinQuantity>
+    <Price>225</Price>
+    <InClab>false</InClab>
+    <BeginSale>2025-06-01T23:36:56.803</BeginSale>
+    <EndSale>2025-06-30T23:36:56.791</EndSale>
+  </Sale>
+  <Sale>
+    <Code>218</Code>
+    <ProductId>116</ProductId>
+    <MinQuantity>3</MinQuantity>
+    <Price>69</Price>
+    <InClab>true</InClab>
+    <BeginSale>2025-06-08T23:40:17.662</BeginSale>
+    <EndSale>2025-07-20T23:40:17.659</EndSale>
   </Sale>
 </ArrayOfSale>

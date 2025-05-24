@@ -5,16 +5,16 @@ using System.Reflection;
 using Tools;
 
 /// <summary>
-/// מימוש של ממשק ISale לניהול מבצעים.
+/// מימוש של ממשק ISale לניהול מבצעים
 /// </summary>
 internal class SaleImplementation : ISale
 {
     string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
     /// <summary>
-    /// יוצר מבצע חדש.
+    /// יוצר מבצע חדש
     /// </summary>
-    /// <param name="item">פריט המבצע ליצירה.</param>
-    /// <returns>קוד המבצע שנוצר.</returns>
+    /// <param name="item">פריט המבצע ליצירה</param>
+    /// <returns>קוד המבצע שנוצר</returns>
     public int Create(Sale item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -35,7 +35,7 @@ internal class SaleImplementation : ISale
     }
 
     /// <summary>
-    /// קורא מבצע לפי מזהה.
+    /// קורא מבצע לפי מזהה
     /// </summary>
     /// <param name="Id">מזהה המבצע לקריאה.</param>
     /// <returns>המבצע עם המזהה הנתון, או null אם לא נמצא.</returns>
@@ -79,7 +79,7 @@ internal class SaleImplementation : ISale
     /// <summary>
     /// מעדכן מבצע קיים.
     /// </summary>
-    /// <param name="item">פריט המבצע לעדכון.</param>
+    /// <param name="item">פריט המבצע לעדכון</param>
     public void Update(Sale item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -90,7 +90,7 @@ internal class SaleImplementation : ISale
     }
 
     /// <summary>
-    /// מוחק מבצע לפי מזהה.
+    /// מוחק מבצע לפי מזהה
     /// </summary>
     /// <param name="id">מזהה המבצע למחיקה.</param>
     public void Delete(int id)
@@ -99,7 +99,7 @@ internal class SaleImplementation : ISale
         try
         {
             LogManager.Log(projectName, funcName, $"Deleting sale with ID: {id}");
-            Sale s= Read(id);
+            Sale? s= Read(id);
             DataSource.Sales.Remove(s);
             LogManager.Log(projectName, funcName, $"Sale deleted with ID: {id}");
         }

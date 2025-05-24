@@ -30,47 +30,41 @@
         {
             tabControl1 = new TabControl();
             tabPageCreate = new TabPage();
+            textBoxPhone = new TextBox();
+            textBoxCustomerId = new TextBox();
             btnCreate = new Button();
-            numericUpDownCustomerId = new NumericUpDown();
             lblCustomerId = new Label();
-            numericUpDownPhone = new NumericUpDown();
             lblPhone = new Label();
             textBoxAddress = new TextBox();
             lblAddress = new Label();
             textBoxName = new TextBox();
             lblName = new Label();
             tabPageUpdate = new TabPage();
-            numericUpDownCustomeIdUpdate = new NumericUpDown();
+            textBoxCustomerPhoneUpdate = new TextBox();
+            textBoxCustomeIdUpdate = new TextBox();
             label1 = new Label();
             btnUpdate = new Button();
-            numericUpDownCustomerPhoneUpdate = new NumericUpDown();
             label4 = new Label();
             label2 = new Label();
             textBoxCustomerNameUpdate = new TextBox();
             textBoxCustomeAddressUpdate = new TextBox();
             label3 = new Label();
             tabPageDelete = new TabPage();
+            textBoxDelete = new TextBox();
             btnDelete = new Button();
-            numericUpDownDelete = new NumericUpDown();
             lblDelete = new Label();
             tabPageRead = new TabPage();
+            textBoxCustomerIdRead = new TextBox();
             btnFilter = new Button();
             btnId = new Button();
             textBoxFilter = new TextBox();
-            numericUpDownId = new NumericUpDown();
             lblFilter = new Label();
             lblId = new Label();
             tabControl1.SuspendLayout();
             tabPageCreate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownCustomerId).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownPhone).BeginInit();
             tabPageUpdate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownCustomeIdUpdate).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownCustomerPhoneUpdate).BeginInit();
             tabPageDelete.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownDelete).BeginInit();
             tabPageRead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -89,10 +83,10 @@
             // 
             // tabPageCreate
             // 
+            tabPageCreate.Controls.Add(textBoxPhone);
+            tabPageCreate.Controls.Add(textBoxCustomerId);
             tabPageCreate.Controls.Add(btnCreate);
-            tabPageCreate.Controls.Add(numericUpDownCustomerId);
             tabPageCreate.Controls.Add(lblCustomerId);
-            tabPageCreate.Controls.Add(numericUpDownPhone);
             tabPageCreate.Controls.Add(lblPhone);
             tabPageCreate.Controls.Add(textBoxAddress);
             tabPageCreate.Controls.Add(lblAddress);
@@ -106,6 +100,20 @@
             tabPageCreate.Text = "הוספת לקוח";
             tabPageCreate.UseVisualStyleBackColor = true;
             // 
+            // textBoxPhone
+            // 
+            textBoxPhone.Location = new Point(218, 218);
+            textBoxPhone.Name = "textBoxPhone";
+            textBoxPhone.Size = new Size(100, 23);
+            textBoxPhone.TabIndex = 6;
+            // 
+            // textBoxCustomerId
+            // 
+            textBoxCustomerId.Location = new Point(218, 62);
+            textBoxCustomerId.Name = "textBoxCustomerId";
+            textBoxCustomerId.Size = new Size(100, 23);
+            textBoxCustomerId.TabIndex = 6;
+            // 
             // btnCreate
             // 
             btnCreate.Location = new Point(197, 317);
@@ -116,14 +124,6 @@
             btnCreate.UseVisualStyleBackColor = true;
             btnCreate.Click += btnCreate_Click;
             // 
-            // numericUpDownCustomerId
-            // 
-            numericUpDownCustomerId.Location = new Point(197, 65);
-            numericUpDownCustomerId.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            numericUpDownCustomerId.Name = "numericUpDownCustomerId";
-            numericUpDownCustomerId.Size = new Size(120, 23);
-            numericUpDownCustomerId.TabIndex = 4;
-            // 
             // lblCustomerId
             // 
             lblCustomerId.AutoSize = true;
@@ -132,14 +132,6 @@
             lblCustomerId.Size = new Size(64, 15);
             lblCustomerId.TabIndex = 2;
             lblCustomerId.Text = "מזהה לקוח";
-            // 
-            // numericUpDownPhone
-            // 
-            numericUpDownPhone.Location = new Point(209, 216);
-            numericUpDownPhone.Maximum = new decimal(new int[] { 1410065407, 2, 0, 0 });
-            numericUpDownPhone.Name = "numericUpDownPhone";
-            numericUpDownPhone.Size = new Size(120, 23);
-            numericUpDownPhone.TabIndex = 4;
             // 
             // lblPhone
             // 
@@ -184,10 +176,10 @@
             // 
             // tabPageUpdate
             // 
-            tabPageUpdate.Controls.Add(numericUpDownCustomeIdUpdate);
+            tabPageUpdate.Controls.Add(textBoxCustomerPhoneUpdate);
+            tabPageUpdate.Controls.Add(textBoxCustomeIdUpdate);
             tabPageUpdate.Controls.Add(label1);
             tabPageUpdate.Controls.Add(btnUpdate);
-            tabPageUpdate.Controls.Add(numericUpDownCustomerPhoneUpdate);
             tabPageUpdate.Controls.Add(label4);
             tabPageUpdate.Controls.Add(label2);
             tabPageUpdate.Controls.Add(textBoxCustomerNameUpdate);
@@ -201,13 +193,19 @@
             tabPageUpdate.Text = "עדכון לקוח";
             tabPageUpdate.UseVisualStyleBackColor = true;
             // 
-            // numericUpDownCustomeIdUpdate
+            // textBoxCustomerPhoneUpdate
             // 
-            numericUpDownCustomeIdUpdate.Location = new Point(155, 112);
-            numericUpDownCustomeIdUpdate.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            numericUpDownCustomeIdUpdate.Name = "numericUpDownCustomeIdUpdate";
-            numericUpDownCustomeIdUpdate.Size = new Size(120, 23);
-            numericUpDownCustomeIdUpdate.TabIndex = 11;
+            textBoxCustomerPhoneUpdate.Location = new Point(176, 268);
+            textBoxCustomerPhoneUpdate.Name = "textBoxCustomerPhoneUpdate";
+            textBoxCustomerPhoneUpdate.Size = new Size(100, 23);
+            textBoxCustomerPhoneUpdate.TabIndex = 13;
+            // 
+            // textBoxCustomeIdUpdate
+            // 
+            textBoxCustomeIdUpdate.Location = new Point(176, 114);
+            textBoxCustomeIdUpdate.Name = "textBoxCustomeIdUpdate";
+            textBoxCustomeIdUpdate.Size = new Size(100, 23);
+            textBoxCustomeIdUpdate.TabIndex = 13;
             // 
             // label1
             // 
@@ -227,14 +225,6 @@
             btnUpdate.Text = "עדכון";
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
-            // 
-            // numericUpDownCustomerPhoneUpdate
-            // 
-            numericUpDownCustomerPhoneUpdate.Location = new Point(167, 263);
-            numericUpDownCustomerPhoneUpdate.Maximum = new decimal(new int[] { 1410065407, 2, 0, 0 });
-            numericUpDownCustomerPhoneUpdate.Name = "numericUpDownCustomerPhoneUpdate";
-            numericUpDownCustomerPhoneUpdate.Size = new Size(120, 23);
-            numericUpDownCustomerPhoneUpdate.TabIndex = 12;
             // 
             // label4
             // 
@@ -279,8 +269,8 @@
             // 
             // tabPageDelete
             // 
+            tabPageDelete.Controls.Add(textBoxDelete);
             tabPageDelete.Controls.Add(btnDelete);
-            tabPageDelete.Controls.Add(numericUpDownDelete);
             tabPageDelete.Controls.Add(lblDelete);
             tabPageDelete.Location = new Point(4, 24);
             tabPageDelete.Name = "tabPageDelete";
@@ -289,6 +279,13 @@
             tabPageDelete.TabIndex = 3;
             tabPageDelete.Text = "מחיקת לקוח";
             tabPageDelete.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDelete
+            // 
+            textBoxDelete.Location = new Point(197, 87);
+            textBoxDelete.Name = "textBoxDelete";
+            textBoxDelete.Size = new Size(100, 23);
+            textBoxDelete.TabIndex = 14;
             // 
             // btnDelete
             // 
@@ -299,14 +296,6 @@
             btnDelete.Text = "מחיקה";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
-            // 
-            // numericUpDownDelete
-            // 
-            numericUpDownDelete.Location = new Point(177, 81);
-            numericUpDownDelete.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            numericUpDownDelete.Name = "numericUpDownDelete";
-            numericUpDownDelete.Size = new Size(120, 23);
-            numericUpDownDelete.TabIndex = 1;
             // 
             // lblDelete
             // 
@@ -319,10 +308,10 @@
             // 
             // tabPageRead
             // 
+            tabPageRead.Controls.Add(textBoxCustomerIdRead);
             tabPageRead.Controls.Add(btnFilter);
             tabPageRead.Controls.Add(btnId);
             tabPageRead.Controls.Add(textBoxFilter);
-            tabPageRead.Controls.Add(numericUpDownId);
             tabPageRead.Controls.Add(lblFilter);
             tabPageRead.Controls.Add(lblId);
             tabPageRead.Location = new Point(4, 24);
@@ -331,6 +320,13 @@
             tabPageRead.TabIndex = 4;
             tabPageRead.Text = "קבלת לקוח";
             tabPageRead.UseVisualStyleBackColor = true;
+            // 
+            // textBoxCustomerIdRead
+            // 
+            textBoxCustomerIdRead.Location = new Point(158, 128);
+            textBoxCustomerIdRead.Name = "textBoxCustomerIdRead";
+            textBoxCustomerIdRead.Size = new Size(100, 23);
+            textBoxCustomerIdRead.TabIndex = 15;
             // 
             // btnFilter
             // 
@@ -357,14 +353,6 @@
             textBoxFilter.Name = "textBoxFilter";
             textBoxFilter.Size = new Size(100, 23);
             textBoxFilter.TabIndex = 7;
-            // 
-            // numericUpDownId
-            // 
-            numericUpDownId.Location = new Point(125, 129);
-            numericUpDownId.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-            numericUpDownId.Name = "numericUpDownId";
-            numericUpDownId.Size = new Size(120, 23);
-            numericUpDownId.TabIndex = 6;
             // 
             // lblFilter
             // 
@@ -395,18 +383,12 @@
             tabControl1.ResumeLayout(false);
             tabPageCreate.ResumeLayout(false);
             tabPageCreate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownCustomerId).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownPhone).EndInit();
             tabPageUpdate.ResumeLayout(false);
             tabPageUpdate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownCustomeIdUpdate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownCustomerPhoneUpdate).EndInit();
             tabPageDelete.ResumeLayout(false);
             tabPageDelete.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownDelete).EndInit();
             tabPageRead.ResumeLayout(false);
             tabPageRead.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             ResumeLayout(false);
         }
 
@@ -415,19 +397,15 @@
         private TabControl tabControl1;
         private TabPage tabPageCreate;
         private Button btnCreate;
-        private NumericUpDown numericUpDownCustomerId;
         private Label lblCustomerId;
-        private NumericUpDown numericUpDownPhone;
         private Label lblPhone;
         private TextBox textBoxAddress;
         private Label lblAddress;
         private TextBox textBoxName;
         private Label lblName;
         private TabPage tabPageUpdate;
-        private NumericUpDown numericUpDownCustomeIdUpdate;
         private Label label1;
         private Button btnUpdate;
-        private NumericUpDown numericUpDownCustomerPhoneUpdate;
         private Label label4;
         private Label label2;
         private TextBox textBoxCustomerNameUpdate;
@@ -435,14 +413,18 @@
         private Label label3;
         private TabPage tabPageDelete;
         private Button btnDelete;
-        private NumericUpDown numericUpDownDelete;
         private Label lblDelete;
         private TabPage tabPageRead;
         private Button btnFilter;
         private Button btnId;
         private TextBox textBoxFilter;
-        private NumericUpDown numericUpDownId;
         private Label lblFilter;
         private Label lblId;
+        private TextBox textBoxPhone;
+        private TextBox textBoxCustomerId;
+        private TextBox textBoxCustomerPhoneUpdate;
+        private TextBox textBoxCustomeIdUpdate;
+        private TextBox textBoxDelete;
+        private TextBox textBoxCustomerIdRead;
     }
 }

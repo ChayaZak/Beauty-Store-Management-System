@@ -1,12 +1,11 @@
 ﻿namespace Dal;
-using DO;
 using DalApi;
+using DO;
 using System.Reflection;
 using Tools;
-using System.Runtime.InteropServices;
 
 /// <summary>
-/// מימוש של ממשק IProduct לניהול מוצרים.
+/// מימוש של ממשק IProduct לניהול מוצרים
 /// </summary>
 internal class ProductImplementation : IProduct
 {
@@ -15,7 +14,7 @@ internal class ProductImplementation : IProduct
     /// יוצר מוצר חדש
     /// </summary>
     /// <param name="item">הוספת מוצר</param>
-    /// <returns>קוד המוצר שנוצר.</returns>
+    /// <returns>קוד המוצר שנוצר</returns>
     public int Create(Product item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -37,7 +36,7 @@ internal class ProductImplementation : IProduct
     }
 
     /// <summary>
-    /// קורא מוצר לפי מזהה.
+    /// קורא מוצר לפי מזהה
     /// </summary>
     /// <param name="Id">מזהה המוצר לקריאה.</param>
     /// <returns>המוצר עם המזהה הנתון, או null אם לא נמצא.</returns>
@@ -46,7 +45,7 @@ internal class ProductImplementation : IProduct
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, $"Reading product with ID: {Id}");
         Product? product = DataSource.Products.FirstOrDefault(p => p.Id == Id);
-        if (product!=null)
+        if (product != null)
         {
             LogManager.Log(projectName, funcName, $"Product found with ID: {Id}");
             return product;
@@ -75,11 +74,11 @@ internal class ProductImplementation : IProduct
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
         LogManager.Log(projectName, funcName, $"Reading all products");
-        return filter!=null ? DataSource.Products.Where(filter).ToList() : DataSource.Products;
+        return filter != null ? DataSource.Products.Where(filter).ToList() : DataSource.Products;
     }
 
     /// <summary>
-    /// מעדכן מוצר קיים.
+    /// מעדכן מוצר קיים
     /// </summary>
     /// <param name="item">פריט המוצר לעדכון.</param>
     public void Update(Product item)

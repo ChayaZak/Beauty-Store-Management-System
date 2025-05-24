@@ -1,15 +1,6 @@
-﻿using BlApi;
-using BO;
-using DO;
+﻿using BO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UICashier
 {
@@ -17,7 +8,6 @@ namespace UICashier
     {
         private static BlApi.IBl _bl = BlApi.Factory.Get();
         public static BO.Customer? customer;
-        private IOrder _order;
         private Order order = new Order();
         public string? name { get; set; }
         public ProductsRead()
@@ -31,7 +21,7 @@ namespace UICashier
         {
             InitializeComponent();
             name = name ?? string.Empty;
-            lblHelloCustomer.Text= $"שלום {name}";
+            lblHelloCustomer.Text = $"שלום {name}";
             dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
 
         }
@@ -78,8 +68,8 @@ namespace UICashier
             MessageBox.Show($"Order finished successfully");
         }
 
-        
-        
+
+
 
     }
 }

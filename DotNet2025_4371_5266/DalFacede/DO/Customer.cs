@@ -14,5 +14,3 @@ public record Customer(int Id, string Name, string? Address, int Phone)
 
     }
 }
-
-

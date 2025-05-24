@@ -5,15 +5,15 @@ using System.Reflection;
 using Tools;
 
 /// <summary>
-/// מימוש של ממשק ICustomer לניהול לקוחות.
+/// מימוש של ממשק ICustomer לניהול לקוחות
 /// </summary>
 internal class CustomerImplementation : ICustomer
 {
     private string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
     /// <summary>
-    /// יוצר לקוח חדש.
+    /// יוצר לקוח חדש
     /// </summary>
-    /// <param name="item">פריט הלקוח ליצירה.</param>
+    /// <param name="item">פריט הלקוח ליצירה</param>
     /// <returns>קוד הלקוח שנוצר.</returns>
     public int Create(Customer item)
     {

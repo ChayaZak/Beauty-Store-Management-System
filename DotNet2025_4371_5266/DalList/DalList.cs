@@ -3,8 +3,8 @@
 namespace Dal
 {
     /// <summary>
-    /// מחלקה לניהול שכבת הנתונים (DAL) באמצעות רשימות.
-    /// המחלקה מממשת את הממשק IDal ומשתמשת בתבנית Singleton.
+    /// מחלקה לניהול שכבת הנתונים (DAL) באמצעות רשימות
+    /// המחלקה מממשת את הממשק IDal ומשתמשת בתבנית Singleton
     /// </summary>
     internal sealed class DalList : IDal
     {

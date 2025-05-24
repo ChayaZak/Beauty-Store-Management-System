@@ -38,7 +38,7 @@
             button1.BackColor = Color.Cornsilk;
             button1.Font = new Font("Assistant", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Coral;
-            button1.Location = new Point(423, 238);
+            button1.Location = new Point(424, 238);
             button1.Name = "button1";
             button1.Size = new Size(181, 53);
             button1.TabIndex = 0;
@@ -63,12 +63,13 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Assistant ExtraBold", 71.99999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Coral;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(152, 88);
             label1.Name = "label1";
             label1.Size = new Size(555, 126);
             label1.TabIndex = 1;
             label1.Text = "Buety Store";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

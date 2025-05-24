@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BO
 {
@@ -40,7 +38,7 @@ namespace BO
         /// </summary>
         /// <param name="c">אוביקט מוצר להמרה מהשכבה הלוגית</param>
         /// <returns>מוצר מסוג שכבת הנתונים</returns>
-        public static DO.Product ConvertProductToDO(BO.Product p) => p == null ? throw new Bl_ObjectIsNull("The product object is null") : new DO.Product(p.Id, p.ProductName, (DO.Category)p.Category ,p.Price, p.QuantityInStock);
+        public static DO.Product ConvertProductToDO(BO.Product p) => p == null ? throw new Bl_ObjectIsNull("The product object is null") : new DO.Product(p.Id, p.ProductName, (DO.Category)p.Category, p.Price, p.QuantityInStock);
 
         /// <summary>
         /// המרת מוצר משכבת הנתונים (DO) לשכבה הלוגית (BO)

@@ -43,6 +43,11 @@ namespace Dal
 
         }
 
+        /// <summary>
+        /// המרת אוביקט לקוח לאלמנט
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
         public static XElement GetObject(Customer customer)
         {
             XElement newCustomer = new XElement("Customer",

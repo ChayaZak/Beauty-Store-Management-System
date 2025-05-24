@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer>
   <Customer>
     <Id>327824371</Id>
@@ -23,12 +23,6 @@
     <Name>שרה</Name>
     <Address>קרית ספר</Address>
     <Phone>89741004</Phone>
-  </Customer>
-  <Customer>
-    <Id>244</Id>
-    <Name>רוני</Name>
-    <Address>רוני@a.com</Address>
-    <Phone>521234567</Phone>
   </Customer>
   <Customer>
     <Id>327824371</Id>
@@ -58,12 +52,6 @@
     <Id>123</Id>
     <Name>מאיה</Name>
     <Address>מאיה@a.com</Address>
-    <Phone>521234567</Phone>
-  </Customer>
-  <Customer>
-    <Id>244</Id>
-    <Name>רוני</Name>
-    <Address>רוני@a.com</Address>
     <Phone>521234567</Phone>
   </Customer>
   <Customer>
@@ -107,5 +95,29 @@
     <Name>אמא</Name>
     <Address>רשבי</Address>
     <Phone>9999</Phone>
+  </Customer>
+  <Customer>
+    <Id>218225993</Id>
+    <Name>טובי </Name>
+    <Address>רשבי</Address>
+    <Phone>534150792</Phone>
+  </Customer>
+  <Customer>
+    <Id>214915266</Id>
+    <Name>חיה</Name>
+    <Address></Address>
+    <Phone>9</Phone>
+  </Customer>
+  <Customer>
+    <Id>123456789</Id>
+    <Name>אנונימי</Name>
+    <Address></Address>
+    <Phone>0</Phone>
+  </Customer>
+  <Customer>
+    <Id>123456</Id>
+    <Name>יאיר</Name>
+    <Address></Address>
+    <Phone>97979797</Phone>
   </Customer>
 </ArrayOfCustomer>
