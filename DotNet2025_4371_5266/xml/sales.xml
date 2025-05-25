@@ -189,4 +189,13 @@
     <BeginSale>2025-06-08T23:40:17.662</BeginSale>
     <EndSale>2025-07-20T23:40:17.659</EndSale>
   </Sale>
+  <Sale>
+    <Code>219</Code>
+    <ProductId>125</ProductId>
+    <MinQuantity>1</MinQuantity>
+    <Price>10</Price>
+    <InClab>false</InClab>
+    <BeginSale>2025-05-25T19:50:46.5308988+03:00</BeginSale>
+    <EndSale>2025-06-01T19:50:46.527</EndSale>
+  </Sale>
 </ArrayOfSale>

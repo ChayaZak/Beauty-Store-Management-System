@@ -14,40 +14,19 @@ namespace UICashier
         public ProductsRead()
         {
             InitializeComponent();
-
-            //listBox1.DataSource = _bl.Product.ReadAll();
-            //listBox1.DisplayMember = "ProductName"; // מה להציג
-            //listBox1.DisplayMember = "Price"; // מה להציג
-            //listBox1.ValueMember = "ProductId"; // מה לשמור
             dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
-
+            dataGridView1.Columns["QuantityInStock"].Visible = false;
         }
         public ProductsRead(string? name)
         {
             InitializeComponent();
             name = name ?? string.Empty;
             lblHelloCustomer.Text = $"שלום {name}";
-            //listBox1.DataSource = _bl.Product.ReadAll();
-            //listBox1.DisplayMember = "ProductName"; // מה להציג
-            //listBox1.DisplayMember = "Price"; // מה להציג
-            //listBox1.ValueMember = "ProductId"; // מה לשמור
             dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
-
-        }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedItem is Product selectedProduct)
-            {
-                numericUpDownProductId.Value = selectedProduct.Id;
-                
-            }
+            dataGridView1.Columns["QuantityInStock"].Visible = false;
         }
 
 
-        private void Products_Load(object sender, EventArgs e)
-        {
-            //dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
-        }
 
         /// <summary>
         /// הוספת מוצר להזמנה
@@ -56,23 +35,35 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
-            List<BO.SaleInProduct> salesInThisProduct = _bl.Order.AddProductToOrder(order, (int)numericUpDownProductId.Value, (int)numericUpDownProductAmount.Value);
-            if (salesInThisProduct.Count > 0)
+            try
             {
-                string sales = "Sales in this product:\n";
-                foreach (var sale in salesInThisProduct)
+                List<BO.SaleInProduct> salesInThisProduct = _bl.Order.AddProductToOrder(order, (int)numericUpDownProductId.Value, (int)numericUpDownProductAmount.Value);
+                lblTotalPrice.Text = order.TotalPrice.ToString();
+                lblProducts.Text = getProductsList(order.Products);
+                if (salesInThisProduct.Count > 0)
                 {
-                    sales += $"{sale}\n";
+                    string sales = "Sales in this product:\n";
+                    foreach (var sale in salesInThisProduct)
+                    {
+                        sales += $"{sale}\n";
+                    }
+                    MessageBox.Show(sales);
                 }
-                MessageBox.Show(sales);
+                else
+                {
+                    MessageBox.Show("No sales in this product");
+                }
+                MessageBox.Show($"Product with ID: {(int)numericUpDownProductId.Value} added to order successfully");
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No sales in this product");
+                MessageBox.Show(ex.Message, "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show($"Product with ID: {(int)numericUpDownProductId.Value} added to order successfully");
-            numericUpDownProductId.Value = 0;
-            numericUpDownProductAmount.Value = 0;
+            finally
+            {
+                numericUpDownProductId.Value = 0;
+                numericUpDownProductAmount.Value = 0;
+            }
         }
 
         /// <summary>
@@ -82,11 +73,34 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnDoOrder_Click(object sender, EventArgs e)
         {
-            _bl.Order.DoOrder(order);
-            MessageBox.Show($"Order finished successfully");
+            try
+            {
+                _bl.Order.DoOrder(order);
+                MessageBox.Show($"Order finished successfully, For payment: {order.TotalPrice} shekels");
+                lblTotalPrice.Text= string.Empty;
+                lblProducts.Text = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        private string getProductsList(List<BO.ProductInOrder?> products)
+        {
+            string productsListText = "Products List:\n";
+            productsListText += "-----------------------------\n";
+            productsListText += string.Join(Environment.NewLine, products.Select(p =>
+                $"Name: {p.ProductName}\n" +
+                $"Price to product: {p.BasePrice}\n" +
+                $"Final Price: {p.FinalPrice}\n" +
+                $"Quantity: {p.QuantityInOrder}\n" +
+                "-----------------------------"));
 
+            return productsListText;
+
+        }
 
 
     }

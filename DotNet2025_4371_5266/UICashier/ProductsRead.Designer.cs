@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
             lblProductId = new Label();
             lblAmount = new Label();
             numericUpDownProductId = new NumericUpDown();
@@ -36,24 +35,20 @@
             btnAddToOrder = new Button();
             btnDoOrder = new Button();
             lblHelloCustomer = new Label();
-            listBox1 = new ListBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            lblTotalPrice = new Label();
+            lblPrice = new Label();
+            label1 = new Label();
+            lblProducts = new Label();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(131, 117);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(540, 574);
-            dataGridView1.TabIndex = 0;
             // 
             // lblProductId
             // 
             lblProductId.AutoSize = true;
-            lblProductId.Location = new Point(688, 55);
+            lblProductId.Location = new Point(726, 57);
             lblProductId.Name = "lblProductId";
             lblProductId.Size = new Size(63, 15);
             lblProductId.TabIndex = 1;
@@ -62,7 +57,7 @@
             // lblAmount
             // 
             lblAmount.AutoSize = true;
-            lblAmount.Location = new Point(470, 55);
+            lblAmount.Location = new Point(727, 140);
             lblAmount.Name = "lblAmount";
             lblAmount.Size = new Size(62, 15);
             lblAmount.TabIndex = 1;
@@ -70,7 +65,7 @@
             // 
             // numericUpDownProductId
             // 
-            numericUpDownProductId.Location = new Point(562, 55);
+            numericUpDownProductId.Location = new Point(664, 75);
             numericUpDownProductId.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericUpDownProductId.Name = "numericUpDownProductId";
             numericUpDownProductId.Size = new Size(120, 23);
@@ -78,7 +73,7 @@
             // 
             // numericUpDownProductAmount
             // 
-            numericUpDownProductAmount.Location = new Point(324, 53);
+            numericUpDownProductAmount.Location = new Point(664, 158);
             numericUpDownProductAmount.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericUpDownProductAmount.Name = "numericUpDownProductAmount";
             numericUpDownProductAmount.Size = new Size(120, 23);
@@ -86,7 +81,7 @@
             // 
             // btnAddToOrder
             // 
-            btnAddToOrder.Location = new Point(184, 53);
+            btnAddToOrder.Location = new Point(664, 232);
             btnAddToOrder.Name = "btnAddToOrder";
             btnAddToOrder.Size = new Size(109, 23);
             btnAddToOrder.TabIndex = 3;
@@ -96,7 +91,7 @@
             // 
             // btnDoOrder
             // 
-            btnDoOrder.Location = new Point(73, 51);
+            btnDoOrder.Location = new Point(677, 274);
             btnDoOrder.Name = "btnDoOrder";
             btnDoOrder.Size = new Size(75, 23);
             btnDoOrder.TabIndex = 4;
@@ -109,26 +104,67 @@
             lblHelloCustomer.AutoSize = true;
             lblHelloCustomer.Font = new Font("Assistant", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHelloCustomer.ForeColor = Color.Coral;
-            lblHelloCustomer.Location = new Point(58, 9);
+            lblHelloCustomer.Location = new Point(122, 9);
             lblHelloCustomer.Name = "lblHelloCustomer";
+            lblHelloCustomer.RightToLeft = RightToLeft.Yes;
             lblHelloCustomer.Size = new Size(0, 17);
             lblHelloCustomer.TabIndex = 10;
+            lblHelloCustomer.TextAlign = ContentAlignment.TopRight;
             // 
-            // listBox1
+            // lblTotalPrice
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(59, 201);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(557, 349);
-            listBox1.TabIndex = 11;
+            lblTotalPrice.AutoSize = true;
+            lblTotalPrice.Location = new Point(12, 33);
+            lblTotalPrice.Name = "lblTotalPrice";
+            lblTotalPrice.Size = new Size(13, 15);
+            lblTotalPrice.TabIndex = 12;
+            lblTotalPrice.Text = "0";
+            // 
+            // lblPrice
+            // 
+            lblPrice.AutoSize = true;
+            lblPrice.Location = new Point(94, 33);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(79, 15);
+            lblPrice.TabIndex = 13;
+            lblPrice.Text = "מחיר לתשלום";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(58, 140);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 15);
+            label1.TabIndex = 13;
+            label1.Text = "מוצרים";
+            // 
+            // lblProducts
+            // 
+            lblProducts.AutoSize = true;
+            lblProducts.Location = new Point(25, 180);
+            lblProducts.Name = "lblProducts";
+            lblProducts.Size = new Size(0, 15);
+            lblProducts.TabIndex = 14;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(159, 69);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(461, 387);
+            dataGridView1.TabIndex = 15;
             // 
             // ProductsRead
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 884);
-            Controls.Add(listBox1);
+            AutoScroll = true;
+            ClientSize = new Size(800, 468);
+            Controls.Add(dataGridView1);
+            Controls.Add(lblProducts);
+            Controls.Add(label1);
+            Controls.Add(lblPrice);
+            Controls.Add(lblTotalPrice);
             Controls.Add(lblHelloCustomer);
             Controls.Add(btnDoOrder);
             Controls.Add(btnAddToOrder);
@@ -136,20 +172,16 @@
             Controls.Add(numericUpDownProductId);
             Controls.Add(lblAmount);
             Controls.Add(lblProductId);
-            Controls.Add(dataGridView1);
             Name = "ProductsRead";
             Text = "Products";
-            Load += Products_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductId).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label lblProductId;
         private Label lblAmount;
         private NumericUpDown numericUpDownProductId;
@@ -157,6 +189,10 @@
         private Button btnAddToOrder;
         private Button btnDoOrder;
         private Label lblHelloCustomer;
-        private ListBox listBox1;
+        private Label lblTotalPrice;
+        private Label lblPrice;
+        private Label label1;
+        private Label lblProducts;
+        private DataGridView dataGridView1;
     }
 }
