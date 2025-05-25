@@ -27,17 +27,23 @@ namespace UICashier
         /// <param name="e"></param>
         private void btnLoginCustomer_Click(object sender, EventArgs e)
         {
-            customer = _bl.Customer.Read(int.Parse(textBoxCustomerId.Text));
-            if (customer != null)
+            try
             {
-                ProductsRead products = new ProductsRead(customer.Name);
-                products.ShowDialog();
+                customer = _bl.Customer.Read(int.Parse(textBoxCustomerId.Text));
+                if (customer != null)
+                {
+                    ProductsRead products = new ProductsRead(customer.Name);
+                    products.ShowDialog();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Customer not exist");
+                MessageBox.Show(ex.Message, "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            textBoxCustomerId.Text = string.Empty;
+            finally
+            {
+                textBoxCustomerId.Text = string.Empty;
+            }
         }
 
         /// <summary>

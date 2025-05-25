@@ -36,6 +36,7 @@
             btnAddToOrder = new Button();
             btnDoOrder = new Button();
             lblHelloCustomer = new Label();
+            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownProductAmount).BeginInit();
@@ -113,11 +114,21 @@
             lblHelloCustomer.Size = new Size(0, 17);
             lblHelloCustomer.TabIndex = 10;
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(59, 201);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(557, 349);
+            listBox1.TabIndex = 11;
+            // 
             // ProductsRead
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 884);
+            Controls.Add(listBox1);
             Controls.Add(lblHelloCustomer);
             Controls.Add(btnDoOrder);
             Controls.Add(btnAddToOrder);
@@ -146,5 +157,6 @@
         private Button btnAddToOrder;
         private Button btnDoOrder;
         private Label lblHelloCustomer;
+        private ListBox listBox1;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BO;
 using System;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace UICashier
 {
@@ -14,6 +15,10 @@ namespace UICashier
         {
             InitializeComponent();
 
+            //listBox1.DataSource = _bl.Product.ReadAll();
+            //listBox1.DisplayMember = "ProductName"; // מה להציג
+            //listBox1.DisplayMember = "Price"; // מה להציג
+            //listBox1.ValueMember = "ProductId"; // מה לשמור
             dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
 
         }
@@ -22,9 +27,22 @@ namespace UICashier
             InitializeComponent();
             name = name ?? string.Empty;
             lblHelloCustomer.Text = $"שלום {name}";
+            //listBox1.DataSource = _bl.Product.ReadAll();
+            //listBox1.DisplayMember = "ProductName"; // מה להציג
+            //listBox1.DisplayMember = "Price"; // מה להציג
+            //listBox1.ValueMember = "ProductId"; // מה לשמור
             dataGridView1.DataSource = _bl.Product.ReadAll().ToList();
 
         }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem is Product selectedProduct)
+            {
+                numericUpDownProductId.Value = selectedProduct.Id;
+                
+            }
+        }
+
 
         private void Products_Load(object sender, EventArgs e)
         {

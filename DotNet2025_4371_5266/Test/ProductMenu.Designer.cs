@@ -42,6 +42,8 @@ namespace UIManager
             textBoxName = new TextBox();
             lblName = new Label();
             tabPageRead = new TabPage();
+            btnRest = new Button();
+            lblReadAllProducts = new Label();
             btnFilter = new Button();
             btnId = new Button();
             textBoxFilter = new TextBox();
@@ -193,6 +195,9 @@ namespace UIManager
             // 
             // tabPageRead
             // 
+            tabPageRead.AutoScroll = true;
+            tabPageRead.Controls.Add(btnRest);
+            tabPageRead.Controls.Add(lblReadAllProducts);
             tabPageRead.Controls.Add(btnFilter);
             tabPageRead.Controls.Add(btnId);
             tabPageRead.Controls.Add(textBoxFilter);
@@ -207,9 +212,29 @@ namespace UIManager
             tabPageRead.Text = "קבלת מוצר";
             tabPageRead.UseVisualStyleBackColor = true;
             // 
+            // btnRest
+            // 
+            btnRest.Location = new Point(215, 348);
+            btnRest.Name = "btnRest";
+            btnRest.Size = new Size(75, 23);
+            btnRest.TabIndex = 6;
+            btnRest.Text = "ניקוי";
+            btnRest.UseVisualStyleBackColor = true;
+            btnRest.Click += btnRest_Click_1;
+            // 
+            // lblReadAllProducts
+            // 
+            lblReadAllProducts.AutoSize = true;
+            lblReadAllProducts.Location = new Point(58, 47);
+            lblReadAllProducts.Name = "lblReadAllProducts";
+            lblReadAllProducts.RightToLeft = RightToLeft.No;
+            lblReadAllProducts.Size = new Size(38, 15);
+            lblReadAllProducts.TabIndex = 5;
+            lblReadAllProducts.Text = "label2";
+            // 
             // btnFilter
             // 
-            btnFilter.Location = new Point(230, 331);
+            btnFilter.Location = new Point(286, 259);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 3;
@@ -219,7 +244,7 @@ namespace UIManager
             // 
             // btnId
             // 
-            btnId.Location = new Point(230, 172);
+            btnId.Location = new Point(286, 100);
             btnId.Name = "btnId";
             btnId.Size = new Size(75, 23);
             btnId.TabIndex = 3;
@@ -229,14 +254,14 @@ namespace UIManager
             // 
             // textBoxFilter
             // 
-            textBoxFilter.Location = new Point(168, 286);
+            textBoxFilter.Location = new Point(224, 214);
             textBoxFilter.Name = "textBoxFilter";
             textBoxFilter.Size = new Size(100, 23);
             textBoxFilter.TabIndex = 2;
             // 
             // numericUpDownId
             // 
-            numericUpDownId.Location = new Point(148, 110);
+            numericUpDownId.Location = new Point(204, 38);
             numericUpDownId.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numericUpDownId.Name = "numericUpDownId";
             numericUpDownId.Size = new Size(120, 23);
@@ -245,16 +270,16 @@ namespace UIManager
             // lblFilter
             // 
             lblFilter.AutoSize = true;
-            lblFilter.Location = new Point(302, 289);
+            lblFilter.Location = new Point(358, 217);
             lblFilter.Name = "lblFilter";
-            lblFilter.Size = new Size(64, 15);
+            lblFilter.Size = new Size(52, 15);
             lblFilter.TabIndex = 0;
-            lblFilter.Text = "תנאי לסינון";
+            lblFilter.Text = "שם מוצר";
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(302, 112);
+            lblId.Location = new Point(358, 40);
             lblId.Name = "lblId";
             lblId.Size = new Size(63, 15);
             lblId.TabIndex = 0;
@@ -481,5 +506,7 @@ namespace UIManager
         private Label lblDelete;
         private Button btnDelete;
         private NumericUpDown numericUpDownDelete;
+        private Label lblReadAllProducts;
+        private Button btnRest;
     }
 }

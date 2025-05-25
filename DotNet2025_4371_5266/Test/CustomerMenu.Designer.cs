@@ -54,6 +54,8 @@
             btnDelete = new Button();
             lblDelete = new Label();
             tabPageRead = new TabPage();
+            btnRest = new Button();
+            lblReadAllCustomers = new Label();
             textBoxCustomerIdRead = new TextBox();
             btnFilter = new Button();
             btnId = new Button();
@@ -308,6 +310,9 @@
             // 
             // tabPageRead
             // 
+            tabPageRead.AutoScroll = true;
+            tabPageRead.Controls.Add(btnRest);
+            tabPageRead.Controls.Add(lblReadAllCustomers);
             tabPageRead.Controls.Add(textBoxCustomerIdRead);
             tabPageRead.Controls.Add(btnFilter);
             tabPageRead.Controls.Add(btnId);
@@ -321,25 +326,46 @@
             tabPageRead.Text = "קבלת לקוח";
             tabPageRead.UseVisualStyleBackColor = true;
             // 
+            // btnRest
+            // 
+            btnRest.Location = new Point(260, 404);
+            btnRest.Name = "btnRest";
+            btnRest.Size = new Size(75, 23);
+            btnRest.TabIndex = 17;
+            btnRest.Text = "ניקוי";
+            btnRest.UseVisualStyleBackColor = true;
+            btnRest.Click += btnRest_Click;
+            // 
+            // lblReadAllCustomers
+            // 
+            lblReadAllCustomers.AutoSize = true;
+            lblReadAllCustomers.Location = new Point(40, 49);
+            lblReadAllCustomers.Name = "lblReadAllCustomers";
+            lblReadAllCustomers.RightToLeft = RightToLeft.No;
+            lblReadAllCustomers.Size = new Size(38, 15);
+            lblReadAllCustomers.TabIndex = 16;
+            lblReadAllCustomers.Text = "label5";
+            // 
             // textBoxCustomerIdRead
             // 
-            textBoxCustomerIdRead.Location = new Point(158, 128);
+            textBoxCustomerIdRead.Location = new Point(235, 44);
             textBoxCustomerIdRead.Name = "textBoxCustomerIdRead";
             textBoxCustomerIdRead.Size = new Size(100, 23);
             textBoxCustomerIdRead.TabIndex = 15;
             // 
             // btnFilter
             // 
-            btnFilter.Location = new Point(207, 350);
+            btnFilter.Location = new Point(284, 266);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 8;
             btnFilter.Text = "אישור";
             btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
             // btnId
             // 
-            btnId.Location = new Point(207, 191);
+            btnId.Location = new Point(284, 107);
             btnId.Name = "btnId";
             btnId.Size = new Size(75, 23);
             btnId.TabIndex = 9;
@@ -349,7 +375,7 @@
             // 
             // textBoxFilter
             // 
-            textBoxFilter.Location = new Point(145, 305);
+            textBoxFilter.Location = new Point(222, 221);
             textBoxFilter.Name = "textBoxFilter";
             textBoxFilter.Size = new Size(100, 23);
             textBoxFilter.TabIndex = 7;
@@ -357,7 +383,7 @@
             // lblFilter
             // 
             lblFilter.AutoSize = true;
-            lblFilter.Location = new Point(279, 308);
+            lblFilter.Location = new Point(356, 224);
             lblFilter.Name = "lblFilter";
             lblFilter.Size = new Size(64, 15);
             lblFilter.TabIndex = 4;
@@ -366,7 +392,7 @@
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(279, 131);
+            lblId.Location = new Point(356, 47);
             lblId.Name = "lblId";
             lblId.Size = new Size(64, 15);
             lblId.TabIndex = 5;
@@ -426,5 +452,7 @@
         private TextBox textBoxCustomeIdUpdate;
         private TextBox textBoxDelete;
         private TextBox textBoxCustomerIdRead;
+        private Label lblReadAllCustomers;
+        private Button btnRest;
     }
 }

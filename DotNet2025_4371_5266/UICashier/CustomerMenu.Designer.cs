@@ -296,7 +296,6 @@
             lblDelete.Size = new Size(64, 15);
             lblDelete.TabIndex = 0;
             lblDelete.Text = "מזהה לקוח";
-            lblDelete.Click += lblDelete_Click;
             // 
             // CustomerMenu
             // 
@@ -306,7 +305,6 @@
             Controls.Add(tabControl1);
             Name = "CustomerMenu";
             Text = "CustomerMenu";
-            Load += CustomerMenu_Load;
             tabControl1.ResumeLayout(false);
             tabPageCreate.ResumeLayout(false);
             tabPageCreate.PerformLayout();

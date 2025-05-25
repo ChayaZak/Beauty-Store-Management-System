@@ -13,6 +13,7 @@ namespace UIManager
         public SaleMenu()
         {
             InitializeComponent();
+            ReadAllProducts();
         }
 
         /// <summary>
@@ -91,7 +92,19 @@ namespace UIManager
             {
                 Sale? sale = new Sale();
                 sale = _bl.sale.Read((int)numericUpDownId.Value);
-                MessageBox.Show(sale?.ToString());
+                string saleText = "Sale:\n";
+                saleText += "-----------------------------\n";
+                saleText +=
+                    $"Code: {sale.Code}\n" +
+                    $"Id Product: {sale.ProductId}\n" +
+                    $"Minimum Quantity: {sale.MinQuantity}\n" +
+                    $"Price: {sale.Price}\n" +
+                    $"In Clab: {sale.InClab}\n" +
+                    $"Begin Sale: {sale.BeginSale}\n" +
+                    $"End Sale: {sale.EndSale}\n" +
+                    "-----------------------------";
+                lblReadAllSales.Text = saleText;
+                //MessageBox.Show(sale?.ToString());
             }
             catch (Exception ex)
             {
@@ -126,6 +139,87 @@ namespace UIManager
 
                 numericUpDownDelete.Value = 0;
             }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Sale?> sales = _bl.sale.ReadAll(s => s.ProductId == int.Parse(textBoxFilter.Text));
+
+                if (sales.Count == 0)
+                {
+                    MessageBox.Show("לא קיים מבצע על מוצר זה");
+                    lblReadAllSales.Text = string.Empty; // מנקה את הרשימה
+                }
+                else
+                {
+                    lblReadAllSales.Text = getSalesList(sales); // מציג את המוצרים
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                textBoxFilter.Text = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// הדפסת כל המבצעים
+        /// </summary>
+        public void ReadAllProducts()
+        {
+            try
+            {
+                List<BO.Sale?> sales = _bl.sale.ReadAll();
+                if (sales == null || !sales.Any())
+                {
+                    lblReadAllSales.Text = "No sales available";
+                    return;
+                }
+
+                lblReadAllSales.Text = getSalesList(sales);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// פונקצית עזר להדפסת רשימת המבצעים בצורה יפה
+        /// </summary>
+        /// <param name="products">רשימת מבצעים</param>
+        /// <returns>מחרוזת יפה של רשימת המבצעים</returns>
+        private string getSalesList(List<BO.Sale?> sales)
+        {
+            string salesListText = "Sales List:\n";
+            salesListText += "-----------------------------\n";
+            salesListText += string.Join(Environment.NewLine, sales.Select(s =>
+                $"Code: {s.Code}\n" +
+                $"Id Product: {s.ProductId}\n" +
+                 $"Minimum Quantity: {s.MinQuantity}\n" +
+                $"Price: {s.Price}\n" +
+                $"In Clab: {s.InClab}\n" +
+                 $"Begin Sale: {s.BeginSale}\n" +
+                  $"End Sale: {s.EndSale}\n" +
+                "-----------------------------"));
+
+            return salesListText;
+
+        }
+
+        /// <summary>
+        /// ניקוי המסננים
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRest_Click(object sender, EventArgs e)
+        {
+            ReadAllProducts();
         }
     }
 }

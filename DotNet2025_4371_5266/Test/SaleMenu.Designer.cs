@@ -45,6 +45,8 @@
             label2 = new Label();
             lblName = new Label();
             tabPageRead = new TabPage();
+            btnRest = new Button();
+            lblReadAllSales = new Label();
             btnFilter = new Button();
             btnId = new Button();
             textBoxFilter = new TextBox();
@@ -248,6 +250,9 @@
             // 
             // tabPageRead
             // 
+            tabPageRead.AutoScroll = true;
+            tabPageRead.Controls.Add(btnRest);
+            tabPageRead.Controls.Add(lblReadAllSales);
             tabPageRead.Controls.Add(btnFilter);
             tabPageRead.Controls.Add(btnId);
             tabPageRead.Controls.Add(textBoxFilter);
@@ -262,18 +267,39 @@
             tabPageRead.Text = "קבלת מבצע";
             tabPageRead.UseVisualStyleBackColor = true;
             // 
+            // btnRest
+            // 
+            btnRest.Location = new Point(202, 376);
+            btnRest.Name = "btnRest";
+            btnRest.Size = new Size(75, 23);
+            btnRest.TabIndex = 5;
+            btnRest.Text = "ניקוי";
+            btnRest.UseVisualStyleBackColor = true;
+            btnRest.Click += btnRest_Click;
+            // 
+            // lblReadAllSales
+            // 
+            lblReadAllSales.AutoSize = true;
+            lblReadAllSales.Location = new Point(22, 29);
+            lblReadAllSales.Name = "lblReadAllSales";
+            lblReadAllSales.RightToLeft = RightToLeft.No;
+            lblReadAllSales.Size = new Size(38, 15);
+            lblReadAllSales.TabIndex = 4;
+            lblReadAllSales.Text = "label9";
+            // 
             // btnFilter
             // 
-            btnFilter.Location = new Point(230, 331);
+            btnFilter.Location = new Point(284, 265);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 3;
             btnFilter.Text = "אישור";
             btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
             // btnId
             // 
-            btnId.Location = new Point(230, 172);
+            btnId.Location = new Point(284, 106);
             btnId.Name = "btnId";
             btnId.Size = new Size(75, 23);
             btnId.TabIndex = 3;
@@ -283,14 +309,14 @@
             // 
             // textBoxFilter
             // 
-            textBoxFilter.Location = new Point(168, 286);
+            textBoxFilter.Location = new Point(222, 220);
             textBoxFilter.Name = "textBoxFilter";
             textBoxFilter.Size = new Size(100, 23);
             textBoxFilter.TabIndex = 2;
             // 
             // numericUpDownId
             // 
-            numericUpDownId.Location = new Point(148, 110);
+            numericUpDownId.Location = new Point(202, 44);
             numericUpDownId.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numericUpDownId.Name = "numericUpDownId";
             numericUpDownId.Size = new Size(120, 23);
@@ -299,16 +325,16 @@
             // lblFilter
             // 
             lblFilter.AutoSize = true;
-            lblFilter.Location = new Point(305, 292);
+            lblFilter.Location = new Point(359, 226);
             lblFilter.Name = "lblFilter";
-            lblFilter.Size = new Size(64, 15);
+            lblFilter.Size = new Size(52, 15);
             lblFilter.TabIndex = 0;
-            lblFilter.Text = "תנאי לסינון";
+            lblFilter.Text = "קוד מוצר";
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(305, 115);
+            lblId.Location = new Point(359, 49);
             lblId.Name = "lblId";
             lblId.Size = new Size(56, 15);
             lblId.TabIndex = 0;
@@ -573,5 +599,7 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Label lblReadAllSales;
+        private Button btnRest;
     }
 }

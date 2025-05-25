@@ -1,8 +1,10 @@
 ﻿using BlApi;
 using BO;
+using DO;
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace UIManager
 {
@@ -13,6 +15,7 @@ namespace UIManager
         public ProductMenu()
         {
             InitializeComponent();
+            ReadAllProducts();
         }
 
         /// <summary>
@@ -29,7 +32,7 @@ namespace UIManager
                 try
                 {
 
-                    Category c;
+                    BO.Category c;
                     Enum.TryParse(comboBox1.SelectedItem.ToString(), out c);
                     BO.Product product = new BO.Product(0, textBoxName.Text, c, (double)numericUpDownPrice.Value, (int)numericUpDownAmount.Value);
                     _bl.Product.Create(product);
@@ -50,11 +53,26 @@ namespace UIManager
 
         }
 
+        /// <summary>
+        /// קבלת מוצר לפי תנאי סינון
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFilter_Click(object sender, EventArgs e)
         {
             try
             {
-                //Product? p = _bl.Product.Read(Func(textBoxFilter.Text));
+                List<BO.Product?> products = _bl.Product.ReadAll(p => p.ProductName.Contains(textBoxFilter.Text));
+
+                if (products.Count == 0)
+                {
+                    MessageBox.Show("לא קיים מוצר בשם זה");
+                    lblReadAllProducts.Text = string.Empty; // מנקה את הרשימה
+                }
+                else
+                {
+                    lblReadAllProducts.Text = getProductsList(products); // מציג את המוצרים
+                }
             }
             catch (Exception ex)
             {
@@ -66,6 +84,8 @@ namespace UIManager
             }
         }
 
+
+
         /// <summary>
         /// קבלת מוצר
         /// </summary>
@@ -75,8 +95,17 @@ namespace UIManager
         {
             try
             {
-                Product? p = _bl.Product.Read((int)numericUpDownId.Value);
-                MessageBox.Show(p.ToString());
+                BO.Product? p = _bl.Product.Read((int)numericUpDownId.Value);
+                string productText = "Product:\n";
+                productText += "-----------------------------\n";
+                productText +=
+                    $"ID: {p.Id}\n" +
+                $"Name: {p.ProductName}\n" +
+                 $"Category: {p.Category}\n" +
+                $"Price: {p.Price}\n" +
+                $"Quantity In Stock: {p.QuantityInStock}\n" +
+                "-----------------------------";
+                lblReadAllProducts.Text = productText;
             }
             catch (Exception ex)
             {
@@ -97,8 +126,7 @@ namespace UIManager
         {
             try
             {
-
-                Category c;
+                BO.Category c;
                 Enum.TryParse(comboBoxCategoryUpdate.SelectedItem.ToString(), out c);
                 BO.Product product = new BO.Product((int)numericUpDownIdUpdate.Value, textBoxNameUpdate.Text, c, (double)numericUpDownPriceUpdate.Value, (int)numericUpDownAmountUpdate.Value);
                 _bl.Product.Update(product);
@@ -136,6 +164,59 @@ namespace UIManager
 
                 numericUpDownDelete.Value = 0;
             }
+        }
+
+        /// <summary>
+        /// הדפסת כל המוצרים
+        /// </summary>
+        public void ReadAllProducts()
+        {
+            try
+            {
+                List<BO.Product?> products = _bl.Product.ReadAll();
+                if (products == null || !products.Any())
+                {
+                    lblReadAllProducts.Text = "No products available";
+                    return;
+                }
+
+                lblReadAllProducts.Text = getProductsList(products);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// פונקצית עזר להדפסת רשימת המוצרים בצורה יפה
+        /// </summary>
+        /// <param name="products">רשימת מוצרים</param>
+        /// <returns>מחרוזת יפה של רשימת המוצרים</returns>
+        private string getProductsList(List<BO.Product?> products)
+        {
+            string productsListText = "Products List:\n";
+            productsListText += "-----------------------------\n";
+            productsListText += string.Join(Environment.NewLine, products.Select(p =>
+                $"ID: {p.Id}\n" +
+                $"Name: {p.ProductName}\n" +
+                 $"Category: {p.Category}\n" +
+                $"Price: {p.Price}\n" +
+                $"Quantity In Stock: {p.QuantityInStock}\n" +
+                "-----------------------------"));
+
+            return productsListText;
+
+        }
+
+        /// <summary>
+        /// ניקוי המסננים
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRest_Click_1(object sender, EventArgs e)
+        {
+            ReadAllProducts();
         }
     }
 }

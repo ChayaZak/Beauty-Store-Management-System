@@ -115,9 +115,9 @@
     <Phone>0</Phone>
   </Customer>
   <Customer>
-    <Id>123456</Id>
-    <Name>יאיר</Name>
-    <Address></Address>
-    <Phone>97979797</Phone>
+    <Id>36502011</Id>
+    <Name>אבא</Name>
+    <Address>מודיעין עילית</Address>
+    <Phone>527619147</Phone>
   </Customer>
 </ArrayOfCustomer>
