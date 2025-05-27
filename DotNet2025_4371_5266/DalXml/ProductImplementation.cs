@@ -142,7 +142,15 @@ namespace Dal
             string funcName = MethodBase.GetCurrentMethod().Name;
             LogManager.Log(projectName, funcName, $"Updating product with ID: {item.Id}");
             Delete(item.Id);
-            Create(item);
+            //Create(item);
+            List<Product?> products = new List<Product?>();
+            products = ReadAll();
+            //item = item with { Id = Config.ProductCode };
+            products.Add(item);
+            using (FileStream XmlWrite = new FileStream(PATH_PRODUCT, FileMode.Create, FileAccess.Write))
+            {
+                serializer.Serialize(XmlWrite, products);
+            }
             LogManager.Log(projectName, funcName, $"Product updated with ID: {item.Id}");
 
         }

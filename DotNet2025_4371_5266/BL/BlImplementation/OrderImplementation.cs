@@ -18,7 +18,7 @@ namespace BlImplementation
         /// <param name="order">הזמנה</param>
         /// <param name="productId">מזהה מוצר להוספה</param>
         /// <param name="quantity">כמות להוספה</param>
-        /// <returns>רשימת מבצעים שמומשו עבוד מוצר זה בהזמנה זו</returns>
+        /// <returns>רשימת מבצעים שמומשו עבור מוצר זה בהזמנה זו</returns>
         /// <exception cref="NotImplementedException"></exception>
         public List<SaleInProduct> AddProductToOrder(Order order, int productId, int quantity)
         {

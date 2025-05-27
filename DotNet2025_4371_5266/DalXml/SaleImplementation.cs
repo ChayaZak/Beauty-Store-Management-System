@@ -139,7 +139,13 @@ namespace Dal
             string funcName = MethodBase.GetCurrentMethod().Name;
             LogManager.Log(projectName, funcName, $"Updating sale with ID: {item.Code}");
             Delete(item.Code);
-            Create(item);
+            List<Sale?> Sales = new List<Sale?>();
+            Sales = ReadAll();
+            Sales.Add(item);
+            using (FileStream XmlWrite = new FileStream(PATH_SALE, FileMode.Open, FileAccess.Write))
+            {
+                serializer.Serialize(XmlWrite, Sales);
+            }
             LogManager.Log(projectName, funcName, $"Sale updated with ID: {item.Code}");
         }
     }

@@ -120,4 +120,28 @@
     <Address>מודיעין עילית</Address>
     <Phone>527619147</Phone>
   </Customer>
+  <Customer>
+    <Id>321</Id>
+    <Name>אברהם</Name>
+    <Address></Address>
+    <Phone>4</Phone>
+  </Customer>
+  <Customer>
+    <Id>54</Id>
+    <Name>אלישבע</Name>
+    <Address>רשבי 3</Address>
+    <Phone>548406570</Phone>
+  </Customer>
+  <Customer>
+    <Id>533</Id>
+    <Name>יצחק</Name>
+    <Address>רשבי 3</Address>
+    <Phone>533152215</Phone>
+  </Customer>
+  <Customer>
+    <Id>54840</Id>
+    <Name>תירצה</Name>
+    <Address>רשבי 3</Address>
+    <Phone>548406570</Phone>
+  </Customer>
 </ArrayOfCustomer>

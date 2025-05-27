@@ -76,10 +76,10 @@ namespace UICashier
             try
             {
                 _bl.Order.DoOrder(order);
-                MessageBox.Show($"Order finished successfully, For payment: {order.TotalPrice} shekels");
+                MessageBox.Show($"Order finished successfully, For payment: {order.TotalPrice} Shekels");
                 lblTotalPrice.Text= string.Empty;
                 lblProducts.Text = string.Empty;
-
+                order= new Order();
             }
             catch (Exception ex)
             {
@@ -90,13 +90,13 @@ namespace UICashier
         private string getProductsList(List<BO.ProductInOrder?> products)
         {
             string productsListText = "Products List:\n";
-            productsListText += "-----------------------------\n";
+            productsListText += "----------------------\n";
             productsListText += string.Join(Environment.NewLine, products.Select(p =>
                 $"Name: {p.ProductName}\n" +
                 $"Price to product: {p.BasePrice}\n" +
                 $"Final Price: {p.FinalPrice}\n" +
                 $"Quantity: {p.QuantityInOrder}\n" +
-                "-----------------------------"));
+                "----------------------"));
 
             return productsListText;
 

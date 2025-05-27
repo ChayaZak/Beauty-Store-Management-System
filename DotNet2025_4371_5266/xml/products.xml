@@ -2,31 +2,10 @@
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
     <Id>101</Id>
-    <ProductName>נ</ProductName>
-    <Category>טיפוח_עור_הפנים</Category>
-    <Price>0</Price>
-    <QuantityInStock>0</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>הההה</ProductName>
-    <Category>טיפוח_עור_הפנים</Category>
-    <Price>0</Price>
-    <QuantityInStock>0</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
     <ProductName>סבון רחצה</ProductName>
     <Category>טיפוח_העור</Category>
     <Price>30.9</Price>
     <QuantityInStock>300</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>101</Id>
-    <ProductName>סבון מגניב</ProductName>
-    <Category>טיפוח_אישי</Category>
-    <Price>12</Price>
-    <QuantityInStock>100</QuantityInStock>
   </Product>
   <Product>
     <Id>111</Id>
@@ -64,34 +43,6 @@
     <QuantityInStock>200</QuantityInStock>
   </Product>
   <Product>
-    <Id>121</Id>
-    <ProductName>דבש</ProductName>
-    <Category>מוצרי_כוורת</Category>
-    <Price>20</Price>
-    <QuantityInStock>216</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>123</Id>
-    <ProductName>קרם הגנה</ProductName>
-    <Category>טיפוח_אישי</Category>
-    <Price>70</Price>
-    <QuantityInStock>175</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>124</Id>
-    <ProductName>קרם פנים לעור יבש</ProductName>
-    <Category>טיפוח_עור_הפנים</Category>
-    <Price>50.9</Price>
-    <QuantityInStock>100</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>130</Id>
-    <ProductName>בושם מעולה</ProductName>
-    <Category>מוצרי_כוורת</Category>
-    <Price>60</Price>
-    <QuantityInStock>20</QuantityInStock>
-  </Product>
-  <Product>
     <Id>133</Id>
     <ProductName>סבון מוצק</ProductName>
     <Category>טיפוח_העור</Category>
@@ -113,24 +64,59 @@
     <QuantityInStock>298</QuantityInStock>
   </Product>
   <Product>
-    <Id>136</Id>
-    <ProductName>קרם גוף</ProductName>
-    <Category>טיפוח_העור</Category>
-    <Price>99.9</Price>
-    <QuantityInStock>59</QuantityInStock>
-  </Product>
-  <Product>
-    <Id>137</Id>
-    <ProductName>קרם לחות</ProductName>
-    <Category>טיפוח_עור_הפנים</Category>
-    <Price>15</Price>
-    <QuantityInStock>9</QuantityInStock>
-  </Product>
-  <Product>
     <Id>138</Id>
     <ProductName>קרם לחות לשיער</ProductName>
     <Category>טיפוח_אישי</Category>
     <Price>29.9</Price>
     <QuantityInStock>88</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>139</Id>
+    <ProductName>קרם לחות</ProductName>
+    <Category>טיפוח_עור_הפנים</Category>
+    <Price>15</Price>
+    <QuantityInStock>8</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>140</Id>
+    <ProductName>קרם פנים לעור יבש</ProductName>
+    <Category>טיפוח_עור_הפנים</Category>
+    <Price>50.9</Price>
+    <QuantityInStock>98</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>142</Id>
+    <ProductName>קרם הגנה</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>70</Price>
+    <QuantityInStock>137</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>143</Id>
+    <ProductName>בושם מעולה</ProductName>
+    <Category>מוצרי_כוורת</Category>
+    <Price>60</Price>
+    <QuantityInStock>17</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>136</Id>
+    <ProductName>קרם גוף</ProductName>
+    <Category>טיפוח_העור</Category>
+    <Price>99.9</Price>
+    <QuantityInStock>51</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>121</Id>
+    <ProductName>דבש</ProductName>
+    <Category>מוצרי_כוורת</Category>
+    <Price>20</Price>
+    <QuantityInStock>216</QuantityInStock>
+  </Product>
+  <Product>
+    <Id>141</Id>
+    <ProductName>סבון מגניב</ProductName>
+    <Category>טיפוח_אישי</Category>
+    <Price>12</Price>
+    <QuantityInStock>71</QuantityInStock>
   </Product>
 </ArrayOfProduct>
