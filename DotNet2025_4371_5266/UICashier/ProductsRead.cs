@@ -9,7 +9,7 @@ namespace UICashier
     {
         private static BlApi.IBl _bl = BlApi.Factory.Get();
         public static BO.Customer? customer;
-        private Order order = new Order();
+        public static Order order = new Order();
         public string? name { get; set; }
         public ProductsRead()
         {

@@ -13,7 +13,7 @@ namespace Dal
 {
     internal class SaleImplementation : ISale
     {
-        private const string PATH_SALE = "C:\\Users\\user1\\Documents\\שנה ב\\C#\\my project\\project_c-\\DotNet2025_4371_5266\\xml\\sales.xml";
+        private const string PATH_SALE = @"..\..\..\..\xml\sales.xml";
         string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
         XmlSerializer serializer = new XmlSerializer(typeof(List<Sale>));
 

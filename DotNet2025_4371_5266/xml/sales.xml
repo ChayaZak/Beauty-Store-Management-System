@@ -207,4 +207,22 @@
     <BeginSale>2025-05-25T22:49:20.819</BeginSale>
     <EndSale>2025-06-30T22:49:20.819</EndSale>
   </Sale>
+  <Sale>
+    <Code>222</Code>
+    <ProductId>140</ProductId>
+    <MinQuantity>2</MinQuantity>
+    <Price>98</Price>
+    <InClab>true</InClab>
+    <BeginSale>2025-05-28T13:26:26.12</BeginSale>
+    <EndSale>2025-06-01T13:26:26.117</EndSale>
+  </Sale>
+  <Sale>
+    <Code>223</Code>
+    <ProductId>144</ProductId>
+    <MinQuantity>1</MinQuantity>
+    <Price>50</Price>
+    <InClab>false</InClab>
+    <BeginSale>2025-05-29T13:27:02.8519649+03:00</BeginSale>
+    <EndSale>2025-07-31T13:27:02.852</EndSale>
+  </Sale>
 </ArrayOfSale>

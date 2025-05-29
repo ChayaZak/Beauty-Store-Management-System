@@ -160,7 +160,10 @@ namespace BlImplementation
         {
             try
             {
-                List<DO.Sale> sales = _dal.Sale.ReadAll(s => s.ProductId == product.ProductId && s.InClab == isClab && product.QuantityInOrder >= s.MinQuantity && s.EndSale >= DateTime.Now && s.BeginSale <= DateTime.Now).OrderBy(s => s.Price / s.MinQuantity).ToList();
+                List<DO.Sale> sales = _dal.Sale.ReadAll(s => s.ProductId == product.ProductId && (
+                            !s.InClab ||         // מבצע פתוח לכולם
+                            (s.InClab && isClab) // או שהוא מיועד למועדון והלקוח באמת במועדון
+                        ) && product.QuantityInOrder >= s.MinQuantity && s.EndSale >= DateTime.Now && s.BeginSale <= DateTime.Now).OrderBy(s => s.Price / s.MinQuantity).ToList();
                 if (sales.Count > 0)
                 {
                     product.Sales = sales.Select(s => new SaleInProduct(s.Code, s.MinQuantity, s.Price, s.InClab)).ToList();

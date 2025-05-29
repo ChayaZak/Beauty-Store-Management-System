@@ -33,12 +33,21 @@ namespace UICashier
                 if (customer != null)
                 {
                     ProductsRead products = new ProductsRead(customer.Name);
+                    ProductsRead.order.IsPreferredCustomer = true;
                     products.ShowDialog();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message.Contains("Read Customer") || ex.Message.Contains("does not exist"))
+                {
+                    // כניסת אורח
+                    ProductsRead products = new ProductsRead("אורח");
+                    ProductsRead.order.IsPreferredCustomer = false;
+                    products.ShowDialog();
+                }
+                else
+                    MessageBox.Show(ex.Message, "שגיאה", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

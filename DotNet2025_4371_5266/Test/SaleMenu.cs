@@ -47,6 +47,8 @@ namespace UIManager
                     checkBoxIsClab.Checked = false;
                     dateTimePickerFirst.Value = DateTime.Now;
                     dateTimePickerEnd.Value = DateTime.Now;
+                    ReadAllProducts();
+
                 }
             }
 
@@ -78,6 +80,8 @@ namespace UIManager
                 checkBoxIsClab.Checked = false;
                 dateTimePickerFirst.Value = DateTime.Now;
                 dateTimePickerEnd.Value = DateTime.Now;
+                ReadAllProducts();
+
             }
         }
 
@@ -138,6 +142,8 @@ namespace UIManager
             {
 
                 numericUpDownDelete.Value = 0;
+                ReadAllProducts();
+
             }
         }
 

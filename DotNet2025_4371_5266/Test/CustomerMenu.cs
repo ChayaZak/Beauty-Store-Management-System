@@ -43,6 +43,7 @@ namespace UIManager
                     textBoxName.Text = string.Empty;
                     textBoxAddress.Text = string.Empty;
                     textBoxPhone.Text = string.Empty;
+                    ReadAllCustomers();
                 }
             }
         }
@@ -69,6 +70,7 @@ namespace UIManager
                 textBoxCustomerNameUpdate.Text = string.Empty;
                 textBoxCustomeAddressUpdate.Text = string.Empty;
                 textBoxCustomerPhoneUpdate.Text = string.Empty;
+                ReadAllCustomers();
             }
         }
 
@@ -92,6 +94,7 @@ namespace UIManager
             {
 
                 textBoxDelete.Text = string.Empty;
+                ReadAllCustomers();
             }
         }
 

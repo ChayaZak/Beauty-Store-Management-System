@@ -144,4 +144,10 @@
     <Address>רשבי 3</Address>
     <Phone>548406570</Phone>
   </Customer>
+  <Customer>
+    <Id>111</Id>
+    <Name>יאיר מנשה</Name>
+    <Address></Address>
+    <Phone>53636363</Phone>
+  </Customer>
 </ArrayOfCustomer>

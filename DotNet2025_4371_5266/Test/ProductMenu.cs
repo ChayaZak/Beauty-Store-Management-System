@@ -48,6 +48,8 @@ namespace UIManager
                     textBoxName.Text = string.Empty;
                     comboBox1.Text = "טיפוח_עור_הפנים";
                     numericUpDownPrice.Value = numericUpDownAmount.Value = 0;
+                    ReadAllProducts();
+
                 }
             }
 
@@ -163,6 +165,8 @@ namespace UIManager
             {
 
                 numericUpDownDelete.Value = 0;
+                ReadAllProducts();
+
             }
         }
 

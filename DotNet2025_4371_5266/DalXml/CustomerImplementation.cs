@@ -23,7 +23,7 @@ namespace Dal
         private const string ADDRESS = "Address";
         private const string PHONE = "Phone";
 
-        private const string PATH_CUSTOMER = "C:\\Users\\user1\\Documents\\שנה ב\\C#\\my project\\project_c-\\DotNet2025_4371_5266\\xml\\customers.xml";
+        private const string PATH_CUSTOMER = @"..\..\..\..\xml\customers.xml";
 
         private string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
 
