@@ -13,11 +13,7 @@ namespace UIManager
             ReadAllCustomers();
         }
 
-        /// <summary>
-        /// הוספת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (textBoxCustomerId.Text == string.Empty || textBoxName.Text == string.Empty
@@ -48,11 +44,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// עדכון לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -74,11 +66,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// מחיקת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -98,11 +86,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// קבלת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnRead_Click(object sender, EventArgs e)
         {
             try
@@ -130,26 +114,21 @@ namespace UIManager
         }
 
 
-        /// <summary>
-        /// קבלת לקוח לפי תנאי סינון
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnFilter_Click(object sender, EventArgs e)
         {
             try
             {
-                //Product? p = _bl.Product.Read(Func(textBoxFilter.Text));
                 List<BO.Customer?> customers = _bl.Customer.ReadAll(c => c.Name.Contains(textBoxFilter.Text));
 
                 if (customers.Count == 0)
                 {
                     MessageBox.Show("לא קיים לקוח בשם זה");
-                    lblReadAllCustomers.Text = string.Empty; // מנקה את הרשימה
+                    lblReadAllCustomers.Text = string.Empty;
                 }
                 else
                 {
-                    lblReadAllCustomers.Text = getCustomersList(customers); // מציג את המוצרים
+                    lblReadAllCustomers.Text = getCustomersList(customers); 
                 }
             }
             catch (Exception ex)
@@ -162,9 +141,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// הדפסת כל הלקוחות
-        /// </summary>
+
         public void ReadAllCustomers()
         {
             try
@@ -185,11 +162,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// פונקצית עזר להדפסת רשימת הלקוחות בצורה יפה
-        /// </summary>
-        /// <param name="products">רשימת לקוחות</param>
-        /// <returns>מחרוזת יפה של רשימת הלקוחות</returns>
+
         private string getCustomersList(List<BO.Customer?> customers)
         {
             string customersListText = "Customers List:\n";
@@ -205,11 +178,6 @@ namespace UIManager
 
         }
 
-        /// <summary>
-        /// ניקוי המסננים
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnRest_Click(object sender, EventArgs e)
         {
             ReadAllCustomers();

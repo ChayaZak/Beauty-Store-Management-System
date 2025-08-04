@@ -12,12 +12,6 @@ namespace BlImplementation
     {
         private DalApi.IDal _dal = DalApi.Factory.Get;
 
-        /// <summary>
-        /// רשימת מבצעים הקימים למוצר
-        /// </summary>
-        /// <param name="id">קוד מוצר</param>
-        /// <param name="IsExcess">האם הלקוח הוא לקוח מועדף</param>
-        /// <returns>רשימת מבצעים מותאמים ללקוח ולמוצר</returns>
         public List<SaleInProduct> AllSales(int id, bool IsExcess)
         {
             try

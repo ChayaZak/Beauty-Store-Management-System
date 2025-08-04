@@ -15,24 +15,14 @@ namespace BO
         public List<SaleInProduct> Sales { get; set; } 
         public double FinalPrice { get; set; }
 
-        /// <summary>
-        /// בנאי ריק
-        /// </summary>
+    
         public ProductInOrder()
         {
             ProductName = string.Empty;
             Sales = new List<SaleInProduct>();
         }
 
-        /// <summary>
-        /// בנאי מלא
-        /// </summary>
-        /// <param name="productId">מזהה מוצר</param>
-        /// <param name="productName">שם המוצר</param>
-        /// <param name="basePrice">מחיר מקורי</param>
-        /// <param name="quantityInOrder">כמות המוצר בהזמנה</param>
-        /// <param name="sales">רשימת המצבעים התואמים למוצר בהזמנה</param>
-        /// <param name="finalPrice">מחיר סופי</param>
+
         public ProductInOrder(int productId, string productName, double basePrice, int quantityInOrder, List<SaleInProduct> sales, double finalPrice)
         {
             ProductId = productId;
@@ -43,13 +33,7 @@ namespace BO
             FinalPrice = finalPrice;
         }
 
-        /// <summary>
-        /// בנאי חלקי
-        /// </summary>
-        /// <param name="productId">מזהה מוצר</param>
-        /// <param name="productName">שם המוצר</param>
-        /// <param name="basePrice">מחיר מקורי</param>
-        /// <param name="quantityInOrder">כמות המוצר בהזמנה</param>
+
 
         public ProductInOrder(int productId, string productName, double basePrice, int quantityInOrder)
         {

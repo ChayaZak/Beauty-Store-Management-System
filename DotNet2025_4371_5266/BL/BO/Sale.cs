@@ -8,44 +8,28 @@ namespace BO
 {
     public class Sale
     {
-        /// <summary>
-        /// קוד מבצע
-        /// </summary>
+
         public int Code { get; set; }
 
-        /// <summary>
-        /// מזהה המוצר
-        /// </summary>
+
         public int ProductId { get; set; }
 
-        /// <summary>
-        /// כמות מינימלית
-        /// </summary>
+
         public int MinQuantity { get; set; }
 
-        /// <summary>
-        /// מחיר המבצע
-        /// </summary>
+
         public double Price { get; set; }
 
-        /// <summary>
-        /// האם המבצע מיועד ללקוחות מועדון בלבד
-        /// </summary>
+
         public bool InClab { get; set; }
 
-        /// <summary>
-        /// תאריך התחלת המבצע
-        /// </summary>
+
         public DateTime BeginSale { get; set; }
 
-        /// <summary>
-        /// תאריך סיום המבצע
-        /// </summary>
+
         public DateTime EndSale { get; set; } 
 
-        /// <summary>
-        /// בנאי ריק
-        /// </summary>
+
         public Sale()
         {
             Code = 0;
@@ -57,16 +41,7 @@ namespace BO
             EndSale = DateTime.Now;
         }
 
-        /// <summary>
-        /// בנאי עם פרמטרים
-        /// </summary>
-        /// <param name="code">קוד מבצע</param>
-        /// <param name="productId">קוד מוצר</param>
-        /// <param name="minQuantity">כמות מינימלית</param>
-        /// <param name="price">מחיר</param>
-        /// <param name="inClab">האם הלקוח הוא לקוח מועדף</param>
-        /// <param name="beginSale">תאריך התחלת המצבע</param>
-        /// <param name="endSale">תאריך סיום המבצע</param>
+
         public Sale(int code, int productId, int minQuantity, double price, bool inClab, DateTime beginSale, DateTime endSale)
         {
             Code = code;

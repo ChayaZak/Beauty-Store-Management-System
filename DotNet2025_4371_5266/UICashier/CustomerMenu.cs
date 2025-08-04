@@ -19,11 +19,7 @@ namespace UICashier
             }
         }
 
-        /// <summary>
-        /// הוספת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (textBoxCustomerId.Text == string.Empty || textBoxName.Text == string.Empty
@@ -53,11 +49,7 @@ namespace UICashier
             } 
         }
 
-        /// <summary>
-        /// עדכון לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -78,11 +70,7 @@ namespace UICashier
             } 
         }
 
-        /// <summary>
-        /// מחיקת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try

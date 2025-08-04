@@ -95,11 +95,6 @@ namespace BlImplementation
             }
         }
 
-        /// <summary>
-        /// רשימה של כל הלקוחות
-        /// </summary>
-        /// <param name="filter">סינון הרשימת הלקוחות לפי תנאי</param>
-        /// <returns>רשימת לקוחות מסוננת</returns>
         public List<BO.Customer?> ReadAll(Func<BO.Customer, bool>? filter = null)
         {
             try

@@ -1,9 +1,7 @@
 ﻿using DO;
 namespace DO;
 
-/// <summary>
-/// מקור נתונים פנימי.
-/// </summary>
+
 internal static class DataSource
 {
     internal static List<Product?> Products = new List<Product?>();
@@ -18,9 +16,7 @@ internal static class DataSource
         private static int ProductIndex = ProductMinCode;
         private static int SaleIndex = SaleMinCode;
 
-        /// <summary>
-        /// קוד המוצר הבא
-        /// </summary>
+
         public static int ProductCode
         {
             get
@@ -29,9 +25,7 @@ internal static class DataSource
             }
         }
 
-        /// <summary>
-        /// קוד המבצע הבא
-        /// </summary>
+
         public static int SaleCode
         {
             get

@@ -23,9 +23,7 @@ namespace BlTest
             }
         }
 
-        /// <summary>
-        /// קליטת לקוח חדש או קבלת לקוח קיים
-        /// </summary>
+
         public static void AddOrGetCustomer()
 
 
@@ -73,9 +71,7 @@ namespace BlTest
             }
         }
 
-        /// <summary>
-        /// קליטת מוצר להזמנה
-        /// </summary>
+
         public static void AddProductTOOrder()
         {
             try
@@ -113,18 +109,6 @@ namespace BlTest
             }
         }
 
-        //public static void DoOrder()
-        //{
-        //    Console.WriteLine("insert id of order");
-        //    int id = int.Parse(Console.ReadLine());
-        //    Order order = s_bl.Order.Read(id);
-        //    s_bl.Order.DoOrder(order);
-        //    Console.WriteLine("Order completed successfully.");
-        //}
-
-        /// <summary>
-        /// תפריט
-        /// </summary>
 
         public static int PrintMenu()
         {
@@ -139,11 +123,6 @@ namespace BlTest
 
         public static void Menu(int option)
         {
-            //Console.WriteLine("1. Add or get customer");
-            //Console.WriteLine("2. Add product to order");
-            //Console.WriteLine("3. Exit");
-            //Console.WriteLine("Please select an option:");
-            //int option = int.Parse(Console.ReadLine());
             switch (option)
             {
                 case 1:

@@ -18,11 +18,7 @@ namespace UI_Login
             InitializeComponent();
         }
 
-        /// <summary>
-        /// כניסת למערכת
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBoxName.Text.Length == 0 || textBoxPassword.Text.Length == 0)

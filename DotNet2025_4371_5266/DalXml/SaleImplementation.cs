@@ -17,12 +17,7 @@ namespace Dal
         string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
         XmlSerializer serializer = new XmlSerializer(typeof(List<Sale>));
 
-        /// <summary>
-        /// הוספת מבצע
-        /// </summary>
-        /// <param name="item">פריט המבצע להוספה</param>
-        /// <returns>קוד מבצע</returns>
-        /// <exception cref="dal_idExist"></exception>
+
         public int Create(Sale item)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -46,11 +41,7 @@ namespace Dal
         }
 
 
-        /// <summary>
-        /// מחיקת מבצע
-        /// </summary>
-        /// <param name="id">קוד המבצע למחיקה</param>
-        /// <exception cref="dal_idNotFound"></exception>
+
         public void Delete(int id)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -67,12 +58,7 @@ namespace Dal
             LogManager.Log(projectName, funcName, $"Sale deleted with ID: {id}");
         }
 
-        /// <summary>
-        /// קבלת מבצע לפי קוד מבצע
-        /// </summary>
-        /// <param name="Id">קוד מבצע</param>
-        /// <returns>מבצע עם הקוד המבוקש</returns>
-        /// <exception cref="dal_idNotFound"></exception>
+
         public Sale? Read(int Id)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -86,12 +72,7 @@ namespace Dal
             throw new dal_idNotFound("id not found");
         }
 
-        /// <summary>
-        /// קבלת מבצע לפי פרמטר סינון
-        /// </summary>
-        /// <param name="filter">סינון למבצע</param>
-        /// <returns>מבצע לפי תנאי הסינון</returns>
-        /// <exception cref="dal_idNotFound"></exception>
+
         public Sale? Read(Func<Sale, bool> filter)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -105,12 +86,7 @@ namespace Dal
             throw new dal_idNotFound("id not found");
         }
 
-        /// <summary>
-        /// קבלת כל המבצעים העומדים בסינון
-        /// </summary>
-        /// <param name="filter">סינון המבצעים</param>
-        /// <returns>רשימת מבצעים שעמדה בסינון</returns>
-        /// <exception cref="NotImplementedException"></exception>
+
         public List<Sale?> ReadAll(Func<Sale, bool>? filter = null)
         {
             try
@@ -130,10 +106,7 @@ namespace Dal
             }
         }
 
-        /// <summary>
-        /// עדכון מבצע
-        /// </summary>
-        /// <param name="item">מבצע לעדכון</param>
+
         public void Update(Sale item)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;

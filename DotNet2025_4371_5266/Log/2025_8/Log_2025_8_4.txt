@@ -1,0 +1,3 @@
+04/08/2025 02:15:34	Dal.CustomerImplementation.ReadAll:		Reading all customers
+04/08/2025 02:15:42	Dal.ProductImplementation.ReadAll:		Reading all products
+04/08/2025 02:15:48	Dal.SaleImplementation.ReadAll:		Reading all sales

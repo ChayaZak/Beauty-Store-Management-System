@@ -28,11 +28,6 @@ namespace UICashier
 
 
 
-        /// <summary>
-        /// הוספת מוצר להזמנה
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             try
@@ -66,11 +61,7 @@ namespace UICashier
             }
         }
 
-        /// <summary>
-        /// ביצוע הזמנה
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnDoOrder_Click(object sender, EventArgs e)
         {
             try
@@ -101,7 +92,5 @@ namespace UICashier
             return productsListText;
 
         }
-
-
     }
 }

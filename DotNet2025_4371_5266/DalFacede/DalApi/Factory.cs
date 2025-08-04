@@ -3,14 +3,10 @@ namespace DalApi;
 using System.Reflection;
 using System.IO;
 
-/// <summary>
-/// מחלקה ליצירת אובייקט DAL
-/// </summary>
+
 public static class Factory
 {
-    /// <summary>
-    /// מחזירה אובייקט DAL
-    /// </summary>
+
     public static IDal Get
     {
         get
@@ -22,7 +18,6 @@ public static class Factory
 
             try
             {
-                // ניסיון לטעון את ה-DLL
                 Assembly.LoadFrom(dalDllPath);
             }
             catch (FileNotFoundException ex)

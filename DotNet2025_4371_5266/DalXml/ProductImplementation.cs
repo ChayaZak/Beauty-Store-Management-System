@@ -19,12 +19,7 @@ namespace Dal
         XmlSerializer serializer = new XmlSerializer(typeof(List<Product>));
         string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
 
-        /// <summary>
-        /// הוספת מוצר
-        /// </summary>
-        /// <param name="item">פריט המוצר להוספה</param>
-        /// <returns>מזהה המוצר שנוסף</returns>
-        /// <exception cref="dal_idExist"></exception>
+
         public int Create(Product item)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -49,11 +44,7 @@ namespace Dal
             return item.Id;
         }
 
-        /// <summary>
-        /// מחיקת מוצר
-        /// </summary>
-        /// <param name="id">מזהה המוצר למחיקה</param>
-        /// <exception cref="dal_idNotFound"></exception>
+
         public void Delete(int id)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -70,12 +61,7 @@ namespace Dal
             LogManager.Log(projectName, funcName, $"Product deleted with ID: {id}");
         }
 
-        /// <summary>
-        /// קבלת מוצר לפי מזהה מוצר
-        /// </summary>
-        /// <param name="Id">מזהה מוצר</param>
-        /// <returns>מוצר שהתקבל לפי המזהה</returns>
-        /// <exception cref="dal_idNotFound"></exception>
+
         public Product? Read(int Id)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -89,12 +75,7 @@ namespace Dal
             throw new dal_idNotFound("id not found");
         }
 
-        /// <summary>
-        /// קבלת מוצר לפי תנאי סינון
-        /// </summary>
-        /// <param name="filter">תנאי לסינון</param>
-        /// <returns>מוצר המתאים לתנאי הסינון</returns>
-        /// <exception cref="dal_objcectNotFound"></exception>
+
         public Product? Read(Func<Product, bool> filter)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -108,12 +89,7 @@ namespace Dal
             throw new dal_objcectNotFound("Not found");
         }
 
-        /// <summary>
-        /// קבלת כל המוצרים העומדים בתנאי הסינון
-        /// </summary>
-        /// <param name="filter">תנאי לסינון</param>
-        /// <returns>רשימת מוצרים העומדים בתנאי הסינון</returns>
-        /// <exception cref="NotImplementedException"></exception>
+
         public List<Product?> ReadAll(Func<Product, bool>? filter = null)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -133,19 +109,14 @@ namespace Dal
             }
         }
 
-        /// <summary>
-        /// עדכון מוצר
-        /// </summary>
-        /// <param name="item">מוצר לעדכון</param>
+
         public void Update(Product item)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
             LogManager.Log(projectName, funcName, $"Updating product with ID: {item.Id}");
             Delete(item.Id);
-            //Create(item);
             List<Product?> products = new List<Product?>();
             products = ReadAll();
-            //item = item with { Id = Config.ProductCode };
             products.Add(item);
             using (FileStream XmlWrite = new FileStream(PATH_PRODUCT, FileMode.Create, FileAccess.Write))
             {

@@ -16,11 +16,7 @@ namespace UIManager
             ReadAllProducts();
         }
 
-        /// <summary>
-        /// הוספת מבצע
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (numericUpDownProductId.Value == 0 || numericUpDownMinQuantity.Value == 0 ||
@@ -55,11 +51,7 @@ namespace UIManager
 
         }
 
-        /// <summary>
-        /// עדכון מבצע
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -85,11 +77,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// קבלת מבצע
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnRead_Click(object sender, EventArgs e)
         {
             try
@@ -108,7 +96,6 @@ namespace UIManager
                     $"End Sale: {sale.EndSale}\n" +
                     "-----------------------------";
                 lblReadAllSales.Text = saleText;
-                //MessageBox.Show(sale?.ToString());
             }
             catch (Exception ex)
             {
@@ -121,11 +108,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// מחיקת מבצע
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -156,11 +139,11 @@ namespace UIManager
                 if (sales.Count == 0)
                 {
                     MessageBox.Show("לא קיים מבצע על מוצר זה");
-                    lblReadAllSales.Text = string.Empty; // מנקה את הרשימה
+                    lblReadAllSales.Text = string.Empty; 
                 }
                 else
                 {
-                    lblReadAllSales.Text = getSalesList(sales); // מציג את המוצרים
+                    lblReadAllSales.Text = getSalesList(sales); 
                 }
             }
             catch (Exception ex)
@@ -173,9 +156,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// הדפסת כל המבצעים
-        /// </summary>
+
         public void ReadAllProducts()
         {
             try
@@ -195,11 +176,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// פונקצית עזר להדפסת רשימת המבצעים בצורה יפה
-        /// </summary>
-        /// <param name="products">רשימת מבצעים</param>
-        /// <returns>מחרוזת יפה של רשימת המבצעים</returns>
+
         private string getSalesList(List<BO.Sale?> sales)
         {
             string salesListText = "Sales List:\n";
@@ -218,11 +195,7 @@ namespace UIManager
 
         }
 
-        /// <summary>
-        /// ניקוי המסננים
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnRest_Click(object sender, EventArgs e)
         {
             ReadAllProducts();

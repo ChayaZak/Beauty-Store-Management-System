@@ -1,9 +1,7 @@
 ﻿namespace DalApi;
 using System.Xml.Linq;
 
-/// <summary>
-/// מחלקת קונפיגורציה של DAL
-/// </summary>
+
 static class DalConfig
 {
     internal static string s_dalName;
@@ -22,9 +20,7 @@ static class DalConfig
     }
 }
 
-/// <summary>
-/// חריגות קונפיגורציה של DAL
-/// </summary>
+
 [Serializable]
 public class DalConfigException : Exception
 {

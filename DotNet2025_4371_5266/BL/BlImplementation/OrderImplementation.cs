@@ -12,14 +12,6 @@ namespace BlImplementation
     {
         private DalApi.IDal _dal = DalApi.Factory.Get;
 
-        /// <summary>
-        /// הוספת מוצר להזמנה
-        /// </summary>
-        /// <param name="order">הזמנה</param>
-        /// <param name="productId">מזהה מוצר להוספה</param>
-        /// <param name="quantity">כמות להוספה</param>
-        /// <returns>רשימת מבצעים שמומשו עבור מוצר זה בהזמנה זו</returns>
-        /// <exception cref="NotImplementedException"></exception>
         public List<SaleInProduct> AddProductToOrder(Order order, int productId, int quantity)
         {
             try
@@ -35,12 +27,11 @@ namespace BlImplementation
                 {
                     throw new Exception("Not enough product in stock");
                 }
-                /// אם המוצר כבר קיים בהזמנה
+              
                 if (productInOrder != null)
                 {
                     productInOrder.QuantityInOrder += quantity;
                 }
-                /// אם המוצר לא קיים בהזמנה
                 else
                 {
                     productInOrder = new ProductInOrder(productId, product.ProductName, product.Price, quantity);
@@ -58,10 +49,6 @@ namespace BlImplementation
 
         }
 
-        /// <summary>
-        /// חישוב הסכום הסופי לתשלום להזמנה
-        /// </summary>
-        /// <param name="order"></param>
         public void CalcTotalPrice(Order order)
         {
             try
@@ -81,11 +68,6 @@ namespace BlImplementation
             }
         }
 
-        /// <summary>
-        /// חישוב המחיר הסופי למוצר
-        /// </summary>
-        /// <param name="product">מוצר בהזמנה</param>
-        /// <exception cref="Exception"></exception>
         public void CalcTotalPriceForProduct(ProductInOrder product)
         {
             try
@@ -123,11 +105,6 @@ namespace BlImplementation
             }
         }
 
-        /// <summary>
-        /// ביצוע הזמנה
-        /// </summary>
-        /// <param name="order">הזמנה</param>
-        /// <exception cref="Exception"></exception>
         public void DoOrder(Order order)
         {
             try
@@ -150,19 +127,13 @@ namespace BlImplementation
             }
         }
 
-        /// <summary>
-        /// עדכון המבצעים המתאימים למוצר בהזמנה
-        /// </summary>
-        /// <param name="product">מוצר בהזמנה</param>
-        /// <param name="isClab">האם הלקוח הוא לקוח מועדף</param>
-        /// <exception cref="Exception"></exception>
         public void SearchSalesForProduct(ProductInOrder product, bool isClab)
         {
             try
             {
                 List<DO.Sale> sales = _dal.Sale.ReadAll(s => s.ProductId == product.ProductId && (
-                            !s.InClab ||         // מבצע פתוח לכולם
-                            (s.InClab && isClab) // או שהוא מיועד למועדון והלקוח באמת במועדון
+                            !s.InClab ||        
+                            (s.InClab && isClab) 
                         ) && product.QuantityInOrder >= s.MinQuantity && s.EndSale >= DateTime.Now && s.BeginSale <= DateTime.Now).OrderBy(s => s.Price / s.MinQuantity).ToList();
                 if (sales.Count > 0)
                 {

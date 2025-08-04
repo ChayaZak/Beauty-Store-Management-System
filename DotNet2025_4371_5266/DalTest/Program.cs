@@ -5,9 +5,7 @@ using Tools;
 
 namespace DalTest
 {
-    /// <summary>
-    /// תוכנית ראשית לבדיקות.
-    /// </summary>
+
     internal class Program
     {
         static string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
@@ -17,8 +15,7 @@ namespace DalTest
         private static void Main(string[] args)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
-            // אתחול בסיס הנתונים
-            //Initialization.Initialize();
+
             try
             {
                 int select1;
@@ -58,10 +55,6 @@ namespace DalTest
             }
         }
 
-        /// <summary>
-        /// מציג תפריט ראשי ומחזיר את הבחירה של המשתמש.
-        /// </summary>
-        /// <returns>הבחירה של המשתמש.</returns>
         public static int PrintMenu()
         {
             Console.WriteLine("למוצרים הקש 1");
@@ -76,11 +69,7 @@ namespace DalTest
             return select;
         }
 
-        /// <summary>
-        /// מציג תפריט משנה ומחזיר את הבחירה של המשתמש.
-        /// </summary>
-        /// <param name="item">סוג הפריט בתפריט המשנה.</param>
-        /// <returns>הבחירה של המשתמש.</returns>
+
         public static int PrintSubMenu(string item)
         {
             int select;
@@ -96,9 +85,7 @@ namespace DalTest
             return select;
         }
 
-        /// <summary>
-        /// תפריט לניהול מוצרים.
-        /// </summary>
+
         public static void ProductMenu()
         {
             int select;
@@ -131,9 +118,7 @@ namespace DalTest
             }
         }
 
-        /// <summary>
-        /// תפריט לניהול לקוחות.
-        /// </summary>
+
         public static void CustomerMenu()
         {
             int select;
@@ -165,9 +150,7 @@ namespace DalTest
             }
         }
 
-        /// <summary>
-        /// תפריט לניהול מבצעים.
-        /// </summary>
+
         public static void SaleMenu()
         {
             int select;
@@ -199,9 +182,7 @@ namespace DalTest
             }
         }
 
-        /// <summary>
-        /// מוסיף מוצר חדש.
-        /// </summary>
+
         public static void AddProduct()
         {
             string? productName;
@@ -227,9 +208,7 @@ namespace DalTest
             Console.WriteLine(p);
         }
 
-        /// <summary>
-        /// מוסיף לקוח חדש.
-        /// </summary>
+
         public static void AddCustomer()
         {
             int id;
@@ -251,9 +230,6 @@ namespace DalTest
             Console.WriteLine(c);
         }
 
-        /// <summary>
-        /// מוסיף מבצע חדש.
-        /// </summary>
         public static void AddSale()
         {
             int productId;
@@ -281,11 +257,7 @@ namespace DalTest
             Console.WriteLine(s);
         }
 
-        /// <summary>
-        /// קורא פריט לפי מזהה.
-        /// </summary>
-        /// <typeparam name="T">סוג הפריט.</typeparam>
-        /// <param name="ICrud">ממשק לניהול הפריט.</param>
+
         private static void Read<T>(ICrud<T> ICrud)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -303,11 +275,7 @@ namespace DalTest
             }
         }
 
-        /// <summary>
-        /// קורא את כל הפריטים.
-        /// </summary>
-        /// <typeparam name="T">סוג הפריט.</typeparam>
-        /// <param name="list">רשימת הפריטים.</param>
+
         private static void ReadAll<T>(List<T> list)
         {
             foreach (var item in list)
@@ -316,9 +284,7 @@ namespace DalTest
             }
         }
 
-        /// <summary>
-        /// מוחק לפי מזהה.
-        /// </summary>
+
         private static void Delete<T>(ICrud<T> ICrud)
         {
             int id;
@@ -330,9 +296,7 @@ namespace DalTest
 
 
 
-        /// <summary>
-        /// מעדכן מוצר קיים.
-        /// </summary>
+
         private static void UpdateProduct()
         {
             string productName;
@@ -364,19 +328,19 @@ namespace DalTest
 
             switch (choice)
             {
-                case 1:  // שינוי מחיר
+                case 1:  
                     Console.WriteLine("הכנס מחיר חדש:");
                     if (!double.TryParse(Console.ReadLine(), out price)) price = productToUpdate.Price;
                     updatedProduct = updatedProduct with { Price = price };
                     break;
 
-                case 2:  // שינוי כמות
+                case 2: 
                     Console.WriteLine("הכנס כמות חדשה במלאי:");
                     if (!int.TryParse(Console.ReadLine(), out quantityInStock)) quantityInStock = productToUpdate.QuantityInStock; // אם לא הכנס כמות תקנית, שמור את הכמות הנוכחית
                     updatedProduct = updatedProduct with { QuantityInStock = quantityInStock };
                     break;
 
-                case 3:  // שינוי קטגוריה
+                case 3:  
                     Console.WriteLine("הכנס קטגוריה חדשה:");
                     if (int.TryParse(Console.ReadLine(), out int cat))
                         category = Category(cat);
@@ -399,9 +363,7 @@ namespace DalTest
             ProductMenu();
         }
 
-        /// <summary>
-        /// מעדכן לקוח קיים.
-        /// </summary>
+
         private static void UpdateCustomer()
         {
             int id;
@@ -428,9 +390,7 @@ namespace DalTest
             Console.WriteLine(c);
         }
 
-        /// <summary>
-        /// מעדכן מבצע קיים.
-        /// </summary>
+ 
         private static void UpdateSale()
         {
             int code;
@@ -468,11 +428,7 @@ namespace DalTest
             Console.WriteLine(s);
         }
 
-        /// <summary>
-        /// מחזיר קטגוריה לפי מזהה.
-        /// </summary>
-        /// <param name="cat">מזהה הקטגוריה.</param>
-        /// <returns>הקטגוריה המתאימה.</returns>
+
         private static Category Category(int cat)
         {
             switch (cat)

@@ -3,9 +3,7 @@ namespace UIManager
 {
     public partial class Form1 : Form
     {
-        /// <summary>
-        /// שם המנהל
-        /// </summary>
+
         public string? name { get; set; }
 
         public Form1()

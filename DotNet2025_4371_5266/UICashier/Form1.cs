@@ -20,11 +20,7 @@ namespace UICashier
             lblHelloCashier.Text = $"קופאי: {name}";
         }
 
-        /// <summary>
-        /// התחברות לקוח למערכת לפי מזהה לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnLoginCustomer_Click(object sender, EventArgs e)
         {
             try
@@ -41,7 +37,6 @@ namespace UICashier
             {
                 if (ex.Message.Contains("Read Customer") || ex.Message.Contains("does not exist"))
                 {
-                    // כניסת אורח
                     ProductsRead products = new ProductsRead("אורח");
                     ProductsRead.order.IsPreferredCustomer = false;
                     products.ShowDialog();
@@ -55,22 +50,14 @@ namespace UICashier
             }
         }
 
-        /// <summary>
-        /// הוספת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnCreateCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();
             customerMenu.ShowDialog();
         }
 
-        /// <summary>
-        /// עדכון לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();
@@ -78,15 +65,10 @@ namespace UICashier
             customerMenu.ShowDialog();
         }
 
-        /// <summary>
-        /// מחיקת לקוח
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
             CustomerMenu customerMenu = new CustomerMenu();
-            //customerMenu.numericUpDownCustomeIdUpdate.Value = (int)textBoxCustomerId.Value;
             customerMenu.SelectTab(2);
             customerMenu.ShowDialog();
         }

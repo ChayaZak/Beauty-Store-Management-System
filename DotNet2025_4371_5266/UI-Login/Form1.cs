@@ -17,11 +17,7 @@ namespace UI_Login
             button2.BackColor = Color.FromArgb(178, 78, 78);
         }
 
-        /// <summary>
-        /// כניסה כמנהל
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void button1_Click(object sender, EventArgs e)
         {
             LoginPopup loginPopup = new LoginPopup();
@@ -31,11 +27,7 @@ namespace UI_Login
         }
 
 
-        /// <summary>
-        /// כניסה כקופאי
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void button2_Click(object sender, EventArgs e)
         {
             LoginPopup loginPopup = new LoginPopup();

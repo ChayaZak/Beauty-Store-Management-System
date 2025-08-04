@@ -4,17 +4,11 @@ using DalApi;
 using System.Reflection;
 using Tools;
 
-/// <summary>
-/// מימוש של ממשק ICustomer לניהול לקוחות
-/// </summary>
+
 internal class CustomerImplementation : ICustomer
 {
     private string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
-    /// <summary>
-    /// יוצר לקוח חדש
-    /// </summary>
-    /// <param name="item">פריט הלקוח ליצירה</param>
-    /// <returns>קוד הלקוח שנוצר.</returns>
+
     public int Create(Customer item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -33,11 +27,7 @@ internal class CustomerImplementation : ICustomer
 
     }
 
-    /// <summary>
-    /// קורא לקוח לפי מזהה.
-    /// </summary>
-    /// <param name="Id">מזהה הלקוח לקריאה.</param>
-    /// <returns>הלקוח עם המזהה הנתון, או null אם לא נמצא.</returns>
+
     public Customer? Read(int Id)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -64,10 +54,7 @@ internal class CustomerImplementation : ICustomer
         throw new dal_objcectNotFound("Not found");
     }
 
-    /// <summary>
-    /// קורא את כל הלקוחות.
-    /// </summary>
-    /// <returns>רשימה של כל הלקוחות.</returns>
+
     public List<Customer?> ReadAll(Func<Customer, bool>? filter = null)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -76,10 +63,7 @@ internal class CustomerImplementation : ICustomer
     }
 
 
-    /// <summary>
-    /// מעדכן לקוח קיים
-    /// </summary>
-    /// <param name="item">פריט הלקוח לעדכון.</param>
+
     public void Update(Customer item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -89,10 +73,7 @@ internal class CustomerImplementation : ICustomer
         LogManager.Log(projectName, funcName, $"Customer updated with ID: {item.Id}");
     }
 
-    /// <summary>
-    /// מוחק לקוח לפי מזהה.
-    /// </summary>
-    /// <param name="id">מזהה הלקוח למחיקה.</param>
+
     public void Delete(int id)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;

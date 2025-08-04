@@ -18,11 +18,7 @@ namespace UIManager
             ReadAllProducts();
         }
 
-        /// <summary>
-        /// הוספת מוצר
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (textBoxName.Text == string.Empty || numericUpDownPrice.Value == 0 || numericUpDownAmount.Value == 0)
@@ -55,11 +51,7 @@ namespace UIManager
 
         }
 
-        /// <summary>
-        /// קבלת מוצר לפי תנאי סינון
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnFilter_Click(object sender, EventArgs e)
         {
             try
@@ -69,11 +61,11 @@ namespace UIManager
                 if (products.Count == 0)
                 {
                     MessageBox.Show("לא קיים מוצר בשם זה");
-                    lblReadAllProducts.Text = string.Empty; // מנקה את הרשימה
+                    lblReadAllProducts.Text = string.Empty; 
                 }
                 else
                 {
-                    lblReadAllProducts.Text = getProductsList(products); // מציג את המוצרים
+                    lblReadAllProducts.Text = getProductsList(products); 
                 }
             }
             catch (Exception ex)
@@ -88,11 +80,7 @@ namespace UIManager
 
 
 
-        /// <summary>
-        /// קבלת מוצר
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnRead_Click(object sender, EventArgs e)
         {
             try
@@ -119,11 +107,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// עדכון מוצר
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -144,11 +128,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// מחיקת מוצר
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -170,9 +150,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// הדפסת כל המוצרים
-        /// </summary>
+
         public void ReadAllProducts()
         {
             try
@@ -192,11 +170,7 @@ namespace UIManager
             }
         }
 
-        /// <summary>
-        /// פונקצית עזר להדפסת רשימת המוצרים בצורה יפה
-        /// </summary>
-        /// <param name="products">רשימת מוצרים</param>
-        /// <returns>מחרוזת יפה של רשימת המוצרים</returns>
+
         private string getProductsList(List<BO.Product?> products)
         {
             string productsListText = "Products List:\n";
@@ -213,11 +187,7 @@ namespace UIManager
 
         }
 
-        /// <summary>
-        /// ניקוי המסננים
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnRest_Click_1(object sender, EventArgs e)
         {
             ReadAllProducts();

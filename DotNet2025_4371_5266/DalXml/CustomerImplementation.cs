@@ -15,8 +15,6 @@ namespace Dal
     internal class CustomerImplementation : ICustomer
 
     {
-        //Initialization.Initialize();
-        //XElement customer = XElement.Load(Config.DataConfig);
         private const string CUSTOMER = "Customer";
         private const string ID = "Id";
         private const string NAME = "Name";
@@ -27,13 +25,7 @@ namespace Dal
 
         private string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
 
-        /// <summary>
-        /// הוספת לקוח
-        /// </summary>
-        /// <param name="item">אוביקט לקוח להוספה</param>
-        /// <returns>מזהה הלקוח שנוסף</returns>
-        /// <exception cref="DO.dal_XmlFileLoad"></exception>
-        /// <exception cref="DO.dal_idExist"></exception>
+
         public int Create(Customer item)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -54,12 +46,7 @@ namespace Dal
         }
 
 
-        /// <summary>
-        /// מחיקת לקוח
-        /// </summary>
-        /// <param name="id">מזהה הלקוח למחיקה</param>
-        /// <exception cref="DO.dal_XmlFileLoad"></exception>
-        /// <exception cref="DO.dal_idNotFound"></exception>
+
         public void Delete(int id)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -77,13 +64,7 @@ namespace Dal
             LogManager.Log(projectName, funcName, $"Customer deleted with ID: {id}");
         }
 
-        /// <summary>
-        /// קבלת לקוח לפי מזהה
-        /// </summary>
-        /// <param name="Id">מזהה לקוח</param>
-        /// <returns>לקוח לפי המזהה שהתקבל</returns>
-        /// <exception cref="DO.dal_XmlFileLoad"></exception>
-        /// <exception cref="dal_idNotFound"></exception>
+
         public Customer? Read(int Id)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -107,13 +88,7 @@ namespace Dal
 
         }
 
-        /// <summary>
-        /// קבלת לקח לפי פרמטר סינון
-        /// </summary>
-        /// <param name="filter">תנאי סינון</param>
-        /// <returns>לקוח המתאים לתנאי הסינון</returns>
-        /// <exception cref="DO.dal_XmlFileLoad"></exception>
-        /// <exception cref="dal_objcectNotFound"></exception>
+
         public Customer? Read(Func<Customer, bool> filter)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -138,12 +113,7 @@ namespace Dal
             throw new dal_objcectNotFound("Not found");
         }
 
-        /// <summary>
-        /// קבלת כל הלקוחות העומדים בתנאי הסינון
-        /// </summary>
-        /// <param name="filter">תנאי לסינון</param>
-        /// <returns>רשימת לקוחות העומדים בתנאי הסינון</returns>
-        /// <exception cref="DO.dal_XmlFileLoad"></exception>
+
         public List<Customer?> ReadAll(Func<Customer, bool>? filter = null)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;
@@ -162,11 +132,7 @@ namespace Dal
             return filter != null ? customers.Where(filter).ToList() : customers;
         }
 
-        /// <summary>
-        /// עדכון לקוח
-        /// </summary>
-        /// <param name="item">אוביקט לקוח לעדכון</param>
-        /// <exception cref="DO.dal_XmlFileLoad"></exception>
+
         public void Update(Customer item)
         {
             string funcName = MethodBase.GetCurrentMethod().Name;

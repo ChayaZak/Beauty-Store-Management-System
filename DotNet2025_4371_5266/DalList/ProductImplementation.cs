@@ -4,17 +4,11 @@ using DO;
 using System.Reflection;
 using Tools;
 
-/// <summary>
-/// מימוש של ממשק IProduct לניהול מוצרים
-/// </summary>
+
 internal class ProductImplementation : IProduct
 {
     string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
-    /// <summary>
-    /// יוצר מוצר חדש
-    /// </summary>
-    /// <param name="item">הוספת מוצר</param>
-    /// <returns>קוד המוצר שנוצר</returns>
+
     public int Create(Product item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -35,11 +29,7 @@ internal class ProductImplementation : IProduct
 
     }
 
-    /// <summary>
-    /// קורא מוצר לפי מזהה
-    /// </summary>
-    /// <param name="Id">מזהה המוצר לקריאה.</param>
-    /// <returns>המוצר עם המזהה הנתון, או null אם לא נמצא.</returns>
+
     public Product? Read(int Id)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -66,10 +56,7 @@ internal class ProductImplementation : IProduct
         throw new dal_objcectNotFound("Not found");
     }
 
-    /// <summary>
-    /// קורא את כל המוצרים
-    /// </summary>
-    /// <returns>רשימה של כל המוצרים</returns>
+
     public List<Product?> ReadAll(Func<Product, bool>? filter = null)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -77,10 +64,7 @@ internal class ProductImplementation : IProduct
         return filter != null ? DataSource.Products.Where(filter).ToList() : DataSource.Products;
     }
 
-    /// <summary>
-    /// מעדכן מוצר קיים
-    /// </summary>
-    /// <param name="item">פריט המוצר לעדכון.</param>
+
     public void Update(Product item)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -90,10 +74,7 @@ internal class ProductImplementation : IProduct
         LogManager.Log(projectName, funcName, $"Product updated with ID: {item.Id}");
     }
 
-    /// <summary>
-    /// מוחק מוצר לפי מזהה.
-    /// </summary>
-    /// <param name="id">מזהה המוצר למחיקה</param>
+
     public void Delete(int id)
     {
         string funcName = MethodBase.GetCurrentMethod().Name;

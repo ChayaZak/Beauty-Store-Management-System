@@ -10,9 +10,7 @@ namespace Tools
     {
         private static readonly string logPath = "Log";
 
-        /// <summary>
-        /// פונקיצה להחזרת הניותב של התיקיה
-        /// </summary>
+
         public static string GetFolderPath()
         {
             string folderPath = @$"{logPath}\{DateTime.Now.Year}_{DateTime.Now.Month}";
@@ -24,9 +22,7 @@ namespace Tools
             return folderPath;
         }
 
-        /// <summary>
-        /// פונקיצה להחזרת הניתוב של הקובץ
-        /// </summary>
+
         public static string GetFilePath()
         {
             string folderPath = GetFolderPath();

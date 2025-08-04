@@ -4,18 +4,14 @@ using System.Reflection;
 using Tools;
 namespace DalTest;
 
-/// <summary>
-/// מחלקה לאתחול נתונים.
-/// </summary>
+
 public static class Initialization
 {
     static string projectName = MethodBase.GetCurrentMethod().DeclaringType.FullName;
 
     private static IDal? s_dal;
 
-    /// <summary>
-    /// יוצר מוצרים לדוגמה.
-    /// </summary>
+
     private static void CreateProducts()
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -32,9 +28,7 @@ public static class Initialization
         }
     }
 
-    /// <summary>
-    /// יוצר מבצעים לדוגמה.
-    /// </summary>
+
     private static void CreateSales()
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
@@ -49,34 +43,22 @@ public static class Initialization
         }
     }
 
-    /// <summary>
-    /// יוצר לקוחות לדוגמה.
-    /// </summary>
+
     private static void CreateCustomers()
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
         if (s_dal?.Customer != null)
         {
             LogManager.Log(projectName, funcName, "Creating customers");
-            s_dal.Customer.Create(new Customer(101, "אבי", "אבי@a.com", 0521234567));
-            s_dal.Customer.Create(new Customer(123, "מאיה", "מאיה@a.com", 0521234567));
-            s_dal.Customer.Create(new Customer(244, "רוני", "רוני@a.com", 0521234567));
-            s_dal.Customer.Create(new Customer(032, "אורן", "אורן@a.com", 0521234567));
-            s_dal.Customer.Create(new Customer(447, "עדי", "עדי@a.com", 0521234567));
             s_dal.Customer.Create(new Customer(327824371, "מירי", "מתתיהו", 0534198438));
-            s_dal.Customer.Create(new Customer(214915266, "חיה", "ברכפלד", 0534192458));
-            s_dal.Customer.Create(new Customer(025547241, "שושי", "ברכפלד", 0502446876));
-            s_dal.Customer.Create(new Customer(354788898, "שרה", "קרית ספר", 089741004));
+            s_dal.Customer.Create(new Customer(214915266, "חיה", "ירושלים", 0534192458));
+            s_dal.Customer.Create(new Customer(025547241, "שושי", "כרמיאל", 0502446876));
+            s_dal.Customer.Create(new Customer(354788898, "שרה", "ראש הנקרה", 089741004));
             LogManager.Log(projectName, funcName, "Customers created");
         }
     }
 
-    /// <summary>
-    /// מאתחל את הנתונים.
-    /// </summary>
-    /// <param name="dalProduct">ממשק לניהול מוצרים.</param>
-    /// <param name="dalCustomer">ממשק לניהול לקוחות.</param>
-    /// <param name="dalSale">ממשק לניהול מבצעים.</param>
+
     public static void Initialize()
     {
         string funcName = MethodBase.GetCurrentMethod().Name;
