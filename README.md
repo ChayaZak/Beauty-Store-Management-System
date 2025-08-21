@@ -72,7 +72,7 @@ The system handles various beauty and wellness products with comprehensive inven
 
 1. **Clone and Build**
    ```bash
-   git clone https://github.com/ChayaZak/project_c-
+   git clone https://github.com/ChayaZak/Beauty-Store-Management-System
    cd DotNet2025_4371_5266
    dotnet build DotNet2025_4371_5266.sln
    ```
